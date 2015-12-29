@@ -1,0 +1,530 @@
+﻿<!-- htmlcs-disable --> 
+<!DOCTYPE html>
+<html>
+<head>
+    <!-if IE]>
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=320px, user-scalable=yes" />
+    <![endif]->
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <script type="text/javascript">
+        var StartTime = (new Date()).getTime();
+    </script>
+
+    <style type="text/css">
+        html{color:#000;background-color:transparent;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}body{margin:0;padding:0;}          
+.bd-logo,.bd-logo2,.bd-logo3,.bd-logo4{text-decoration:none;cursor:pointer;display:block;overflow:hidden;position:absolute;bottom:0;right:0;z-index:2147483647}.bd-logo{height:18px;width:18px;background:url(http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/bg.png) no-repeat left top;background-position:0 0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/logo-border-light.png",sizingMethod="crop");_background:0}.bd-logo:hover{background-position:-70px 0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/logo-border-dark.png",sizingMethod="crop")}.bd-logo2{margin:0 2px 2px 0;height:14px;width:13px;background:url(http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/bg.png) no-repeat left top;background-position:0 -20px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/logo-noborder-light.png",sizingMethod="crop");_background:0}.bd-logo2:hover{background-position:0 -35px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/logo-noborder-dark.png",sizingMethod="crop")}.bd-logo3{height:18px;width:18px;background:url(http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/bg.png) no-repeat left top;background-position:-70px 0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/logo-border-dark.png",sizingMethod="crop");_background:0}.bd-logo3:hover{width:68px}.bd-logo4{height:18px;width:18px;bottom:0;left:0;background:url(http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/bd-logo4.png) no-repeat left top;background-position:center;background-size:100%,100%;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/bd-logo4.png",sizingMethod="crop");_background:0}
+.loader{ text-align:center; width:90%; font-size:12px; padding:8px; border:solid 1px #aaaaaa; margin-top:30px; display:none; }.cf:before,.cf:after{content:"\20";display:table;}.cf:after{clear:both;}.cf{*zoom:1;}
+.textOverflow{white-space:nowrap;overflow:hidden;display:inline-block;width:100%;}.textOverflowEllipsis{-o-text-overflow:ellipsis;text-overflow:ellipsis;}.textOverflowClip{-o-text-overflow:clip;text-overflow:clip;}
+    </style>
+    <script>
+    var Base={config:{},cache:{},getKeysByType:function(b){b=(b||"class").toLowerCase();var a=b+"LoadFinished",c=b+"LoadFnArray",d=b+"LoadMap";this[a]="boolean"===typeof this[a]?this[a]:!0;this[c]=this[c]||[];this[d]=this[d]||{};return{status:a,array:c,map:d,type:b}},updateLoadStatus:function(b,a,c){c=this.getKeysByType(c);if(b&&(this[c.map][b]=a,"loaded"!==a))return this[c.status]=!1;b=!0;for(var d in this[c.map])if(d&&this[c.map].hasOwnProperty(d)&&"loaded"!==this[c.map][d]){b=!1;break}return this[c.status]=
+    b},loadImage:function(b){var a=new Image;a.onload=a.onerror=a.onabort=function(){a.onload=a.onerror=a.onabort=null;this.updateLoadStatus(b,"loaded","image");if(this.imageLoadFinished)for(var c,d=0,h=this.imageLoadFnArray.length;d<h;d++)c=this.imageLoadFnArray.shift(),c()}.proxy(this);a.src=b},fastClone:function(b){var a=function(){};a.prototype=b;return new a},declare:function(b){b=b();var a=b.name;if(!a)throw"can't find the obj name";for(var c=b.namespace+"."+a,d=c.split("."),h=d.length,f=window,
+    j="",e=0;e<h-1;e++){var g=d[e];f==window?(f[g]=window[g]=window[g]||{},j+=g):(f[g]=f[g]||{},j+="."+g);f=f[g];this.cache[j]=f}f[a]=f[a]||b;this.cache=this.cache||{};this.cache[c]=f[a];return!0},using:function(b,a,c){if(this.cache&&this.cache[b])return this.cache[b];a=a||"class";c=c||this.config.version[a]||"1.0.0";var d;switch(a){case "image":0>b.indexOf("http")&&(b=this.config.baseUrl+"img/"+(c&&"0"!==c?c.toString():"")+"/"+b);this.updateLoadStatus(b,"loading","image");this.loadImage(b);d=b;break;
+    case "class":var h=this.getKeysByType(a);a=b.split(".");d=window[a[0]];for(var f=1,j=a.length;f<j;f++)d=d&&d[a[f]]?d[a[f]]:null;if(!d&&!this[h.map][b]){this.updateLoadStatus(b,"loading","class");var e=document.createElement("script");e.type="text/javascript";e.async=!0;a=this.config.baseUrl+"js/";c&&"0"!==c&&(a+=c.toString()+"/");a+=b.replace(/\./gi,"/")+".js";e.src=a.toLowerCase();e.onload=e.onerror=e.onreadystatechange=function(){if(/loaded|complete|undefined/.test(e.readyState)){e.onload=e.onerror=
+    e.onreadystatechange=null;if(this.updateLoadStatus(b,"loaded","class"))for(var a,c=0,d=this[h.array].length;c<d;c++)a=this[h.array].shift(),a();e=void 0}}.proxy(this);c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(e,c)}this.cache=this.cache||{};this.cache[b]=d}return d},config:function(b){b&&(this.config=b)},run:function(b){if(b){var a=this.getKeysByType();this[a.status]?b():this[a.array].push(b)}}};
+    Function.prototype.proxy=function(b){var a=this,c=Array.prototype.slice.apply(arguments).shift();return function(b){return a.apply(c,arguments)}};window.declare=Base.declare.proxy(Base);window.using=Base.using.proxy(Base);window.run=Base.run.proxy(Base);window.config=Base.config.proxy(Base);document.execCommand("BackgroundImageCache",!1,!0);
+    
+    </script>
+    </head>
+    <body>
+
+    <style>
+        html {
+            background-color:#FFF;
+            color: #FFFFFF;
+        }
+
+    </style>
+
+    <script title = "test script">
+             var test_data = {
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "total": 83036,
+        "deals": [
+            {
+                "deal_id": 6017868,
+                "image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1448522535&di=4a7aa6df7f86425cce9fd425182e42ce&src=http://e.hiphotos.baidu.com/bainuo/crop=2,0,596,362;w=469;q=80/sign=77a6fabcfdedab64603d1780ca0483f3/8435e5dde71190efa56f16a8c81b9d16fdfa6035.jpg",
+                "tiny_image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1448522535&di=a8c783514e575d9b610e1a1d57896f7f&src=http://e.hiphotos.baidu.com/bainuo/crop=2,0,596,362;w=230;q=80/sign=a05933455cafa40f2889949d96562f7f/8435e5dde71190efa56f16a8c81b9d16fdfa6035.jpg",
+                "title": "博纳国际影城",
+                "description": "万寿路店单人卖品套餐！节假日通用！",
+                "market_price": 2000,
+                "current_price": 1800,
+                "promotion_price": 1800,
+                "sale_num": 94,
+                "score": 3.43,
+                "comment_num": 7,
+                "publish_time": 1445011200,
+                "purchase_deadline": 1448899199,
+                "is_reservation_required": false,
+                "distance": -1,
+                "shop_num": 1,
+                "deal_url": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fbj.nuomi.com%2Fdeal%2Fwkymukuh.html",
+                "deal_murl": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fm.nuomi.com%2Fbj%2Fdeal%2Fwkymukuh",
+                "shops": [
+                    {
+                        "shop_id": 1418611,
+                        "longitude": 116.303992,
+                        "latitude": 39.914095,
+                        "distance": -1,
+                        "shop_url": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fwww.nuomi.com%2Fshop%2F1418611",
+                        "shop_murl": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fm.nuomi.com%2Fmerchant%2F1418611"
+                    }
+                ]
+            },
+            {
+                "deal_id": 5051398,
+                "image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1448522535&di=a73431e80e5560f613cb0d9541a5241e&src=http://e.hiphotos.baidu.com/bainuo/crop=0,0,720,436;w=720;q=80/sign=03b5a46996ef76c6c49da16ba026d1ca/63d0f703918fa0ecee921245209759ee3d6ddb25.jpg",
+                "tiny_image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1448522535&di=dd259aeebae9b4a588c01a8139f5d58b&src=http://e.hiphotos.baidu.com/bainuo/crop=0,0,720,436;w=230;q=80/sign=0179d39770c6a7efad69f266c0ca8361/63d0f703918fa0ecee921245209759ee3d6ddb25.jpg",
+                "title": "老北京羊蝎子",
+                "description": "200元储值卡！节假日通用，提供免费WiFi！可叠加使用！",
+                "market_price": 20000,
+                "current_price": 17600,
+                "promotion_price": 16400,
+                "sale_num": 2,
+                "score": 0,
+                "comment_num": 0,
+                "publish_time": 1442592000,
+                "purchase_deadline": 1474041599,
+                "is_reservation_required": false,
+                "distance": -1,
+                "shop_num": 1,
+                "deal_url": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fbj.nuomi.com%2Fdeal%2Fjnsoqo0j.html",
+                "deal_murl": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fm.nuomi.com%2Fbj%2Fdeal%2Fjnsoqo0j",
+                "shops": [
+                    {
+                        "shop_id": 4384582,
+                        "longitude": 116.330195,
+                        "latitude": 40.063995,
+                        "distance": -1,
+                        "shop_url": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fwww.nuomi.com%2Fshop%2F4384582",
+                        "shop_murl": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fm.nuomi.com%2Fmerchant%2F4384582"
+                    }
+                ]
+            },
+            {
+                "deal_id": 5039138,
+                "image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1448522535&di=2576510181da585d881f98a61db77521&src=http://e.hiphotos.baidu.com/bainuo/crop=0,0,720,436;w=720;q=99/sign=ab95a609982f07084b4a7040d41494a9/838ba61ea8d3fd1f6d77167c364e251f95ca5f7d.jpg",
+                "tiny_image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1448522535&di=dce4eda2c492e9ae9652b573ac42b1a1&src=http://e.hiphotos.baidu.com/bainuo/crop=0,0,720,436;w=230;q=99/sign=0b3c1f59010828387c42865485a98531/838ba61ea8d3fd1f6d77167c364e251f95ca5f7d.jpg",
+                "title": "酷烤餐厅",
+                "description": "簋街店烤鱼套餐！节假日通用，提供免费WiFi、停车位！",
+                "market_price": 11900,
+                "current_price": 1990,
+                "promotion_price": 1990,
+                "sale_num": 3031,
+                "score": 4.16,
+                "comment_num": 223,
+                "publish_time": 1442419200,
+                "purchase_deadline": 1458143999,
+                "is_reservation_required": false,
+                "distance": -1,
+                "shop_num": 1,
+                "deal_url": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fbj.nuomi.com%2Fdeal%2Fq3bhucia.html",
+                "deal_murl": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fm.nuomi.com%2Fbj%2Fdeal%2Fq3bhucia",
+                "shops": [
+                    {
+                        "shop_id": 228024,
+                        "longitude": 116.429395,
+                        "latitude": 39.946898,
+                        "distance": -1,
+                        "shop_url": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fwww.nuomi.com%2Fshop%2F228024",
+                        "shop_murl": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fm.nuomi.com%2Fmerchant%2F228024"
+                    }
+                ]
+            },
+            {
+                "deal_id": 5612914,
+                "image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1448522535&di=cb633e2803a4776b958f4907515cc55e&src=http://e.hiphotos.baidu.com/bainuo/crop=6,9,678,412;w=470;q=89/sign=125bb9c06a81800a7aaad34e8c031fc3/472309f790529822b10d798cd1ca7bcb0a46d447.jpg",
+                "tiny_image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1448522535&di=ea3a780c7dacee580e65d167adb40fd2&src=http://e.hiphotos.baidu.com/bainuo/crop=6,9,678,412;w=230;q=80/sign=9f6341d758df8db1a86126243415f16d/472309f790529822b10d798cd1ca7bcb0a46d447.jpg",
+                "title": "北京日升昌酒店",
+                "description": "10人餐！节假日通用，请提前1天预约！",
+                "market_price": 133600,
+                "current_price": 98800,
+                "promotion_price": 96800,
+                "sale_num": 0,
+                "score": 0,
+                "comment_num": 0,
+                "publish_time": 1442851200,
+                "purchase_deadline": 1448812799,
+                "is_reservation_required": false,
+                "distance": -1,
+                "shop_num": 1,
+                "deal_url": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fbj.nuomi.com%2Fdeal%2F4hebnrmw.html",
+                "deal_murl": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fm.nuomi.com%2Fbj%2Fdeal%2F4hebnrmw",
+                "shops": [
+                    {
+                        "shop_id": 1495345,
+                        "longitude": 116.371194,
+                        "latitude": 39.871898,
+                        "distance": -1,
+                        "shop_url": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fwww.nuomi.com%2Fshop%2F1495345",
+                        "shop_murl": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fm.nuomi.com%2Fmerchant%2F1495345"
+                    }
+                ]
+            },
+            {
+                "deal_id": 5944548,
+                "image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1448522535&di=6b9d492b16da8673b8f55f7363c44e85&src=http://e.hiphotos.baidu.com/bainuo/crop=0,0,720,436;w=720;q=79/sign=4ca1565d652762d09471feff9ddc24ca/bba1cd11728b47105c5f14b2c5cec3fdfc032358.jpg",
+                "tiny_image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1448522535&di=59c9e3ddf394bdeb2839d981597e2cf2&src=http://e.hiphotos.baidu.com/bainuo/crop=0,0,720,436;w=230;q=79/sign=6f5ebf6964d0f703f2fdcf9c35ca7d0d/bba1cd11728b47105c5f14b2c5cec3fdfc032358.jpg",
+                "title": "晋阳饭庄",
+                "description": "张仪村店8-10人餐！节假日通用，提供免费WiFi、停车位！",
+                "market_price": 88000,
+                "current_price": 57200,
+                "promotion_price": 57200,
+                "sale_num": 9,
+                "score": 5,
+                "comment_num": 2,
+                "publish_time": 1444492800,
+                "purchase_deadline": 1475251199,
+                "is_reservation_required": false,
+                "distance": -1,
+                "shop_num": 1,
+                "deal_url": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fbj.nuomi.com%2Fdeal%2Ftgzkefyi.html",
+                "deal_murl": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fm.nuomi.com%2Fbj%2Fdeal%2Ftgzkefyi",
+                "shops": [
+                    {
+                        "shop_id": 2810143,
+                        "longitude": 116.237894,
+                        "latitude": 39.888599,
+                        "distance": -1,
+                        "shop_url": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fwww.nuomi.com%2Fshop%2F2810143",
+                        "shop_murl": "http://www.nuomi.com/cps/redirect?cid=openapi&app_id=650f836865090e377e0eff479dc32f14&url=http%3A%2F%2Fm.nuomi.com%2Fmerchant%2F2810143"
+                    }
+                ]
+            },
+        ]
+    }
+}
+    </script>
+    <!--script src="./jquery-1.8.3.min.js"></script-->
+    <script type="text/javascript">
+        //viewport 兼容处理
+        var adaptUILayout = (function() {
+            //根据校正appVersion或userAgent校正屏幕分辨率宽度值
+            var regulateScreen = (function() {
+                var cache = {};
+                //默认尺寸
+                var defSize = {
+                    width: window.screen.width,
+                    height: window.screen.height
+                };
+                var ver = window.navigator.appVersion;
+                var _ = null;
+                var check = function(key) {
+                    return key.constructor == String ? ver.indexOf(key) > -1 : ver.test(key);
+                };
+                var add = function(name, key, size) {
+                    if (name && key)
+                        cache[name] = {
+                            key: key,
+                            size: size
+                        };
+                };
+                var del = function(name) {
+                    if (cache[name])
+                        delete cache[name];
+                };
+                var cal = function() {
+                    if (_ != null)
+                        return _;
+                    for (var name in cache) {
+                        if (check(cache[name].key)) {
+                            _ = cache[name].size;
+                            break;
+                        }
+                    }
+                    if (_ == null)
+                        _ = defSize;
+                    return _;
+                };
+                return {
+                    add: add,
+                    del: del,
+                    cal: cal
+                };
+            })();
+            //实现缩放
+            var adapt = function(uiWidth) {
+                var
+                    deviceWidth,
+                    devicePixelRatio,
+                    targetDensitydpi,
+                    //meta,
+                    initialContent,
+                    head,
+                    viewport,
+                    ua;
+                ua = navigator.userAgent.toLowerCase();
+                //whether it is the iPhone or iPad
+                isiOS = ua.indexOf('ipad') > -1 || ua.indexOf('iphone') > -1;
+                isIE = ua.indexOf('msie') > -1;
+                //获取设备信息,并矫正参数值
+                window.devicePixelRatio = window.devicePixelRatio ||
+                    Math.round(window.screen.availWidth / document.documentElement.clientWidth)
+                devicePixelRatio = window.devicePixelRatio;
+                deviceWidth = regulateScreen.cal().width;
+                //获取最终dpi
+                targetDensitydpi = uiWidth / deviceWidth * devicePixelRatio * 160;
+                //use viewport width attribute on the iPhone or iPad device
+                //use viewport target-densitydpi attribute on the Android device
+                initialContent = isiOS ? 'target-densitydpi=device-dpi, width=' + uiWidth + 'px, user-scalable=yes' : isIE ? 'target-densitydpi=' + targetDensitydpi + ', width=device-width, user-scalable=yes' :
+                    'target-densitydpi=' + targetDensitydpi + ', width=' + uiWidth + 'px, user-scalable=yes';
+                //add a new meta node of viewport in head node
+                head = document.getElementsByTagName('head');
+                viewport = document.createElement('meta');
+                viewport.name = 'viewport';
+                viewport.content = initialContent;
+                head.length > 0 && head[head.length - 1].appendChild(viewport);
+            };
+            return {
+                regulateScreen: regulateScreen,
+                adapt: adapt
+            };
+        })();
+        adaptUILayout.adapt(320); //适配当前页面
+    </script>
+    <script>
+        var ThisPage = {
+
+            screen_width:320,
+            
+            init: function(){
+                var screen_width = 320;
+                this.render_top_layer();
+            },
+
+            //总布局渲染函数，用于控制整个中间页的布局
+            render_top_layer:function(){
+                var bd = document.body;
+                this.render_guide_block(bd,this.screen_width,test_data,"guide_item");
+                this.render_detail_block_3(bd,this.screen_width,test_data,"detail_item");
+
+            },
+
+
+            //块级别渲染函数，供总布局函数使用，宽度默认为屏幕宽度
+            //需要的参数?width,data data_len
+            render_guide_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,160,"block","relative");
+                ThisPage.render_img_cell(main_item,0,0,width,160,data.data.deals,3,"img_cell" + 0);
+                parent.appendChild(main_item);
+            },
+
+            render_detail_block_3:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,80,"block","relative");
+                for(var i=0 ;i<3;i++){
+                    ThisPage.render_card_cell(main_item,0,i*width/3,width/3,80,data.data.deals,i,"img_cell" + i);
+                }
+                parent.appendChild(main_item);
+            },
+            rebder_personal_block:function(paerent,width,data){
+
+            },
+
+
+            //元素级别渲染函数，供块级别渲染函数使用
+            //需要的参数?top(相对于所在块位置),left,width,height,img_url,id(用于监控统计使用)
+            render_img_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].image;//注此处需做一个适配用于适配不同接口中的数据的key
+                var curl = data[idx].deal_url;
+                
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,0,0,width,height,"block","absolute");
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,0,0,width-10,height-8,"block","absolute");
+                ThisPage.style_controller.append_effects_style(item_img,5,"3px 5px 3px #efefef",1);
+                ThisPage.style_controller.append_boxmod_style(item_img,"px","4px 5px 4px 5px","");
+                item_a.appendChild(item_img);
+                parent.appendChild(item_a);
+            },
+            
+
+            render_card_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+
+                var curl = data[idx].deal_url;
+                var title = data[idx].title;//注此处需做一个适配用于适配不同接口中的数据的key
+                var img_url = data[idx].image;
+                
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,0,left,width,height,"block","absolute");
+                
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,0,0,width-10,height*3/4-6,"block","absolute");
+                ThisPage.style_controller.append_effects_style(item_img,5,"",1);
+                ThisPage.style_controller.append_boxmod_style(item_img,"0px","3px 5px 3px 5px");
+                item_a.appendChild(item_img);
+
+                var item_txt = document.createElement("div");
+                item_txt.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_txt,height*3/4,0,width-10,height*1/4,"inline-block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_txt,15,"#313131","Microsoft YaHei","center","#c2c2c2",height*1/4);
+                ThisPage.style_controller.append_boxmod_style(item_txt,"0px","0px 5px 0px 5px","1px solid #bbb");
+                item_a.appendChild(item_txt);
+                parent.appendChild(item_a);
+            },
+            
+            render_icon_txt_cell:function(parent,top,left,width,height,data,idx,id){
+
+            },
+            render_img_txt_cell:function(parent,top,left,width,height,data,idx,id){
+
+            },
+
+            //样式控制器
+            style_controller:{
+                style_buf:{},
+                zoom: 0,
+                _gen_style: function(style) {
+                    var result = "";
+                    if (style) {
+                        for (var key in style) {
+                            result += key + ":" + style[key] + (this.pxStyle[key] ? "px;" : ";");
+                        }
+                        return result;
+                    }
+                },
+
+                pxStyle: { 
+                    "width": 1,
+                    "height": 1,
+                    "line-height": 1,
+                    "padding-left": 1,
+                    "padding-right": 1,
+                    "padding-top": 1,
+                    "padding-bottom": 1,
+                    "border-width": 1,
+                    "font-size": 1,
+                    "margin-left": 1,
+                    "margin-right": 1,
+                    "margin-top": 1, 
+                    "margin-bottom": 1,
+                    "border-left-width": 1,
+                    "border-right-width": 1,
+                    "border-top-width": 1,
+                    "border-bottom-width": 1,
+                    "top": 1,
+                    "left": 1,
+                    "bottom": 1,
+                    "right": 1
+                },
+          
+                _set_class: function(dom, css) {
+                    if (!window.attachEvent) {
+                        dom.setAttribute("class", css);
+                    } else {
+                    dom.className = css;
+                    }
+                },
+
+                _set_style: function(dom) {
+                    var css = this._gen_style(this.style_buf);
+                    if (!window.attachEvent) {
+                        dom.setAttribute("style", css);
+                    } else {
+                        dom.style.cssText=css;
+                    }
+                },
+
+                _append_style: function(dom) {
+                    var css = this._gen_style(this.style_buf);
+                    if (!window.attachEvent) {
+                        var old_css = dom.getAttribute("style");
+                        dom.setAttribute("style", old_css + css);
+                    } else {
+                        var old_css = dom.style.cssText;
+                        dom.style.cssText= old_css + css;
+                    }
+                },
+
+                //设置基本布局配置
+                set_base_style: function(dom,top,left,width,height,display,position){
+                    this.style_buf = [];
+                    this.style_buf["display"] = display;
+                    this.style_buf["position"] = position;
+                    this.style_buf["top"] = top;
+                    this.style_buf["left"] = left;
+                    this.style_buf["width"] = width;
+                    this.style_buf["height"] = height;
+                    this._set_style(dom);
+                },
+
+                //增加修饰单行类型字体设置
+                append_single_font_style: function(dom,font_size,font_color,font_family,pos,back_color,line_height){
+                    this.style_buf = [];
+                    this.style_buf["font"] = font_size + "px " + "\"" + font_family+ "\"";
+                    this.style_buf["color"] = font_color;
+                    this.style_buf["text-align"] = pos;
+                    this.style_buf["background-color"] = back_color;
+                    this.style_buf["line-height"] = line_height;
+                    this.style_buf["overflow"] = "hidden";
+                    this.style_buf["white-space"] = "nowrap";
+                    this.style_buf["text-overflow"] = "ellipsis";
+                    this.style_buf["o-text-overflow"] = "ellipsis";
+                    this.style_buf["text-decoration"] = "none";
+                    this._append_style(dom);
+                },
+
+                //增加圆角或阴影效果及设置透明度
+                //redius 参数为圆角
+                //shadows_arg 参数 (水平位移) (垂值位移) (模糊半径) (颜色)
+                //示例 "0px 0px 7px #efefef" 
+                //opacity 为0-1.0 一个数字，用于配置透明度 默认为1             
+                append_effects_style: function(dom,radius_arg,shadow_arg,opacity){
+                    this.style_buf = [];
+                    this.style_buf["-moz-border-radius"] = radius_arg + "px";
+                    this.style_buf["-webkit-border-radius"] = radius_arg + "px";
+                    this.style_buf["border-radius"] = radius_arg + "px";
+                    this.style_buf["-moz-box-shadow"] = shadow_arg;
+                    this.style_buf["-webkit-box-shadow"] = shadow_arg;
+                    this.style_buf["box-shadow"] = shadow_arg;
+                    this.style_buf["opacity"] = opacity;
+                    this._append_style(dom);
+                },
+
+                //增加两种填充值及边框属性(盒子模型)
+                //pad_arg&margin_arg 参数中会有四个值，其对应的位置 上右下左
+                //border_arg 参数: 边框像素 边框类型 边框颜色 eg:"1px solid #bbb"
+                append_boxmod_style: function(dom,pad_arg,margin_arg,border_arg){
+                    this.style_buf = [];
+                    this.style_buf["padding"] = pad_arg;
+                    this.style_buf["margin"] = margin_arg;
+                    this.style_buf["border"] = border_arg;
+                    this._append_style(dom);
+                },
+
+            },
+
+        }
+        run(ThisPage.init.proxy(ThisPage));
+    </script>
+
+        <div id ="for_test">
+            
+        </div>
+    
+
+
+    </body>
+</html>
