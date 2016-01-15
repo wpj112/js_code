@@ -1,0 +1,21 @@
+{
+    "name": "dup",
+    "version": "0.0.2",
+    "description": "Delivery United Platform",
+    "maintainers": [{
+        "name": "zhangziqiu",
+        "email": "zhangziqiu@baidu.com"
+    }, {
+        "name": "wangbin",
+        "email": "wangbin13@baidu.com"
+    }],
+    "build": {
+        "main": {
+            "template": "./entry/painterTemplate.js",
+            "sourceFile": ["./test/painter.source.js"],
+            "formatFile": ["./test/painter.js"],
+            "compressFile": ["./asset/painter.js"],
+            "gzipFile": ["./asset/painter.js.gz"]
+        }
+    }
+}
