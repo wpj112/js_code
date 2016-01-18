@@ -1,0 +1,1450 @@
+<!-- htmlcs-disable --> 
+<!DOCTYPE html>
+<html>
+<head>
+    <!-if IE]>
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=320px, user-scalable=yes" />
+    <![endif]->
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <script type="text/javascript">
+        var StartTime = (new Date()).getTime();
+    </script>
+
+    <style type="text/css">
+        $TemplateEngine.baseCss$
+    </style>
+    <script>
+    $TemplateEngine.baseJs$
+    </script>
+    </head>
+    <body>
+
+    <style>
+        html {
+            background-color:#FFF;
+            color: #FFFFFF;
+        }
+
+    </style>
+
+    <script title = "test script">
+      var cur_key = "$keywordcur$";
+      var new_ads = $bdLsdAds$
+
+    </script>
+    <!--script src="./jquery-1.8.3.min.js"></script-->
+    <script type="text/javascript">
+        //viewport 兼容处理
+        var adaptUILayout = (function() {
+            //根据校正appVersion或userAgent校正屏幕分辨率宽度值
+            var regulateScreen = (function() {
+                var cache = {};
+                //默认尺寸
+                var defSize = {
+                    width: window.screen.width,
+                    height: window.screen.height
+                };
+                var ver = window.navigator.appVersion;
+                var _ = null;
+                var check = function(key) {
+                    return key.constructor == String ? ver.indexOf(key) > -1 : ver.test(key);
+                };
+                var add = function(name, key, size) {
+                    if (name && key)
+                        cache[name] = {
+                            key: key,
+                            size: size
+                        };
+                };
+                var del = function(name) {
+                    if (cache[name])
+                        delete cache[name];
+                };
+                var cal = function() {
+                    if (_ != null)
+                        return _;
+                    for (var name in cache) {
+                        if (check(cache[name].key)) {
+                            _ = cache[name].size;
+                            break;
+                        }
+                    }
+                    if (_ == null)
+                        _ = defSize;
+                    return _;
+                };
+                return {
+                    add: add,
+                    del: del,
+                    cal: cal
+                };
+            })();
+            //实现缩放
+            var adapt = function(uiWidth) {
+                var
+                    deviceWidth,
+                    devicePixelRatio,
+                    targetDensitydpi,
+                    //meta,
+                    initialContent,
+                    head,
+                    viewport,
+                    ua;
+                ua = navigator.userAgent.toLowerCase();
+                //whether it is the iPhone or iPad
+                isiOS = ua.indexOf('ipad') > -1 || ua.indexOf('iphone') > -1;
+                isIE = ua.indexOf('msie') > -1;
+                //获取设备信息,并矫正参数值
+                window.devicePixelRatio = window.devicePixelRatio ||
+                    Math.round(window.screen.availWidth / document.documentElement.clientWidth)
+                devicePixelRatio = window.devicePixelRatio;
+                deviceWidth = regulateScreen.cal().width;
+                //获取最终dpi
+                targetDensitydpi = uiWidth / deviceWidth * devicePixelRatio * 160;
+                //use viewport width attribute on the iPhone or iPad device
+                //use viewport target-densitydpi attribute on the Android device
+                initialContent = isiOS ? 'target-densitydpi=device-dpi, width=' + uiWidth + 'px, user-scalable=yes' : isIE ? 'target-densitydpi=' + targetDensitydpi + ', width=device-width, user-scalable=yes' :
+                    'target-densitydpi=' + targetDensitydpi + ', width=' + uiWidth + 'px, user-scalable=yes';
+                //add a new meta node of viewport in head node
+                head = document.getElementsByTagName('head');
+                viewport = document.createElement('meta');
+                viewport.name = 'viewport';
+                viewport.content = initialContent;
+                head.length > 0 && head[head.length - 1].appendChild(viewport);
+            };
+            return {
+                regulateScreen: regulateScreen,
+                adapt: adapt
+            };
+        })();
+        adaptUILayout.adapt(320); //适配当前页面
+    </script>
+    <script>
+        function on_windows_click(event){
+            var evnt = window.event || event;
+            var current = evnt.target || evnt.srcElement;
+            //alert("windows click!" + current.id + "pos:" + evnt.pageX + "_" + evnt.pageY);
+        }
+        var ThisPage = {
+
+            screen_width:320,
+            
+            init: function(){
+
+                this.render_top_layer();
+                //this.bind(window, "click", on_windows_click);
+            },
+
+            bind: function (element, eventType, handler) {
+                if (window.addEventListener) {
+                    element.addEventListener(eventType, handler, false)
+                }else {
+                    element.attachEvent("on" + eventType, handler)
+                }
+            },
+
+            //总布局渲染函数，用于控制整个中间页的布局
+            render_top_layer:function(){
+                var bd = document.body;
+                for (var i = 0; i < new_ads.length; i++){
+                    this.id2render_block(bd,new_ads[i].block_id,new_ads[i].ads,i);
+                    this.render_pading_cell(bd);
+                    //this.render_hr_line(bd);
+                }
+                //this.render_A1_1_img_block(bd,this.screen_width,new_ads[1].ads,0,"render_A1_1_img_block");
+                //this.render_A2_img_block(bd,this.screen_width,test_data,"rener_A2_img_block");
+                //this.render_A3_img_txt_block(bd,this.screen_width,test_data,"rener_A3_img_txt_block");
+                /*
+                this.render_B2_txt_img_block(bd,this.screen_width,new_ads[2].ads,0);
+                this.render_pading_cell(bd);
+                this.render_B3_txt_icon_block(bd,this.screen_width,new_ads[3].ads,0);
+                this.render_pading_cell(bd);
+                this.render_B4_icon_txt_block(bd,this.screen_width,new_ads[2].ads,"id");
+                this.render_pading_cell(bd);
+                this.render_B5_txt_img_block(bd,this.screen_width,new_ads[2].ads,"id");
+                this.render_pading_cell(bd);
+                this.render_B6_txt_icon_block(bd,this.screen_width,new_ads[3].ads,"id");
+                this.render_pading_cell(bd);
+                this.render_B7_img_block(bd,this.screen_width,new_ads[2].ads,"id");
+                this.render_pading_cell(bd);
+                this.render_B8_img_txt_block(bd,this.screen_width,new_ads[2].ads,"id");
+                this.render_pading_cell(bd);
+                this.render_B9_img_txt_block(bd,this.screen_width,new_ads[2].ads,"id");
+                this.render_pading_cell(bd);
+                this.render_B10_img_txt_block(bd,this.screen_width,new_ads[2].ads,"id");
+                this.render_pading_cell(bd);
+                this.render_B11_img_txt_block(bd,this.screen_width,new_ads[2].ads,"id");
+                this.render_pading_cell(bd);
+                */
+            },
+
+            id2render_block:function(parent,block_id,ads_info,i){
+                switch(block_id){
+                    case "A-1-1":
+                        this.render_A1_1_img_block(parent,this.screen_width,ads_info,"render_A1_1_img_block_"+i);
+                        break;
+                    case "A-2":
+                        this.render_A2_img_txt_block(parent,this.screen_width,ads_info,"render_A2_img_txt_block_"+i);
+                        break;
+                    case "A-3":
+                        this.render_A3_img_txt_block(parent,this.screen_width,ads_info,"render_A3_img_txt_block_"+i);
+                        break;
+                    case "B-1":
+                        this.render_B1_icon_block(parent,this.screen_width,ads_info,"render_B1_icon_block_"+i);
+                        break;
+                    case "B-2":
+                        this.render_B2_txt_img_block(parent,this.screen_width,ads_info,"render_B2_txt_img_block_"+i);
+                        break;
+                    case "B-3":
+                        this.render_B3_txt_icon_block(parent,this.screen_width,ads_info,"render_B3_txt_icon_block_"+i);
+                        break;
+                    case "B-4":
+                        this.render_B4_icon_txt_block(parent,this.screen_width,ads_info,"render_B4_icon_txt_block_"+i);
+                        break;
+                    case "B-5":
+                        this.render_B5_txt_img_block(parent,this.screen_width,ads_info,"render_B5_txt_img_block_"+i);
+                        break;
+                    case "B-6":
+                        this.render_B6_txt_icon_block(parent,this.screen_width,ads_info,"render_B6_txt_icon_block_"+i);
+                        break;
+                    case "B-7":
+                        this.render_B7_img_block(parent,this.screen_width,ads_info,"render_B7_img_block_"+i);
+                        break;                    
+                    case "B-8":
+                        this.render_B8_img_txt_block(parent,this.screen_width,ads_info,"render_B8_img_txt_block_"+i);
+                        break;                    
+                    case "B-9":
+                        this.render_B9_img_txt_block(parent,this.screen_width,ads_info,"render_B9_img_txt_block_"+i);
+                        break;                    
+                    case "B-10":
+                        this.render_B10_img_txt_block(parent,this.screen_width,ads_info,"render_B10_img_txt_block_"+i);
+                        break;                                            
+                    case "B-11":
+                        this.render_B11_img_txt_block_(parent,this.screen_width,ads_info,"render_B1_icon_block_"+i);
+                        break;
+                }
+
+            },
+
+            //块级别渲染函数，供总布局函数使用，宽度默认为屏幕宽度
+
+            render_A1_1_img_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                //this.get_slef_fun_name();
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,16,width-32,(width-32)/1.4+40+8+(width-56)/4,"block","relative");
+                ThisPage.render_A1_img_cell_0(main_item,20,0,width-32,(width-32)/1.4,0,data,0, "render_A1_img_cell_0_" + 0);
+                for(var i = 0 ;i < 4; i++){
+                    ThisPage.render_A1_img_cell_0(main_item,20 + (width-32)/1.4 + 8,i*((width-56)/4+8),((width-56)/4),((width-56)/4),0,data,i+1,"render_A1_img_cell_0_" + (i+1));
+                }
+                parent.appendChild(main_item);
+
+            },
+
+            render_A2_img_txt_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,16,width-32,(width-32)/1.4+30+8+(width-56)/4,"block","relative");
+                ThisPage.render_A1_img_cell_0(main_item,20,0,width-32,(width-32)/1.4,0,data,0, "render_A1_img_cell_0_" + 0);
+                for(var i = 0 ;i < 3; i++){
+                    ThisPage.render_A2_img_txt_cell(main_item,20 + (width-32)/1.4 + 8,i*((width-48)/3+8),((width-48)/3),((width-48)/3)/1.2,data,i+1,"render_A2_img_txt_cell_" + (i+1));
+                }
+                parent.appendChild(main_item);
+
+            },
+
+            render_A3_img_txt_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,450+58,"block","relative");
+                this.render_block_title_cell(main_item,"单品资讯信息流");
+                //ThisPage.render_XX_img_cell(main_item,5,0,width,240,10,data.data.deals,3,"img_cell" + 0);
+                for (var i = 0 ; i < 5; i++){
+                    ThisPage.render_A3_img_txt_cell(main_item,90*i+58,0,width,90,data,i,"render_A3_img_txt_cell_" + i);
+                }
+                //ThisPage.render_hr_line(main_item,319,0,320);
+                parent.appendChild(main_item);
+
+            },
+
+            render_B1_icon_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+
+                ThisPage.style_controller.set_base_style(main_item,0,0,width-20,100,"block","relative");
+                ThisPage.style_controller.append_boxmod_style(main_item,"","0px 0px 0px 10px","");
+                for (var i = 0 ; i < 3; i++){
+                    ThisPage.render_B1_icon_cell(main_item,0,100*i,100,100,data,i,"render_B1_icon_cell_" + i);
+                }
+                for (var i = 1 ;i <= 2 ; i++){
+                    ThisPage.render_vt_line(main_item,10,i*(width-20)/3,80);
+                }
+                //ThisPage.render_hr_line(main_item,99,-10,320);
+                parent.appendChild(main_item);
+
+            },
+
+            render_B2_txt_img_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                var height = 160;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width-20,height,"block","relative");
+                ThisPage.style_controller.append_boxmod_style(main_item,"", "0px 0px 0px 10px","");
+                for (var i = 0 ; i < 3; i++){
+                    ThisPage.render_B2_txt_img_cell(main_item,0,(width-20)*i/3,(width-20)/3,160,data,i,"render_B2_txt_img_cell_" + i);
+                }
+
+                for (var i = 1 ; i <= 2; i++){
+                    ThisPage.render_vt_line(main_item,15,i*(width-20)/3,130);
+                }
+
+                //ThisPage.render_hr_line(main_item,height - 1,-10,320);
+                parent.appendChild(main_item);
+
+            },
+
+            render_B3_txt_icon_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                var height = 120 + 58;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,height,"block","relative");
+                //ThisPage.style_controller.append_boxmod_style(main_item,"", "0px 0px 0px 10px","");
+                this.render_block_title_cell(main_item,"主题专场活动");
+                for (var i = 0 ; i < 4; i++){
+                    ThisPage.render_B3_txt_icon_cell(main_item,58+60*parseInt(i/2),160*(i%2),160,60,data,i,"render_B3_txt_icon_cell_" + i);
+                }
+
+                ThisPage.render_vt_line(main_item,58,width/2,60);
+                ThisPage.render_vt_line(main_item,118,width/2,60);
+                ThisPage.render_hr_line(main_item,118,10,300);
+                //ThisPage.render_hr_line(main_item,height - 1,0,320);
+                parent.appendChild(main_item);
+
+            },
+
+            render_B4_icon_txt_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                var height = 30;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,30,"block","relative");
+                ThisPage.render_B4_txt_icon_cell(main_item,0,0,320,30,data,0,"render_B4_icon_txt_cell_0");
+
+
+                //ThisPage.render_hr_line(main_item,height -1,0,320);
+                parent.appendChild(main_item);
+            },
+
+            render_B5_txt_img_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                var height = 160;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,height+58,"block","relative");
+                this.render_block_title_cell(main_item,"单品活动拼接");
+
+                ThisPage.render_B5_txt_img_cell_0(main_item,58,0,160,160,data,0,"render_B4_icon_txt_cell_0");
+                ThisPage.render_B5_txt_img_cell_1(main_item,58,160,160,80,data,1,"render_B4_icon_txt_cell_1");
+                ThisPage.render_B5_txt_img_cell_2(main_item,138,160,80,80,data,2,"render_B4_icon_txt_cell_2");
+                ThisPage.render_B5_txt_img_cell_2(main_item,138,240,80,80,data,3,"render_B4_icon_txt_cell_3");
+                //ThisPage.render_B5_txt_img_cell_0(main_item,0,0,320,30,data,0,"render_B4_icon_txt_cell_3");
+
+                //ThisPage.render_hr_line(main_item,119,0,320);
+                ThisPage.render_vt_line(main_item,58,width/2,160);
+                ThisPage.render_vt_line(main_item,138,240,80);
+                ThisPage.render_hr_line(main_item,138,160,160);
+                parent.appendChild(main_item);
+            },
+
+            render_B6_txt_icon_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,160,"block","relative");
+                //ThisPage.style_controller.append_boxmod_style(main_item,"", "0px 0px 0px 10px","");
+                for (var i = 0 ; i < 8; i++){
+                    ThisPage.render_B6_txt_icon_cell(main_item,80*parseInt(i/4),80*(i%4),80,80,data,i,"render_B3_txt_icon_cell_" + i);
+                }
+
+                for (var i = 1 ;i <= 3; i++){
+                    ThisPage.render_vt_line(main_item,10,80*i,60);
+                    ThisPage.render_vt_line(main_item,90,80*i,60);
+                }
+                ThisPage.render_hr_line(main_item,80,10,300);
+                //ThisPage.render_hr_line(main_item,159,0,320);
+                parent.appendChild(main_item);
+
+            },
+
+            render_B7_img_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,80,"block","relative");
+                //ThisPage.style_controller.append_boxmod_style(main_item,"", "0px 0px 0px 10px","");
+                ThisPage.render_A1_img_cell_0(main_item,5,0,width,70,0,data,0,"render_B7_img_cell_0");
+
+                //ThisPage.render_hr_line(main_item,79,0,320);
+                parent.appendChild(main_item);
+
+            },
+
+
+            render_B8_img_txt_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,298,"block","relative");
+                                this.render_block_title_cell(main_item,"单品列表模块");
+                for (var i = 0 ; i < 3; i++){
+                    ThisPage.render_B8_img_txt_cell(main_item,i*80+58,0,width,80,data,i,"render_B8_img_txt_cell_" + i);
+                }
+
+                //ThisPage.render_hr_line(main_item,239,0,320);
+
+                parent.appendChild(main_item);
+
+            },
+
+            render_B9_img_txt_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,240 +58,"block","relative");
+
+                this.render_block_title_cell(main_item,"单品轮播模块");
+                var ads_item = document.createElement("div");
+                ads_item.id = "render_B9_img_ads";
+                ThisPage.style_controller.set_render_B9_img_ads(ads_item,0,0,width,240,"block","absolute");
+                for (var i = 0 ; i < 9; i++){
+                    ThisPage.render_B9_img_txt_cell(ads_item,58,i*width/3,width/3,200,data,i,"render_B9_img_txt_cell_" + i);
+                }
+                var item_dom = document.createElement("div");
+                item_dom.id = "item_dom";
+                ThisPage.style_controller.set_base_style(item_dom,258,130,60,30,"block","absolute");
+                
+                ThisPage.render_doms_cell(item_dom);
+                //ThisPage.render_hr_line(main_item,239,0,320);
+                main_item.appendChild(ads_item);
+                main_item.appendChild(item_dom);
+                parent.appendChild(main_item);
+
+                var dom_cur = document.getElementById("B9_dom_0");
+                dom_cur.style.backgroundColor = "#a8a8a8";
+                ThisPage.roll_controller.init();
+
+            },
+
+            render_B10_img_txt_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,240,"block","relative");
+                for (var i = 0 ; i < 6; i++){
+                    ThisPage.render_B10_img_txt_cell(main_item,parseInt(i/3)*120,(i%3)*width/3,width/3,120,data,i,"render_B10_img_txt_cell_" + i);
+                }
+
+                //ThisPage.render_hr_line(main_item,239,0,320);
+                parent.appendChild(main_item);
+
+            },
+            render_B11_img_txt_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,240,"block","relative");
+                for (var i = 0 ; i < 6; i++){
+                    ThisPage.render_B11_img_txt_cell(main_item,parseInt(i/3)*120,(i%3)*width/3,width/3,120,data,i,"render_B11_img_txt_cell_" + i);
+                }
+
+                //ThisPage.render_hr_line(main_item,239,0,320);
+
+                parent.appendChild(main_item);
+
+            },
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//以下为元素级别渲染函数，供块级别渲染函数使用
+
+            //渲染图片元素，需要的参数:
+            //top(相对于所在块位置),left,width,height,pad_lr(左右图片之间间距),data,id(用于监控统计使用)
+            render_A1_img_cell_0:function(parent,top,left,width,height,pad_lr,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;//注此处需做一个适配用于适配不同接口中的数据的key
+                var curl = data[idx].target_url;
+                
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,pad_lr/2+left,width-pad_lr,height,"block","absolute");
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,0,0,width-pad_lr,height,"block","absolute");
+                item_a.appendChild(item_img);
+                parent.appendChild(item_a);
+            },
+
+            //带圆角图片样式
+            render_XX_img_cell:function(parent,top,left,width,height,pad_lr,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;//注此处需做一个适配用于适配不同接口中的数据的key
+                var curl = data[idx].target_url;
+                
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,pad_lr/2+left,width-pad_lr,height,"block","absolute");
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,0,0,width-pad_lr,height,"block","absolute");
+                //ThisPage.style_controller.append_effects_style(item_img,5,"",1);
+                item_a.appendChild(item_img);
+                parent.appendChild(item_a);
+            },
+                        
+            //图片+title
+            render_A2_img_txt_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "100元代金券! 可叠加使用! 提供免费wifi";
+                var price = "￥100";
+                
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,0,0,width,width/2.8,"block","absolute");
+                //ThisPage.style_controller.append_effects_style(item_img,3,"",1);
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,width/2.8+8,0,width,20,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,12,"#313131","Microsoft YaHei","center","#",12);
+            
+                item_a.appendChild(item_img);
+                item_a.appendChild(item_title);
+                parent.appendChild(item_a);
+            },
+            //图片+title+描述+价格
+            render_A3_img_txt_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "100元代金券! 可叠加使用! 提供免费wifi";
+                var price = "10￥";
+                
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,20,16,90,height-32,"block","absolute");
+                ThisPage.style_controller.append_effects_style(item_img,3,"",1);
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,20,114,200,20,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,18,"#333","Microsoft YaHei","left","#",20);
+
+                var item_detail = document.createElement("div");
+                item_detail.innerHTML = detail;
+                ThisPage.style_controller.set_base_style(item_detail,40,114,200,16,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_detail,14,"#999","Microsoft YaHei","left","#",16);
+
+                var item_price = document.createElement("div");
+                item_price.innerHTML ="<b>"+price+"</b>";
+                ThisPage.style_controller.set_base_style(item_price,60,114,200,20,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_price,14,"#f60","Microsoft YaHei","left","#",16);
+
+                ThisPage.render_hr_line(item_a,89,0,320);
+                item_a.appendChild(item_img);
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_detail);
+                item_a.appendChild(item_price);
+                parent.appendChild(item_a);
+            },
+
+            render_B1_icon_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "返现15%";
+
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,10,20,60,15,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,12,"#313131","Microsoft YaHei","center","#",15);
+                var item_detail = document.createElement("div");
+                item_detail.innerHTML = detail;
+                ThisPage.style_controller.set_base_style(item_detail,25,20,60,15,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_detail,8,"#818181","Microsoft YaHei","center","#",15);
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,50,30,40,40,"block","absolute");
+                ThisPage.style_controller.append_effects_style(item_img,3,"",1);
+
+                item_a.appendChild(item_img);
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_detail);
+                parent.appendChild(item_a);
+            },
+
+            render_B2_txt_img_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "返现15%";
+
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,20,10,80,30,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,16,"#313131","Microsoft YaHei","center","#",15);
+                var item_detail = document.createElement("div");
+                item_detail.innerHTML = detail;
+                ThisPage.style_controller.set_base_style(item_detail,40,10,80,30,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_detail,12,"#818181","Microsoft YaHei","center","#",15);
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,70,15,60,80,"block","absolute");
+                ThisPage.style_controller.append_effects_style(item_img,3,"",1);
+
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_detail);
+                item_a.appendChild(item_img);
+                parent.appendChild(item_a);
+            },
+            render_B3_txt_icon_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "返现15%";
+
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,20,10,120,30,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,18,"#333","Microsoft YaHei","left","#",18);
+                var item_detail = document.createElement("div");
+                item_detail.innerHTML = detail;
+                ThisPage.style_controller.set_base_style(item_detail,40,10,120,30,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_detail,14,"#999","Microsoft YaHei","left","#",15);
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,20,120,30,30,"block","absolute");
+                ThisPage.style_controller.append_effects_style(item_img,3,"",1);
+
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_detail);
+                item_a.appendChild(item_img);
+                parent.appendChild(item_a);
+            },
+
+            render_B4_txt_icon_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "返现15%";
+
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+
+               var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,5,10,20,20,"block","absolute");
+                ThisPage.style_controller.append_effects_style(item_img,3,"",1);
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,5,50,240,20,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,16,"#313131","Microsoft YaHei","left","",20);
+ 
+
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_img);
+                parent.appendChild(item_a);
+            },
+
+            render_B5_txt_img_cell_0:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var img_url = data[idx].img_url;
+                var desc = data[idx].desc;
+                
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+                //ThisPage.style_controller.append_boxmod_style(item_a,"","","1px solid #d8d8d8");
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = "<b>" + title + "</b>";
+                ThisPage.style_controller.set_base_style(item_title,10,10,140,20,"inline-block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,18,"#333","Microsoft YaHei","left","",20);
+
+                var item_desc = document.createElement("div");
+                item_desc.innerHTML = desc;
+                ThisPage.style_controller.set_base_style(item_desc,35,10,140,16,"inline-block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_desc,14,"#999","Microsoft YaHei","left","",16);
+                
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,55,20,120,100,"block","absolute");
+                item_a.appendChild(item_img);
+
+
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_desc);
+                item_a.appendChild(item_img);
+                parent.appendChild(item_a);
+            },
+            
+            render_B5_txt_img_cell_1:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var img_url = data[idx].img_url;
+                var desc = data[idx].desc;
+                
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+                //ThisPage.style_controller.append_boxmod_style(item_a,"","","1px solid #d8d8d8");
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = "<b>" + title + "</b>";
+                ThisPage.style_controller.set_base_style(item_title,10,8,100,20,"inline-block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,16,"#333","Microsoft YaHei","left","",20);
+
+                var item_desc = document.createElement("div");
+                item_desc.innerHTML = desc;
+                ThisPage.style_controller.set_base_style(item_desc,30,8,100,15,"inline-block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_desc,12,"#999","Microsoft YaHei","left","",16);
+                
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,30,105,50,50,"block","absolute");
+                item_a.appendChild(item_img);
+
+
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_desc);
+                item_a.appendChild(item_img);
+                parent.appendChild(item_a);
+            },
+
+            render_B5_txt_img_cell_2:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var img_url = data[idx].img_url;
+                var desc = data[idx].desc;
+                
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+                //ThisPage.style_controller.append_boxmod_style(item_a,"","","1px solid #d8d8d8");
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = "<b>" + title + "</b>";
+                ThisPage.style_controller.set_base_style(item_title,5,5,70,20,"inline-block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,10,"#333","Microsoft YaHei","left","",12);
+
+                var item_desc = document.createElement("div");
+                item_desc.innerHTML = desc;
+                ThisPage.style_controller.set_base_style(item_desc,20,5,50,15,"inline-block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_desc,8,"#999","Microsoft YaHei","left","",10);
+                
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,35,35,40,40,"block","absolute");
+                item_a.appendChild(item_img);
+
+
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_desc);
+                item_a.appendChild(item_img);
+                parent.appendChild(item_a);
+            },
+
+            render_B6_txt_icon_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "返现15%";
+
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,5,10,60,15,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,12,"#313131","Microsoft YaHei","center","#",12);
+
+                var item_detail = document.createElement("div");
+                item_detail.innerHTML = detail;
+                ThisPage.style_controller.set_base_style(item_detail,20,10,60,15,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_detail,8,"#818181","Microsoft YaHei","center","#",15);
+
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,40,20,30,30,"block","absolute");
+                ThisPage.style_controller.append_effects_style(item_img,3,"",1);
+
+                item_a.appendChild(item_img);
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_detail);
+                parent.appendChild(item_a);
+            },
+
+            render_B8_img_txt_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "返现15%这是活动信息，这是活动信息";
+                var cur_price = "￥100";
+                var old_price = "￥120";
+                var star_num = 3;
+
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,10,10,80,60,"block","absolute");
+                ThisPage.style_controller.append_effects_style(item_img,3,"",1);
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,10,100,200,20,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,16,"#333","Microsoft YaHei","left","#",12);
+
+                var item_detail = document.createElement("div");
+                item_detail.innerHTML = detail;
+                ThisPage.style_controller.set_base_style(item_detail,30,100,200,15,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_detail,8,"#999","Microsoft YaHei","left","#",15);
+
+
+                var item_cur_price = document.createElement("div");
+                item_cur_price.innerHTML = "<b>" + cur_price +"</b>";
+                ThisPage.style_controller.set_base_style(item_cur_price,50,100,50,15,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_cur_price,14,"#ff6600","Microsoft YaHei","left","#",15);
+
+                var item_old_pirce = document.createElement("div");
+                item_old_pirce.innerHTML ="<s>" + old_price +"</s>";
+                ThisPage.style_controller.set_base_style(item_old_pirce,50,150,65,15,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_old_pirce,6,"#999","Microsoft YaHei","left","#",15);
+
+
+                var item_stars = document.createElement("div");
+                //item_stars.innerHTML = detail;
+                ThisPage.style_controller.set_base_style(item_stars,50,250,65,15,"block","absolute");
+                this.render_stars(item_stars,3);
+
+                ThisPage.render_hr_line(item_a,height-1,0,320);
+
+                item_a.appendChild(item_img);
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_detail);
+                item_a.appendChild(item_cur_price);
+                item_a.appendChild(item_old_pirce);
+                item_a.appendChild(item_stars);
+                parent.appendChild(item_a);
+            },
+
+           render_B9_img_txt_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "返现15%这是活动信息，这是活动信息";
+
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,20,(width-100)/2,100,120,"block","absolute");
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,152,(width-80)/2,80,20,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,16,"#313131","Microsoft YaHei","left","#",12);
+
+                var item_detail = document.createElement("div");
+                item_detail.innerHTML = detail;
+                ThisPage.style_controller.set_base_style(item_detail,170,(width-80)/2,80,15,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_detail,8,"#818181","Microsoft YaHei","left","#",15);
+
+
+                item_a.appendChild(item_img);
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_detail);
+                parent.appendChild(item_a);
+            },
+
+            render_B10_img_txt_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "返现15%这是活动信息，这是活动信息";
+
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,10,(width-70)/2,70,80,"block","absolute");
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,95,(width-80)/2,80,20,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,16,"#313131","Microsoft YaHei","left","#",12);
+
+                item_a.appendChild(item_img);
+                item_a.appendChild(item_title);
+                parent.appendChild(item_a);
+            },
+
+            render_B11_img_txt_cell:function(parent,top,left,width,height,data,idx,id){
+                var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;
+                var curl = data[idx].target_url;
+                var title = data[idx].title;
+                var detail = "返现15%这是活动信息，这是活动信息";
+
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,left,width,height,"block","absolute");
+
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,10,(width-85)/2,85,60,"block","absolute");
+
+                var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,80,(width-85)/2,85,20,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,16,"#313131","Microsoft YaHei","left","#",12);
+
+                var item_detail = document.createElement("div");
+                item_detail.innerHTML = detail;
+                ThisPage.style_controller.set_base_style(item_detail,100,(width-85)/2,85,15,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_detail,8,"#818181","Microsoft YaHei","left","#",15);
+
+                item_a.appendChild(item_img);
+                item_a.appendChild(item_title);
+                item_a.appendChild(item_detail);
+                parent.appendChild(item_a);
+            },
+
+            render_doms_cell:function(parent){
+                for(var i = 0; i < 3; i ++){
+                    var div_item = document.createElement("div");
+                    div_item.id = "B9_dom_" + i;
+                    ThisPage.style_controller.set_base_style(div_item,0,i*16,8,8,"line-block","absolute");
+                    ThisPage.style_controller.append_effects_style(div_item,10,"","",1);
+                    ThisPage.style_controller.append_boxmod_style(div_item,"","","1px solid #bbb");
+                    parent.appendChild(div_item);
+                }
+            },
+
+            set_doms_cell:function(idx){
+                for(var i = 0; i < 3; i ++){
+                     var div_item = document.getElementById("B9_dom_"+i);
+                    if(i === idx){
+                        div_item.style.backgroundColor = "#a8a8a8";
+                    }else{
+                        div_item.style.backgroundColor = "#fff";
+                    }
+                }
+            },
+
+            render_stars:function(parent,star_num){
+
+                for (var i = 0 ;i < 5; i++){
+                    var item_img = document.createElement("img");
+                    ThisPage.style_controller.set_base_style(item_img,0,i*12,10,10,"line-block","absolute");
+                   
+                    if (i <parseInt(star_num)){
+                        item_img.src = "http://cpro.baidustatic.com/cpro/exp/mob_exp/smallbear/xiong_v3/star_1.png";
+                        parent.appendChild(item_img);
+                    } else{
+                        item_img.src = "http://cpro.baidustatic.com/cpro/exp/mob_exp/smallbear/xiong_v3/star_0.png";
+                        parent.appendChild(item_img);
+                    }
+                }
+
+            },
+            render_hr_line:function(parent,top,left,width){
+                var div_item = document.createElement("div");
+                ThisPage.style_controller.set_line_style(div_item,top,left,width,1.2,"absolute");
+                parent.appendChild(div_item);
+            },            
+
+            render_vt_line:function(parent,top,left,height){
+                var div_item = document.createElement("div");
+                ThisPage.style_controller.set_line_style(div_item,top,left,1.2,height,"absolute");
+                parent.appendChild(div_item);
+            },
+
+            render_pading_cell:function(parent){
+                var div_item = document.createElement("div");
+                ThisPage.style_controller.set_line_style(div_item,0,0,320,10,"relative");
+                parent.appendChild(div_item);
+            },
+
+            render_block_title_cell:function(parent,title){
+                var div_item = document.createElement("div");
+                div_item.innerHTML = title;
+                ThisPage.style_controller.set_base_style(div_item,0,0,320,58,"line-block","absolute");
+                ThisPage.style_controller.append_single_font_style(div_item,18,"#999","Microsoft YaHei","center","",58);
+                ThisPage.render_hr_line(div_item,56,0,320);
+                parent.appendChild(div_item);
+            },
+            get_slef_fun_name :function(num){
+                var tmp = arguments.callee.toString();
+                var re = /function\s*(\w*)/i;
+                var matches = re.exec(tmp);
+                alert(matches[1]);
+            },
+
+            //样式控制器
+            style_controller:{
+                style_buf:{},
+                render_B9_img_ads:{},
+                zoom: 0,
+                _gen_style: function(style) {
+                    var result = "";
+                    if (style) {
+                        for (var key in style) {
+                            result += key + ":" + style[key] + (this.pxStyle[key] ? "px;" : ";");
+                        }
+                        return result;
+                    }
+                },
+
+                pxStyle: { 
+                    "width": 1,
+                    "height": 1,
+                    "line-height": 1,
+                    "padding-left": 1,
+                    "padding-right": 1,
+                    "padding-top": 1,
+                    "padding-bottom": 1,
+                    "border-width": 1,
+                    "font-size": 1,
+                    "margin-left": 1,
+                    "margin-right": 1,
+                    "margin-top": 1, 
+                    "margin-bottom": 1,
+                    "border-left-width": 1,
+                    "border-right-width": 1,
+                    "border-top-width": 1,
+                    "border-bottom-width": 1,
+                    "top": 1,
+                    "left": 1,
+                    "bottom": 1,
+                    "right": 1
+                },
+          
+                _set_class: function(dom, css) {
+                    if (!window.attachEvent) {
+                        dom.setAttribute("class", css);
+                    } else {
+                        dom.className = css;
+                    }
+                },
+
+                _set_style: function(dom,style) {
+                    if(typeof style == 'undefined'){
+                        var css = this._gen_style(this.style_buf);                        
+                    }else{
+                        var css = this._gen_style(style);
+                    }
+                    if (!window.attachEvent) {
+                        dom.setAttribute("style", css);
+                    } else {
+                        dom.style.cssText=css;
+                    }
+                },
+
+                _append_style: function(dom) {
+                    var css = this._gen_style(this.style_buf);
+                    if (!window.attachEvent) {
+                        var old_css = dom.getAttribute("style");
+                        dom.setAttribute("style", old_css + css);
+                    } else {
+                        var old_css = dom.style.cssText;
+                        dom.style.cssText= old_css + css;
+                    }
+                },
+
+                //设置基本布局配置
+                set_base_style: function(dom,top,left,width,height,display,position){
+                    this.style_buf = [];
+                    this.style_buf["display"] = display;
+                    this.style_buf["position"] = position;
+                    this.style_buf["top"] = top;
+                    this.style_buf["left"] = left;
+                    this.style_buf["width"] = width;
+                    this.style_buf["height"] = height;
+                    this.style_buf["overflow"] = "hidden";
+                    this._set_style(dom);
+                },
+
+                //增加修饰单行类型字体设置
+                append_single_font_style: function(dom,font_size,font_color,font_family,pos,back_color,line_height){
+                    this.style_buf = [];
+                    this.style_buf["font"] = font_size + "px " + "\"" + font_family+ "\"";
+                    this.style_buf["color"] = font_color;
+                    this.style_buf["text-align"] = pos;
+                    this.style_buf["background-color"] = back_color;
+                    this.style_buf["line-height"] = line_height;
+                    this.style_buf["overflow"] = "hidden";
+                    this.style_buf["white-space"] = "nowrap";
+                    this.style_buf["text-overflow"] = "ellipsis";
+                    this.style_buf["o-text-overflow"] = "ellipsis";
+                    this.style_buf["text-decoration"] = "none";
+                    this._append_style(dom);
+                },
+
+                //增加圆角或阴影效果及设置透明度
+                //redius 参数为圆角
+                //shadows_arg 参数 (水平位移) (垂值位移) (模糊半径) (颜色)
+                //示例 "0px 0px 7px #efefef" 
+                //opacity 为0-1.0 一个数字，用于配置透明度 默认为1             
+                append_effects_style: function(dom,radius_arg,shadow_arg,opacity){
+                    this.style_buf = [];
+                    this.style_buf["-moz-border-radius"] = radius_arg + "px";
+                    this.style_buf["-webkit-border-radius"] = radius_arg + "px";
+                    this.style_buf["border-radius"] = radius_arg + "px";
+                    this.style_buf["-moz-box-shadow"] = shadow_arg;
+                    this.style_buf["-webkit-box-shadow"] = shadow_arg;
+                    this.style_buf["box-shadow"] = shadow_arg;
+                    this.style_buf["opacity"] = opacity;
+                    this._append_style(dom);
+                },
+
+                //增加两种填充值及边框属性(盒子模型)
+                //pad_arg&margin_arg 参数中会有四个值，其对应的位置 上右下左
+                //border_arg 参数: 边框像素 边框类型 边框颜色 eg:"1px solid #bbb"
+                append_boxmod_style: function(dom,pad_arg,margin_arg,border_arg){
+                    this.style_buf = [];
+                    this.style_buf["padding"] = pad_arg;
+                    this.style_buf["margin"] = margin_arg;
+                    this.style_buf["border"] = border_arg;
+                    this._append_style(dom);
+                },
+
+                set_line_style:function(dom,top,left,width,height,postion){
+                    this.style_buf = [];
+                    this.style_buf["display"] = "block";
+                    this.style_buf["position"] = postion;                    
+                    this.style_buf["top"] = top;
+                    this.style_buf["left"] = left;
+                    this.style_buf["line-height"] = 0;
+                    this.style_buf["background-color"] = "#EEE";
+                    this.style_buf["width"] = width;
+                    this.style_buf["height"] = height;
+                    this._set_style(dom);
+                },
+                set_render_B9_img_ads:function(dom,top,left,width,height,display,position){
+                    this.render_B9_img_ads = [];
+                    //this.render_B9_img_ads["display"] = display;
+                    //this.render_B9_img_ads["position"] = position;
+                    this.render_B9_img_ads["top"] = top;
+                    this.render_B9_img_ads["left"] = left;
+                    this.render_B9_img_ads["width"] = width;
+                    this.render_B9_img_ads["height"] = height;
+                    //this.render_B9_img_ads["overflow"] = "hidden";
+                    this._set_style(dom,this.render_B9_img_ads);
+                },
+            },
+            roll_controller: {
+            can_use_transform: false,
+            cur_index: 0,
+            roll_speed: 4000,
+            roll_timer: null,
+            max_page: 2,
+            min_page: 0,
+            roll_object:null,
+            roll_object_style:null,
+            is_loop: false,   //是否循环
+            select_array:[],
+            movestart:null,
+            distx:0,
+            coord:null,
+            bug_timer: null,
+            left: 0,
+            transition_time: 300,
+            step_width: 0,
+            init: function() {
+                if ("Transform" in document.documentElement.style || 
+                    "WebkitTransform" in document.documentElement.style || 
+                        "OTransform" in document.documentElement.style ||
+                        "MsTransform" in document.documentElement.style || 
+                        "MozTransform" in document.documentElement.style) {
+                    this.can_use_transform = true;
+                }
+                this.roll_object = document.getElementById("render_B9_img_ads");
+                this.step_width = 320;
+                this.select_array = [];
+                this.roll_object_style = ThisPage.style_controller.render_B9_img_ads;
+                this.bind(this.roll_object,"transitionend", this.transitionEnd.proxy(this));
+                this.bind(this.roll_object,"oTransitionEnd", this.transitionEnd.proxy(this));
+                this.bind(this.roll_object,"msTransitionEnd", this.transitionEnd.proxy(this));
+                this.bind(this.roll_object,"mozTransitionEnd", this.transitionEnd.proxy(this));
+                this.bind(this.roll_object,"webkitTransitionEnd", this.transitionEnd.proxy(this));
+
+                this.bind(this.roll_object, "touchstart", this.touchstart.proxy(this));
+                this.bind(this.roll_object, "touchmove", this.touchmove.proxy(this));
+                this.bind(this.roll_object, "touchend", this.touchend.proxy(this));
+                this.bind(this.roll_object, "touchcancel", this.touchend.proxy(this));
+
+                this.start();
+            },
+            touchstart:function(event) {
+                var point = event.touches[0];
+                this.movestart = 0;
+                this.distx = 0;
+                this.coord = {x: point.pageX, y: point.pageY};
+            },
+            touchmove: function(event) {
+                if (!(event.touches.length >1 || 
+                    (event.scale && event.scale !== 1))) {
+                    var point = event.touches[0];
+                    this.distx = point.pageX - this.coord.x;
+                if (this.movestart === 1 || Math.abs(this.distx) > 
+                            Math.abs(point.pageY - this.coord.y)) {
+                        this.movestart = 1;
+                        this.before_event(event);
+                        this.stop();
+                        //this.is_loop || (this.distx /= (!this.cur_index && this.distx > 0) ||
+                        //    (this.cur_index == this.max_page && (0 > this.distx?
+                         //   Math.abs(this.distx)/this.step_width + 1 : 1)));
+                        var position = this.left - this.cur_index * this.step_width + 1 * this.distx;
+                        this.set_coord(position, 0);
+                        this.bug_timer && clearTimeout(this.bug_timer);
+                        this.bug_timer = setTimeout(this.start.proxy(this),500);
+                    };
+                }
+            },
+            touchend: function(event) {
+                if (this.distx < -10) {
+                    this.before_event(event);
+                    this.roll_next();
+                } else if (this.distx > 10) {
+                    this.before_event(event);
+                    this.roll_pre();
+                }
+                this.start();
+                //alert(this.cur_index);
+                ThisPage.set_doms_cell(this.cur_index);
+            },
+            before_event: function(event) {
+                if (!event) {
+                    return;
+                }
+                if (event.preventDefault) {
+                    event.preventDefault();
+                } else {
+                    event.returnValue = false;
+                }
+            },
+            start: function() {
+                if (null != this.roll_timer) {
+                    this.stop();
+                    this.roll_timer = setInterval(
+                    this.roll_next.proxy(this), this.roll_speed);
+                }
+            },
+            stop: function() {
+                if (this.roll_timer != null) {
+                    clearInterval(this.roll_timer);
+                    this.roll_timer = null;
+                }
+            },
+            set_coord: function(position, time) {
+                if (this.can_use_transform) {
+                    this.set_transform(position, time);
+                    this.roll_object_style["left"] = position;
+                } else {
+                    this.roll_object_style["left"] = position;
+                }
+                ThisPage.style_controller._set_style(this.roll_object, this.roll_object_style);
+            },
+            rollTo: function(idx, speed) {
+                var idx = idx || 0;
+                this.cur_index = idx;
+                var transition_time = speed || this.transition_time;
+                var position = this.left - idx * this.step_width;
+                this.set_coord(position, transition_time);
+            },
+            transitionEnd: function(event) {
+                if (this.is_loop) {
+                    if (this.cur_index > this.max_page) {
+                        this.cur_index = 0;
+                    } else if (this.cur_index < this.min_page) {
+                        this.cur_index = this.max_page;
+                    }
+                }
+                this.set_coord(this.left - this.cur_index * this.step_width, 0);
+                this.set_select_position(this.cur_index);
+                this.start();
+            },
+            bind: function (element, eventType, handler) {
+                if (window.addEventListener) { 
+                    element.addEventListener(eventType, handler, false);
+                } else {
+                    element.attachEvent("on" + eventType, handler);
+                }   
+            },
+            roll_pre: function(event) {
+                this.before_event(event);
+                var idx = this.cur_index;
+                if(idx === this.min_page){
+                    this.rollTo(idx);
+                    return;
+                }
+                idx -= 1;
+                if (this.cur_index < this.min_page) {
+                    idx = this.is_loop ? this.min_page-1 : idx;
+                }
+                this.rollTo(idx);
+            },
+            roll_next: function(event) {
+                this.before_event(event);
+                var idx = this.cur_index;
+                if(idx === this.max_page){
+                    this.rollTo(idx);
+                    return;
+                }
+                idx += 1;
+                if (this.cur_index > this.max_page) {
+                    idx = this.is_loop ? this.max_page+1 : idx;
+                }
+                this.rollTo(idx);
+            },
+            set_select_position: function(idx) {
+                for (var i=0; i<this.select_array.length; i++) {
+                    if (i == idx) {
+                        this.select_array[i].setAttribute("class", "on");
+                    } else {
+                        this.select_array[i].setAttribute("class", "");
+                    }
+                }
+            },
+            set_transform: function(position, time) {
+                var transform_str = "translate3d("+ position+"px, 0px, 0px)";
+                this.roll_object_style["transform"] = transform_str;
+                this.roll_object_style["-ms-transform"] = transform_str;
+                this.roll_object_style["-o-transform"] = transform_str;
+                this.roll_object_style["-moz-transform"] = transform_str;
+                this.roll_object_style["-webkit-transform"] = transform_str;
+                var transition_str = time + "ms"; 
+                this.roll_object_style["transition"] = transition_str;
+                this.roll_object_style["-ms-transition"] = transition_str;
+                this.roll_object_style["-o-transition"] = transition_str;
+                this.roll_object_style["-moz-transition"] = transition_str;
+                this.roll_object_style["-webkit-transition"] = transition_str;
+            }
+        },
+
+    }
+    run(ThisPage.init.proxy(ThisPage));
+    </script>
+
+        <div id ="for_test">
+            
+        </div>
+    
+
+
+    </body>
+</html>
