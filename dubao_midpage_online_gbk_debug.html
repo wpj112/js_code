@@ -169,6 +169,10 @@
 				this.render_pading_cell(bd);
                 this.render_A1_1_img_block(bd,this.screen_width,new_ads[1].ads,0,"render_A1_1_img_block");
 				this.render_pading_cell(bd);
+				this.render_A1_2_img_txt_block(bd,this.screen_width,new_ads[1].ads,0,"render_A1_2_img_txt_block");
+				this.render_pading_cell(bd);
+				this.render_A1_3_img_txt_block(bd,this.screen_width,new_ads[2].ads,0,"render_A1_3_img_txt_block");
+				this.render_pading_cell(bd);
                 this.render_A2_img_txt_block(bd,this.screen_width,new_ads[1].ads,"render_A2_img_txt_block");
 				this.render_pading_cell(bd);
                 this.render_A3_img_txt_block(bd,this.screen_width,new_ads[1].ads,"rener_A3_img_txt_block");
@@ -251,23 +255,27 @@
 			render_header_search_block:function(parent,width,id){
 			    var main_item = document.createElement("div");
                 //this.get_slef_fun_name();
+				var top_height = 40;
+				var search_height = 40;
+				var all_height = 155;
                 main_item.id = id;
-                ThisPage.style_controller.set_base_style(main_item,0,16,width-32,115,"block","relative");
-                ThisPage.render_search_cell(main_item,0,0,width-32,50);
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,all_height,"block","relative");
+				this.render_top_guide_cell(main_item,0,0,width,top_height);
+                this.render_search_cell(main_item,top_height + 10,0,width-32,search_height);
                 //for(var i = 0 ;i < 3; i++){
                 //    ThisPage.render_guide_icon_txt_cell(main_item,20 + (width-32)/1.4 + 8,i*((width-56)/4+8),((width-56)/4),((width-56)/4),0,data,i+1,"render_A1_img_cell_0_" + (i+1));
                 //}
-				this.render_search_icon_txt_cell(main_item, 60,0, (width-32)/4,90,"www.baidu.com",".\/demo_icon\/001.png","render_search_icon_txt_cell_0","优惠券");
-				this.render_search_icon_txt_cell(main_item, 60,(width-32)*1/4, (width-32)/4,90,"www.baidu.com",".\/demo_icon\/002.png","render_search_icon_txt_cell_1","美食");
-				this.render_search_icon_txt_cell(main_item, 60,(width-32)*2/4, (width-32)/4,90,"www.baidu.com",".\/demo_icon\/003.png","render_search_icon_txt_cell_2","电影");
-				this.render_search_icon_txt_cell(main_item, 60,(width-32)*3/4, (width-32)/4,90,"www.baidu.com",".\/demo_icon\/004.png","render_search_icon_txt_cell_3","外卖");
+				this.render_search_icon_txt_cell(main_item, top_height + search_height +10,0, (width-32)/4+16,90,"www.baidu.com",".\/demo_icon\/001.png","render_search_icon_txt_cell_0","优惠券");
+				this.render_search_icon_txt_cell(main_item, top_height + search_height +10,(width-32)*1/4+16, (width-32)/4,90,"www.baidu.com",".\/demo_icon\/002.png","render_search_icon_txt_cell_1","美食");
+				this.render_search_icon_txt_cell(main_item, top_height + search_height +10,(width-32)*2/4+16, (width-32)/4,90,"www.baidu.com",".\/demo_icon\/003.png","render_search_icon_txt_cell_2","电影");
+				this.render_search_icon_txt_cell(main_item, top_height + search_height +10,(width-32)*3/4+16, (width-32)/4,90,"www.baidu.com",".\/demo_icon\/004.png","render_search_icon_txt_cell_3","外卖");
                 parent.appendChild(main_item);
 			},
             render_A1_1_img_block:function(parent,width,data,id){
                 var main_item = document.createElement("div");
                 //this.get_slef_fun_name();
                 main_item.id = id;
-                ThisPage.style_controller.set_base_style(main_item,0,16,width-32,(width-32)/1.4+40+8+(width-56)/4,"block","relative");
+                ThisPage.style_controller.set_base_style(main_item,0,16,width-32,(width-32)/1.4+40+10+(width-56)/4,"block","relative");
                 ThisPage.render_A1_img_cell_0(main_item,20,0,width-32,(width-32)/1.4,0,data,0, "render_A1_img_cell_0_" + 0);
                 for(var i = 0 ;i < 4; i++){
                     ThisPage.render_A1_img_cell_0(main_item,20 + (width-32)/1.4 + 8,i*((width-56)/4+8),((width-56)/4),((width-56)/4),0,data,i+1,"render_A1_img_cell_0_" + (i+1));
@@ -275,11 +283,56 @@
                 parent.appendChild(main_item);
 
             },
+            render_A1_2_img_txt_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                //this.get_slef_fun_name();
+                main_item.id = id;
+                ThisPage.style_controller.set_base_style(main_item,0,16,width-32,(width-32)/1.4+40+30+(width-56)/3,"block","relative");
+                ThisPage.render_A1_img_cell_0(main_item,20,0,width-32,(width-32)/1.4,0,data,0, "render_A1_1_img_cell_0_" + 0);
+                for(var i = 0 ;i < 3; i++){
+                    ThisPage.render_A1_2_img_txt_cell_0(main_item,20 + (width-32)/1.4 + 8,i*((width-48)/3+8),((width-48)/3),((width-56)/3+40),0,data,i+1,"render_A1_img_cell_0_" + (i+1));
+                }
+                parent.appendChild(main_item);
 
+            },
+			
+			render_A1_3_img_txt_block:function(parent,width,data,id){
+                var main_item = document.createElement("div");
+                //this.get_slef_fun_name();
+                main_item.id = id;
+
+                ThisPage.style_controller.set_base_style(main_item,0,16,width-32,(width-32)/2+225,"block","relative");
+				
+                ThisPage.render_A1_img_cell_0(main_item,20,0,width-32,(width-32)/2,0,data,0, "render_A1_img_cell_0_" + 0);
+
+				var ads_item = document.createElement("div");
+                ads_item.id = "render_A1_3_img_txt_block_ads";
+                ThisPage.style_controller.set_render_A1_3_img_txt_ads(ads_item,(width-32)/2,0,width,200,"block","relative");
+                for (var i = 0 ; i < 9; i++){
+					val = parseInt(i/3)*24;
+                    ThisPage.render_B9_img_txt_cell(ads_item,8+(width-32)/2,i*((width-48)/3+8)+val,((width-48)/3),200,data,i,"render_A1_3_img_txt_cell_" + i);
+                }
+                var item_dom = document.createElement("div");
+                item_dom.id = "item_dom";
+                ThisPage.style_controller.set_base_style(item_dom,(width-32)/2 + 200,((width-32)-60)/2,60,30,"block","absolute");
+                
+                ThisPage.render_doms_cell(item_dom,"A1_3_dom");
+                //ThisPage.render_hr_line(main_item,239,0,320);
+                main_item.appendChild(ads_item);
+                main_item.appendChild(item_dom);
+                parent.appendChild(main_item);
+
+                var dom_cur = document.getElementById("A1_3_dom_0");
+                dom_cur.style.backgroundColor = "#a8a8a8";
+                parent.appendChild(main_item);
+				ThisPage.roll_controller_A1_3.init();
+
+
+            },
             render_A2_img_txt_block:function(parent,width,data,id){
                 var main_item = document.createElement("div");
                 main_item.id = id;
-                ThisPage.style_controller.set_base_style(main_item,0,16,width-32,(width-32)/1.4+30+8+(width-56)/4,"block","relative");
+                ThisPage.style_controller.set_base_style(main_item,0,16,width-32,(width-32)/1.4+5+30+(width-56)/4,"block","relative");
                 ThisPage.render_A1_img_cell_0(main_item,20,0,width-32,(width-32)/1.4,0,data,0, "render_A1_img_cell_0_" + 0);
                 for(var i = 0 ;i < 3; i++){
                     ThisPage.render_A2_img_txt_cell(main_item,20 + (width-32)/1.4 + 8,i*((width-48)/3+8),((width-48)/3),((width-48)/3)/1.2,data,i+1,"render_A2_img_txt_cell_" + (i+1));
@@ -291,11 +344,11 @@
             render_A3_img_txt_block:function(parent,width,data,id){
                 var main_item = document.createElement("div");
                 main_item.id = id;
-                ThisPage.style_controller.set_base_style(main_item,0,0,width,420+58,"block","relative");
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,400+30,"block","relative");
                 this.render_block_title_cell(main_item,"单品资讯信息流");
                 //ThisPage.render_XX_img_cell(main_item,5,0,width,240,10,data.data.deals,3,"img_cell" + 0);
                 for (var i = 0 ; i < 5; i++){
-                    ThisPage.render_A3_img_txt_cell(main_item,90*i+28,0,width,80,data,i,"render_A3_img_txt_cell_" + i);
+                    ThisPage.render_A3_img_txt_cell(main_item,80*i+30,0,width,80,data,i,"render_A3_img_txt_cell_" + i);
                 }
                 //ThisPage.render_hr_line(main_item,319,0,320);
                 parent.appendChild(main_item);
@@ -322,15 +375,16 @@
             render_B2_txt_img_block:function(parent,width,data,id){
                 var main_item = document.createElement("div");
                 main_item.id = id;
-                var height = 160;
+                var height = 160 ;
                 ThisPage.style_controller.set_base_style(main_item,0,0,width-20,height,"block","relative");
+				this.render_block_title_cell(main_item,"生鲜特卖");
                 ThisPage.style_controller.append_boxmod_style(main_item,"", "0px 0px 0px 10px","");
                 for (var i = 0 ; i < 3; i++){
-                    ThisPage.render_B2_txt_img_cell(main_item,0,(width-20)*i/3,(width-20)/3,160,data,i,"render_B2_txt_img_cell_" + i);
+                    ThisPage.render_B2_txt_img_cell(main_item,28,(width-20)*i/3,(width-20)/3,130,data,i,"render_B2_txt_img_cell_" + i);
                 }
 
                 for (var i = 1 ; i <= 2; i++){
-                    ThisPage.render_vt_line(main_item,15,i*(width-20)/3,130);
+                    ThisPage.render_vt_line(main_item,30,i*(width-20)/3,130);
                 }
 
                 //ThisPage.render_hr_line(main_item,height - 1,-10,320);
@@ -341,17 +395,17 @@
             render_B3_txt_icon_block:function(parent,width,data,id){
                 var main_item = document.createElement("div");
                 main_item.id = id;
-                var height = 120 + 38;
+                var height = 120 + 28;
                 ThisPage.style_controller.set_base_style(main_item,0,0,width,height,"block","relative");
                 //ThisPage.style_controller.append_boxmod_style(main_item,"", "0px 0px 0px 10px","");
                 this.render_block_title_cell(main_item,"主题专场活动");
                 for (var i = 0 ; i < 4; i++){
-                    ThisPage.render_B3_txt_icon_cell(main_item,38+60*parseInt(i/2),160*(i%2),160,60,data,i,"render_B3_txt_icon_cell_" + i);
+                    ThisPage.render_B3_txt_icon_cell(main_item,28+60*parseInt(i/2),160*(i%2),160,60,data,i,"render_B3_txt_icon_cell_" + i);
                 }
 
-                ThisPage.render_vt_line(main_item,38,width/2,60);
-                ThisPage.render_vt_line(main_item,98,width/2,60);
-                ThisPage.render_hr_line(main_item,98,10,300);
+                ThisPage.render_vt_line(main_item,28,width/2,60);
+                ThisPage.render_vt_line(main_item,88,width/2,60);
+                ThisPage.render_hr_line(main_item,88,10,300);
                 //ThisPage.render_hr_line(main_item,height - 1,0,320);
                 parent.appendChild(main_item);
 
@@ -376,33 +430,32 @@
                 ThisPage.style_controller.set_base_style(main_item,0,0,width,height+38,"block","relative");
                 this.render_block_title_cell(main_item,"单品活动拼接");
 
-                ThisPage.render_B5_txt_img_cell_0(main_item,38,0,160,160,data,0,"render_B4_icon_txt_cell_0");
-                ThisPage.render_B5_txt_img_cell_1(main_item,38,160,160,80,data,1,"render_B4_icon_txt_cell_1");
-                ThisPage.render_B5_txt_img_cell_2(main_item,118,160,80,80,data,2,"render_B4_icon_txt_cell_2");
-                ThisPage.render_B5_txt_img_cell_2(main_item,118,240,80,80,data,3,"render_B4_icon_txt_cell_3");
-                //ThisPage.render_B5_txt_img_cell_0(main_item,0,0,320,30,data,0,"render_B4_icon_txt_cell_3");
+                ThisPage.render_B5_txt_img_cell_0(main_item,28,0,160,160,data,0,"render_B5_txt_img_cell_0");
+                ThisPage.render_B5_txt_img_cell_1(main_item,28,160,160,80,data,1,"render_B5_txt_img_cell_1");
+                ThisPage.render_B5_txt_img_cell_2(main_item,108,160,80,80,data,2,"render_B5_txt_img_cell_2");
+                ThisPage.render_B5_txt_img_cell_2(main_item,108,240,80,80,data,3,"render_B5_txt_img_cell_2");
 
-                //ThisPage.render_hr_line(main_item,119,0,320);
-                ThisPage.render_vt_line(main_item,38,width/2,160);
-                ThisPage.render_vt_line(main_item,118,240,80);
-                ThisPage.render_hr_line(main_item,118,160,160);
+                ThisPage.render_vt_line(main_item,28,width/2,170);
+                ThisPage.render_vt_line(main_item,108,240,100);
+                ThisPage.render_hr_line(main_item,108,160,170);
                 parent.appendChild(main_item);
             },
 
             render_B6_txt_icon_block:function(parent,width,data,id){
                 var main_item = document.createElement("div");
                 main_item.id = id;
-                ThisPage.style_controller.set_base_style(main_item,0,0,width,160,"block","relative");
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,188,"block","relative");
+				this.render_block_title_cell(main_item,"家居新品上市");
                 //ThisPage.style_controller.append_boxmod_style(main_item,"", "0px 0px 0px 10px","");
                 for (var i = 0 ; i < 8; i++){
-                    ThisPage.render_B6_txt_icon_cell(main_item,80*parseInt(i/4),80*(i%4),80,80,data,i,"render_B6_txt_icon_cell_" + i);
+                    ThisPage.render_B6_txt_icon_cell(main_item,80*parseInt(i/4)+28,80*(i%4),80,80,data,i,"render_B6_txt_icon_cell_" + i);
                 }
 
                 for (var i = 1 ;i <= 3; i++){
-                    ThisPage.render_vt_line(main_item,10,80*i,60);
-                    ThisPage.render_vt_line(main_item,90,80*i,60);
+                    ThisPage.render_vt_line(main_item,28,80*i,80);
+                    ThisPage.render_vt_line(main_item,80+28,80*i,80);
                 }
-                ThisPage.render_hr_line(main_item,80,10,300);
+                ThisPage.render_hr_line(main_item,108,10,300);
                 //ThisPage.render_hr_line(main_item,159,0,320);
                 parent.appendChild(main_item);
 
@@ -413,7 +466,7 @@
                 main_item.id = id;
                 ThisPage.style_controller.set_base_style(main_item,0,0,width,80,"block","relative");
                 //ThisPage.style_controller.append_boxmod_style(main_item,"", "0px 0px 0px 10px","");
-                ThisPage.render_A1_img_cell_0(main_item,5,0,width,70,0,data,0,"render_B7_img_cell_0");
+                ThisPage.render_A1_img_cell_0(main_item,5,0,width,80,0,data,0,"render_B7_img_cell_0");
 
                 //ThisPage.render_hr_line(main_item,79,0,320);
                 parent.appendChild(main_item);
@@ -425,10 +478,11 @@
                 var main_item = document.createElement("div");
                 main_item.id = id;
 
-                ThisPage.style_controller.set_base_style(main_item,0,0,width,298,"block","relative");
-                                this.render_block_title_cell(main_item,"单品列表模块");
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,275,"block","relative");
+                this.render_block_title_cell(main_item,"单品列表模块");
                 for (var i = 0 ; i < 3; i++){
-                    ThisPage.render_B8_img_txt_cell(main_item,i*80+58,0,width,80,data,i,"render_B8_img_txt_cell_" + i);
+                    ThisPage.render_B8_img_txt_cell(main_item,i*80+32,0,width,80,data,i,"render_B8_img_txt_cell_" + i);
+					ThisPage.render_hr_line(main_item,i*80+34+80,0,320);
                 }
 
                 //ThisPage.render_hr_line(main_item,239,0,320);
@@ -440,21 +494,20 @@
             render_B9_img_txt_block:function(parent,width,data,id){
                 var main_item = document.createElement("div");
                 main_item.id = id;
-                ThisPage.style_controller.set_base_style(main_item,0,0,width,240 +58,"block","relative");
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,220 +20,"block","relative");
 
                 this.render_block_title_cell(main_item,"单品轮播模块");
                 var ads_item = document.createElement("div");
                 ads_item.id = "render_B9_img_ads";
-                ThisPage.style_controller.set_render_B9_img_ads(ads_item,0,0,width,240,"block","absolute");
+                ThisPage.style_controller.set_render_B9_img_ads(ads_item,0,0,width,200,"block","absolute");
                 for (var i = 0 ; i < 9; i++){
-                    ThisPage.render_B9_img_txt_cell(ads_item,58,i*width/3,width/3,200,data,i,"render_B9_img_txt_cell_" + i);
+                    ThisPage.render_B9_img_txt_cell(ads_item,28,i*width/3,width/3,200,data,i,"render_B9_img_txt_cell_" + i);
                 }
                 var item_dom = document.createElement("div");
                 item_dom.id = "item_dom";
-                ThisPage.style_controller.set_base_style(item_dom,258,130,60,30,"block","absolute");
+                ThisPage.style_controller.set_base_style(item_dom,220,(width-60)/2,60,30,"block","absolute");
                 
-                ThisPage.render_doms_cell(item_dom);
-                //ThisPage.render_hr_line(main_item,239,0,320);
+                ThisPage.render_doms_cell(item_dom,"B9_dom");
                 main_item.appendChild(ads_item);
                 main_item.appendChild(item_dom);
                 parent.appendChild(main_item);
@@ -468,9 +521,10 @@
             render_B10_img_txt_block:function(parent,width,data,id){
                 var main_item = document.createElement("div");
                 main_item.id = id;
-                ThisPage.style_controller.set_base_style(main_item,0,0,width,280,"block","relative");
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,308,"block","relative");
+				this.render_block_title_cell(main_item,"热卖单品排行");
                 for (var i = 0 ; i < 6; i++){
-                    ThisPage.render_B10_img_txt_cell(main_item,parseInt(i/3)*130 + 20,(i%3)*width/3,width/3,120,data,i,"render_B10_img_txt_cell_" + i);
+                    ThisPage.render_B10_img_txt_cell(main_item,parseInt(i/3)*130 + 48,(i%3)*width/3,width/3,120,data,i,"render_B10_img_txt_cell_" + i);
                 }
 
                 //ThisPage.render_hr_line(main_item,239,0,320);
@@ -480,9 +534,10 @@
             render_B11_img_txt_block:function(parent,width,data,id){
                 var main_item = document.createElement("div");
                 main_item.id = id;
-                ThisPage.style_controller.set_base_style(main_item,0,0,width,280,"block","relative");
+                ThisPage.style_controller.set_base_style(main_item,0,0,width,300,"block","relative");
+				this.render_block_title_cell(main_item,"热门单品");
                 for (var i = 0 ; i < 6; i++){
-                    ThisPage.render_B11_img_txt_cell(main_item,parseInt(i/3)*120 +20 ,(i%3)*width/3,width/3,140,data,i,"render_B11_img_txt_cell_" + i);
+                    ThisPage.render_B11_img_txt_cell(main_item,parseInt(i/3)*120 +48 ,(i%3)*width/3,width/3,140,data,i,"render_B11_img_txt_cell_" + i);
                 }
 
                 //ThisPage.render_hr_line(main_item,239,0,320);
@@ -492,6 +547,31 @@
             },
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //以下为元素级别渲染函数，供块级别渲染函数使用
+			render_top_guide_cell:function(parent,top,left,width,height){
+				var main_item = document.createElement("div");
+				ThisPage.style_controller.set_base_style(main_item,top,left,width,height,"block","absolute");
+				ThisPage.style_controller.append_single_font_style(main_item,0,"","","","#0099ff","");
+				
+				var title_guilde = document.createElement("a");
+				title_guilde.innerHTML = "返回";
+				title_guilde.href = "javascript :history.back(-1)";
+				
+				ThisPage.style_controller.set_base_style(title_guilde,10,30,60,20,"block","absolute");
+				ThisPage.style_controller.append_single_font_style(title_guilde,14,"#fff","Microsoft YaHei","left","#",20);
+					
+				var tag_left = document.createElement("div");
+				tag_left.innerHTML = "<";
+				tag_left.href = "javascript :history.back(-1)";
+				
+				ThisPage.style_controller.set_base_style(tag_left,0,10,20,30,"block","absolute");
+				ThisPage.style_controller.append_single_font_style(tag_left,20,"#fff","Microsoft YaHei","left","#",38);
+				main_item.appendChild(tag_left)
+				
+				main_item.appendChild(title_guilde);
+				
+				parent.appendChild(main_item);
+				
+			},
 
 			render_search_cell: function(parent,top,left,width,height){
 				var search_form_item = document.createElement("form");
@@ -499,7 +579,7 @@
 				search_form_item.target = "_blank";
 				search_form_item.method = "get";
 				search_form_item.action = "http://m.baidu.com/s";
-				this.style_controller.set_base_style(search_form_item,20,0,width-2,50,"block","absolute");
+				ThisPage.style_controller.set_base_style(search_form_item,top,16,width-2,50,"block","absolute");
 				//this.style_controller.append_boxmod_style(search_form_item,"","","1px solid #bbb");
 
 				var search_item = document.createElement("input");
@@ -540,7 +620,7 @@
 				
 				var item_title = document.createElement("div");
                 item_title.innerHTML = title;
-                ThisPage.style_controller.set_base_style(item_title,45,0,width,20,"block","absolute");
+                ThisPage.style_controller.set_base_style(item_title,40,0,width,20,"block","absolute");
                 ThisPage.style_controller.append_single_font_style(item_title,10,"#444","Microsoft YaHei","center","#",16);
                 item_a.appendChild(item_title);
 				
@@ -587,7 +667,48 @@
                 item_a.appendChild(item_img);
                 parent.appendChild(item_a);
             },
-                        
+            render_A1_2_img_txt_cell_0:function(parent,top,left,width,height,pad_lr,data,idx,id){
+			    var item_a = document.createElement("a");
+                if(typeof data[idx] == 'undefined' ){
+                    return;
+                }
+                var img_url = data[idx].img_url;//注此处需做一个适配用于适配不同接口中的数据的key
+                var curl = data[idx].target_url;
+				var title = data[idx].title;
+				var desc =  data[idx].desc;
+				var price = "100 ￥";
+                
+                item_a.id = id;
+                item_a.target = "_blank";
+                item_a.href = curl;
+                ThisPage.style_controller.set_base_style(item_a,top,pad_lr/2+left,width-pad_lr,height,"block","absolute");
+                var item_img = document.createElement("img");
+                item_img.src = img_url;
+                ThisPage.style_controller.set_base_style(item_img,0,0,width-pad_lr,58,"block","absolute");
+				
+				var item_title = document.createElement("div");
+                item_title.innerHTML = title;
+                ThisPage.style_controller.set_base_style(item_title,60,0,width-pad_lr,12,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,10,"#444","Microsoft YaHei","left","#",12);
+
+                var item_desc = document.createElement("div");
+                item_desc.innerHTML = desc;
+                ThisPage.style_controller.set_base_style(item_desc,75,0,width-pad_lr,25,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_desc,8,"#999","Microsoft YaHei","left","#",12);
+				item_desc.style.whiteSpace = "";
+
+                var item_price = document.createElement("div");
+                item_price.innerHTML ="<b>"+price+"</b>";
+                ThisPage.style_controller.set_base_style(item_price,100,0,200,20,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_price,10,"#f60","Microsoft YaHei","left","#",16);
+				
+				item_a.appendChild(item_img);
+				item_a.appendChild(item_title);
+				item_a.appendChild(item_desc);
+				item_a.appendChild(item_price);
+
+                parent.appendChild(item_a);
+			},
             //图片+title
             render_A2_img_txt_cell:function(parent,top,left,width,height,data,idx,id){
                 var item_a = document.createElement("a");
@@ -651,7 +772,7 @@
 
                 var item_price = document.createElement("div");
                 item_price.innerHTML ="<b>"+price+"</b>";
-                ThisPage.style_controller.set_base_style(item_price,55,114,200,20,"block","absolute");
+                ThisPage.style_controller.set_base_style(item_price,50,114,200,20,"block","absolute");
                 ThisPage.style_controller.append_single_font_style(item_price,13,"#f60","Microsoft YaHei","left","#",16);
 
                 ThisPage.render_hr_line(item_a,79,0,320);
@@ -713,15 +834,15 @@
 
                 var item_title = document.createElement("div");
                 item_title.innerHTML = title;
-                ThisPage.style_controller.set_base_style(item_title,20,10,80,30,"block","absolute");
-                ThisPage.style_controller.append_single_font_style(item_title,16,"#313131","Microsoft YaHei","center","#",15);
+                ThisPage.style_controller.set_base_style(item_title,10,10,width-20,30,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_title,14,"#313131","Microsoft YaHei","center","#",15);
                 var item_desc = document.createElement("div");
                 item_desc.innerHTML = desc;
-                ThisPage.style_controller.set_base_style(item_desc,40,10,80,30,"block","absolute");
-                ThisPage.style_controller.append_single_font_style(item_desc,12,"#818181","Microsoft YaHei","center","#",15);
+                ThisPage.style_controller.set_base_style(item_desc,30,10,width-20,30,"block","absolute");
+                ThisPage.style_controller.append_single_font_style(item_desc,10,"#818181","Microsoft YaHei","center","#",15);
                 var item_img = document.createElement("img");
                 item_img.src = img_url;
-                ThisPage.style_controller.set_base_style(item_img,70,15,60,80,"block","absolute");
+                ThisPage.style_controller.set_base_style(item_img,60,10,width-20,60,"block","absolute");
                 ThisPage.style_controller.append_effects_style(item_img,3,"",1);
 
                 item_a.appendChild(item_title);
@@ -746,15 +867,15 @@
 
                 var item_title = document.createElement("div");
                 item_title.innerHTML = title;
-                ThisPage.style_controller.set_base_style(item_title,20,10,120,30,"block","absolute");
+                ThisPage.style_controller.set_base_style(item_title,15,10,120,30,"block","absolute");
                 ThisPage.style_controller.append_single_font_style(item_title,14,"#444","Microsoft YaHei","left","#",16);
                 var item_desc = document.createElement("div");
                 item_desc.innerHTML = desc;
-                ThisPage.style_controller.set_base_style(item_desc,40,10,100,30,"block","absolute");
+                ThisPage.style_controller.set_base_style(item_desc,35,10,100,30,"block","absolute");
                 ThisPage.style_controller.append_single_font_style(item_desc,10,"#999","Microsoft YaHei","left","#",12);
                 var item_img = document.createElement("img");
                 item_img.src = img_url;
-                ThisPage.style_controller.set_base_style(item_img,20,120,30,30,"block","absolute");
+                ThisPage.style_controller.set_base_style(item_img,15,120,30,30,"block","absolute");
                 ThisPage.style_controller.append_effects_style(item_img,3,"",1);
 
                 item_a.appendChild(item_title);
@@ -995,7 +1116,7 @@
                 ThisPage.style_controller.set_base_style(item_stars,50,250,65,15,"block","absolute");
                 this.render_stars(item_stars,3);
 
-                ThisPage.render_hr_line(item_a,height-1,0,320);
+
 
                 item_a.appendChild(item_img);
                 item_a.appendChild(item_title);
@@ -1092,12 +1213,12 @@
                 var item_title = document.createElement("div");
                 item_title.innerHTML = title;
                 ThisPage.style_controller.set_base_style(item_title,85,(width-95)/2,85,20,"block","absolute");
-                ThisPage.style_controller.append_single_font_style(item_title,10,"#444","Microsoft YaHei","left","#",12);
+                ThisPage.style_controller.append_single_font_style(item_title,10,"#444","Microsoft YaHei","center","#",12);
 
                 var item_desc = document.createElement("div");
                 item_desc.innerHTML = desc;
                 ThisPage.style_controller.set_base_style(item_desc,100,(width-95)/2,95,15,"block","absolute");
-                ThisPage.style_controller.append_single_font_style(item_desc,8,"#999","Microsoft YaHei","left","#",10);
+                ThisPage.style_controller.append_single_font_style(item_desc,8,"#999","Microsoft YaHei","center","#",10);
 
                 item_a.appendChild(item_img);
                 item_a.appendChild(item_title);
@@ -1105,20 +1226,20 @@
                 parent.appendChild(item_a);
             },
 
-            render_doms_cell:function(parent){
+            render_doms_cell:function(parent,id_prefix){
                 for(var i = 0; i < 3; i ++){
                     var div_item = document.createElement("div");
-                    div_item.id = "B9_dom_" + i;
-                    ThisPage.style_controller.set_base_style(div_item,0,i*16,4,4,"line-block","absolute");
+                    div_item.id = id_prefix +"_"+ i;
+                    ThisPage.style_controller.set_base_style(div_item,0,i*20+8,4,4,"line-block","absolute");
                     ThisPage.style_controller.append_effects_style(div_item,10,"","",1);
                     ThisPage.style_controller.append_boxmod_style(div_item,"","","1px solid #bbb");
                     parent.appendChild(div_item);
                 }
             },
 
-            set_doms_cell:function(idx){
+            set_doms_cell:function(idx,id_prefix){
                 for(var i = 0; i < 3; i ++){
-                     var div_item = document.getElementById("B9_dom_"+i);
+                     var div_item = document.getElementById(id_prefix + "_" +i);
                     if(i === idx){
                         div_item.style.backgroundColor = "#a8a8a8";
                     }else{
@@ -1162,7 +1283,7 @@
             },
             render_hr_line:function(parent,top,left,width){
                 var div_item = document.createElement("div");
-                ThisPage.style_controller.set_line_style(div_item,top,left,width,1.2,"absolute");
+                ThisPage.style_controller.set_line_style(div_item,top,left,width,1,"absolute");
                 parent.appendChild(div_item);
             },            
 
@@ -1344,6 +1465,17 @@
                     //this.render_B9_img_ads["overflow"] = "hidden";
                     this._set_style(dom,this.render_B9_img_ads);
                 },
+				set_render_A1_3_img_txt_ads:function(dom,top,left,width,height,display,position){
+                    this.render_A1_3_img_txt_ads = [];
+                    //this.render_A1_3_img_txt_ads["display"] = display;
+                    //this.render_A1_3_img_txt_ads["position"] = position;
+                    this.render_A1_3_img_txt_ads["top"] = top;
+                    this.render_A1_3_img_txt_ads["left"] = left;
+                    this.render_A1_3_img_txt_ads["width"] = width;
+                    this.render_A1_3_img_txt_ads["height"] = height;
+                    //this.render_B9_img_ads["overflow"] = "hidden";
+                    this._set_style(dom,this.render_A1_3_img_txt_ads);
+                },
             },
             roll_controller: {
             can_use_transform: false,
@@ -1424,7 +1556,196 @@
                 }
                 this.start();
                 //alert(this.cur_index);
-                ThisPage.set_doms_cell(this.cur_index);
+                ThisPage.set_doms_cell(this.cur_index,"B9_dom");
+            },
+            before_event: function(event) {
+                if (!event) {
+                    return;
+                }
+                if (event.preventDefault) {
+                    event.preventDefault();
+                } else {
+                    event.returnValue = false;
+                }
+            },
+            start: function() {
+                if (null != this.roll_timer) {
+                    this.stop();
+                    this.roll_timer = setInterval(
+                    this.roll_next.proxy(this), this.roll_speed);
+                }
+            },
+            stop: function() {
+                if (this.roll_timer != null) {
+                    clearInterval(this.roll_timer);
+                    this.roll_timer = null;
+                }
+            },
+            set_coord: function(position, time) {
+                if (this.can_use_transform) {
+                    this.set_transform(position, time);
+                    this.roll_object_style["left"] = position;
+                } else {
+                    this.roll_object_style["left"] = position;
+                }
+                ThisPage.style_controller._set_style(this.roll_object, this.roll_object_style);
+            },
+            rollTo: function(idx, speed) {
+                var idx = idx || 0;
+                this.cur_index = idx;
+                var transition_time = speed || this.transition_time;
+                var position = this.left - idx * this.step_width;
+                this.set_coord(position, transition_time);
+            },
+            transitionEnd: function(event) {
+                if (this.is_loop) {
+                    if (this.cur_index > this.max_page) {
+                        this.cur_index = 0;
+                    } else if (this.cur_index < this.min_page) {
+                        this.cur_index = this.max_page;
+                    }
+                }
+                this.set_coord(this.left - this.cur_index * this.step_width, 0);
+                this.set_select_position(this.cur_index);
+                this.start();
+            },
+            bind: function (element, eventType, handler) {
+                if (window.addEventListener) { 
+                    element.addEventListener(eventType, handler, false);
+                } else {
+                    element.attachEvent("on" + eventType, handler);
+                }   
+            },
+            roll_pre: function(event) {
+                this.before_event(event);
+                var idx = this.cur_index;
+                if(idx === this.min_page){
+                    this.rollTo(idx);
+                    return;
+                }
+                idx -= 1;
+                if (this.cur_index < this.min_page) {
+                    idx = this.is_loop ? this.min_page-1 : idx;
+                }
+                this.rollTo(idx);
+            },
+            roll_next: function(event) {
+                this.before_event(event);
+                var idx = this.cur_index;
+                if(idx === this.max_page){
+                    this.rollTo(idx);
+                    return;
+                }
+                idx += 1;
+                if (this.cur_index > this.max_page) {
+                    idx = this.is_loop ? this.max_page+1 : idx;
+                }
+                this.rollTo(idx);
+            },
+            set_select_position: function(idx) {
+                for (var i=0; i<this.select_array.length; i++) {
+                    if (i == idx) {
+                        this.select_array[i].setAttribute("class", "on");
+                    } else {
+                        this.select_array[i].setAttribute("class", "");
+                    }
+                }
+            },
+            set_transform: function(position, time) {
+                var transform_str = "translate3d("+ position+"px, 0px, 0px)";
+                this.roll_object_style["transform"] = transform_str;
+                this.roll_object_style["-ms-transform"] = transform_str;
+                this.roll_object_style["-o-transform"] = transform_str;
+                this.roll_object_style["-moz-transform"] = transform_str;
+                this.roll_object_style["-webkit-transform"] = transform_str;
+                var transition_str = time + "ms"; 
+                this.roll_object_style["transition"] = transition_str;
+                this.roll_object_style["-ms-transition"] = transition_str;
+                this.roll_object_style["-o-transition"] = transition_str;
+                this.roll_object_style["-moz-transition"] = transition_str;
+                this.roll_object_style["-webkit-transition"] = transition_str;
+            }
+        },
+		  roll_controller_A1_3: {
+            can_use_transform: false,
+            cur_index: 0,
+            roll_speed: 4000,
+            roll_timer: null,
+            max_page: 2,
+            min_page: 0,
+            roll_object:null,
+            roll_object_style:null,
+            is_loop: false,   //是否循环
+            select_array:[],
+            movestart:null,
+            distx:0,
+            coord:null,
+            bug_timer: null,
+            left: 0,
+            transition_time: 300,
+            step_width: 0,
+            init: function() {
+                if ("Transform" in document.documentElement.style || 
+                    "WebkitTransform" in document.documentElement.style || 
+                        "OTransform" in document.documentElement.style ||
+                        "MsTransform" in document.documentElement.style || 
+                        "MozTransform" in document.documentElement.style) {
+                    this.can_use_transform = true;
+                }
+                this.roll_object = document.getElementById("render_A1_3_img_txt_block_ads");
+                this.step_width = 320;
+                this.select_array = [];
+                this.roll_object_style = ThisPage.style_controller.render_A1_3_img_txt_ads;
+                this.bind(this.roll_object,"transitionend", this.transitionEnd.proxy(this));
+                this.bind(this.roll_object,"oTransitionEnd", this.transitionEnd.proxy(this));
+                this.bind(this.roll_object,"msTransitionEnd", this.transitionEnd.proxy(this));
+                this.bind(this.roll_object,"mozTransitionEnd", this.transitionEnd.proxy(this));
+                this.bind(this.roll_object,"webkitTransitionEnd", this.transitionEnd.proxy(this));
+
+                this.bind(this.roll_object, "touchstart", this.touchstart.proxy(this));
+                this.bind(this.roll_object, "touchmove", this.touchmove.proxy(this));
+                this.bind(this.roll_object, "touchend", this.touchend.proxy(this));
+                this.bind(this.roll_object, "touchcancel", this.touchend.proxy(this));
+
+                this.start();
+            },
+            touchstart:function(event) {
+                var point = event.touches[0];
+                this.movestart = 0;
+                this.distx = 0;
+                this.coord = {x: point.pageX, y: point.pageY};
+            },
+            touchmove: function(event) {
+                if (!(event.touches.length >1 || 
+                    (event.scale && event.scale !== 1))) {
+                    var point = event.touches[0];
+                    this.distx = point.pageX - this.coord.x;
+                if (this.movestart === 1 || Math.abs(this.distx) > 
+                            Math.abs(point.pageY - this.coord.y)) {
+                        this.movestart = 1;
+                        this.before_event(event);
+                        this.stop();
+                        //this.is_loop || (this.distx /= (!this.cur_index && this.distx > 0) ||
+                        //    (this.cur_index == this.max_page && (0 > this.distx?
+                         //   Math.abs(this.distx)/this.step_width + 1 : 1)));
+                        var position = this.left - this.cur_index * this.step_width + 1 * this.distx;
+                        this.set_coord(position, 0);
+                        this.bug_timer && clearTimeout(this.bug_timer);
+                        this.bug_timer = setTimeout(this.start.proxy(this),500);
+                    };
+                }
+            },
+            touchend: function(event) {
+                if (this.distx < -10) {
+                    this.before_event(event);
+                    this.roll_next();
+                } else if (this.distx > 10) {
+                    this.before_event(event);
+                    this.roll_pre();
+                }
+                this.start();
+                //alert(this.cur_index);
+                ThisPage.set_doms_cell(this.cur_index,"A1_3_dom");
             },
             before_event: function(event) {
                 if (!event) {
