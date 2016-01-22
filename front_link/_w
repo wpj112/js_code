@@ -1,0 +1,162 @@
+var ThisPage = {
+    init: function() {
+        var image_url = "./image/travel.png";
+        var word = "出行";
+        var click_url = "http://www.baidu.com";
+        this.paint_ad();
+    },
+    //默认配置管理
+    config_controller: {
+        default_config: {"titFF":"%E5%AE%8B%E4%BD%93", "titTA":"left", "conBW:":0,
+        "rss0": "#86AC5F", "rss1": "Transparent", "rss2": "#374565", "titFS": 28},
+        color_idx: ["#f2405b", "#f2405b", "#f2405b", "#858585", "#858585", "#858585", "#858585", "#858585", "#858585"],
+        priority_config:{"titFS": 28},
+        config: {},
+        init: function(config) {
+            this.config = config;
+        },
+        get_var: function(name) {
+            if (this.priority_config[name]) {
+                return this.priority_config[name];
+            }
+            if (this.config[name]) {
+                return this.config[name];
+            }
+            if (this.default_config[name]) {
+                return this.default_config[name];
+            }
+            return 0;
+        },
+        //当推词有大于等于7个单词的，缩小字体大小
+        get_bytes: function(title) {
+            var length =  title.replace(/[^\x00-\xff]/gi, "--").length; 
+            return length;
+        }
+    },
+    paint_ad: function(dom, col, row) {
+        var adn = row * col;
+        var item_style = ThisPage.style_controller.cal_item_style(row, col);
+        var idx_block_style = ThisPage.style_controller.cal_idx_style();
+        var span_style = ThisPage.style_controller.cal_span_style();
+        for (var i=0; i<adn; i++) {
+            var title = window.ads[i].title;
+            var item = document.createElement("a");
+            item.setAttribute("href", window.ads[i].curl);
+            item.setAttribute("class", "item");
+            item.setAttribute("target", "_blank");
+            ThisPage.style_controller.set_style(item, item_style);
+
+            var idx_block = document.createElement("i");
+            if ( window.config["rankstyle"] && 
+                    parseInt(window.config["rankstyle"]) === 1) {
+                idx_block.setAttribute("class", "idx_block");
+            } else {
+                idx_block.setAttribute("class", "idx_block_circle");
+            }
+            var index_row = Math.floor(i/col);
+            var index_col = Math.floor(i%col);
+            var number = index_row + 1 + index_col*row;
+            idx_block.innerHTML = number;
+            var color_idx = ThisPage.config_controller.color_idx;
+            var index = number-1 > color_idx.length-1 ? color_idx.length - 1 : number-1;
+            idx_block_style["background-color"] = color_idx[index];
+            item.appendChild(idx_block);
+            this.style_controller.set_style(item, this.style_controller.item_style);
+            this.style_controller.set_style(idx_block,  idx_block_style);
+            var span = document.createElement("span");
+            span.innerHTML = window.ads[i].title;
+            this.style_controller.set_style(span, span_style);
+            item.appendChild(span);
+            dom.appendChild(item);
+        }
+    },
+    style_controller: {
+        item_style: {},
+        container_style: {},
+        idx_block_style: {},
+        span_style: {},
+        zoom: 0,
+        gen_style: function(style) {
+            var result = "";
+            if (style) {
+                for (var key in style) {
+                    result += key + ":" + style[key] + (this.pxStyle[key] ? "px;" : ";");
+                }
+            }
+            return result;
+        },
+        pxStyle: { 
+            width: 1,
+            height: 1,
+            "line-height": 1,
+            "padding-left": 1,
+            "padding-right": 1,
+            "padding-top": 1,
+            "padding-bottom": 1,
+            "border-width": 1,
+            "font-size": 1,
+            "margin-left": 1,
+            "margin-right": 1,
+            "margin-top": 1, 
+            "margin-bottom": 1,
+            "border-left-width": 1,
+            "border-right-width": 1,
+            "border-top-width": 1,
+            "border-bottom-width": 1,
+            "top": 1,
+            "left": 1,
+            "bottom": 1,
+            "right": 1
+        },
+        //兼容性处理
+        getElementsByClassName: function(className, root, tagName) {
+            if(root){
+                root=typeof root=="string" ? document.getElementById(root) : root;   
+            }else{
+                root=document.body;
+            }
+            tagName=tagName||"*";                                    
+            if (document.getElementsByClassName) {                    
+                return root.getElementsByClassName(className);
+            }else { 
+                var tag= root.getElementsByTagName(tagName);
+                var tagAll = [];            
+                for (var i = 0; i < tag.length; i++) {  
+                    for(var j=0,n=tag[i].className.split(' ');j<n.length;j++){
+                        if(n[j]==className){
+                            tagAll.push(tag[i]);
+                            break;
+                        }
+                    }
+                }
+                return tagAll;
+            }
+
+        },
+        set_class: function(dom, css) {
+            if (!window.attachEvent) {
+                dom.setAttribute("class", css);
+            } else {
+                dom.className = css;
+            }
+        },
+        set_style: function(dom, style) {
+            var css = this.gen_style(style);
+            if (!window.attachEvent) {
+                dom.setAttribute("style", css);
+            } else {
+                dom.style.cssText=css;
+            }
+        }
+    },
+    Tool: {
+        bind: function (element, eventType, handler) {
+                if (window.addEventListener) { 
+                    element.addEventListener(eventType, handler, false);
+                } else {
+                    element.attachEvent("on" + eventType, handler);
+                }   
+            },
+    },
+}
+run(ThisPage.init.proxy(ThisPage));

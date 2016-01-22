@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>
+<!-- {{bdCadsNoadreason}}|{{bdAllRetAdType}} -->
+<meta http-equiv="Content-Type" content="text/html; charset={{bdEncoding}}" />
+<title>百度网盟推广</title>
+<style type="text/css">
+    {{>TemplateEngine_baseCss}}
+</style>
+<style type="text/css">
+    .container {
+        background-color:#FFFFFF;
+        overflow:hidden;
+        display:block;
+        overflow:hidden;
+        font-family:Microsoft YaHei;
+    }    
+    .item {
+        background-color:Transparent;
+        overflow:hidden;
+        text-decoration: none;
+        color:#374565;
+        float:left;
+        position:relative;
+        -webkit-text-size-adjust: none;
+    }    
+    .item span {
+        padding-left:3px;
+        overflow:hidden;
+    }
+    .idx_block {
+        font-family:Microsoft YaHei;
+        color: #FFFFFF;
+        font-style: normal;
+        text-align: center;
+        cursor: pointer;
+        background-color: #f2405b;
+        -webkit-transition: all 2s 0s ease;
+        -webkit-transform-origin: 50% 50%;
+        -moz-transition: all 2s 0s ease;
+        -moz-transform-origin: 50% 50%;
+        -ms-transition: all 2s 0s ease;
+        -ms-transform-origin: 50% 50%;
+        transition: all 2s 0s ease;
+        transform-origin: 50% 50%;
+        float:left;
+        overflow:hidden;
+        vertical-align:middle;
+        display:block;
+    }
+    .idx_block_circle {
+        font-family:Microsoft YaHei;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -o-border-radius:50%;
+        -ms-border-radius:50%;
+        color: #FFFFFF;
+        font-style: normal;
+        text-align: center;
+        cursor: pointer;
+        background-color: #f2405b;
+        -webkit-transition: all 2s 0s ease;
+        -webkit-transform-origin: 50% 50%;
+        -moz-transition: all 2s 0s ease;
+        -moz-transform-origin: 50% 50%;
+        -ms-transition: all 2s 0s ease;
+        -ms-transform-origin: 50% 50%;
+        transition: all 2s 0s ease;
+        transform-origin: 50% 50%;
+        float:left;
+        overflow:hidden;
+        vertical-align:middle;
+        display:block;
+    }
+</style>
+<script type="text/javascript">
+    {{>TemplateEngine_baseJs}}
+</script>
+</head>
+<body>
+<script type="text/javascript">
+var ads = {{bdCustAd}};
+var config = {{bdCustConf}};
+config.conW = config.conW || config.rsi0;
+<!--config.conH = config.conH || config.rsi1; -->
+</script>
+<!-- main -->
+<div class="loader" id="loader">loading......</div>
+<div class="loader" id="lu_loader">loading......</div>
+<!-- //main -->
+<div class="container" id="cpro_container">
+    <a class='bd-logo4' href={{>env_cproLogoLink}} title='百度网盟推广' target='_blank' onfocus='this.blur()'></a>
+</div>
+<script type="text/javascript">
+    var ThisPage = {
+        init: function() {
+            this.config_controller.init(window.config);
+            var ad_num = window.ads.length; 
+            var container = document.getElementById("cpro_container");
+            this.style_controller.zoom = window.config.conW/640; 
+            var container_style = this.style_controller.cal_container_style();
+            this.style_controller.set_style(container, container_style); 
+            //以防数据较少导致问题
+            if ( ad_num < 3) {
+                this.paint_ad(container, 1, 1);
+                var row = 1;
+                var col = 1;
+            } else {
+                //限制最多的adn 数量
+                if(config.scale == "20.3" && ad_num >9 ) {
+                    ad_num=9;
+                }
+                if(config.scale == "20.5" && ad_num >12 ) {
+                    ad_num=12;
+                }
+
+                var row = Math.floor(ad_num/3); 
+                var col = 3;
+                this.paint_ad(container, col, row); 
+            }
+            this.adjust_bd_logo();
+            //this.lunbo_controller.lunbo(window.config["mobludynamic"], col, row);
+        },
+        //默认配置管理
+        config_controller: {
+            default_config: {"titFF":"%E5%AE%8B%E4%BD%93", "titTA":"left", "conBW:":0,
+            "rss0": "#86AC5F", "rss1": "Transparent", "rss2": "#374565", "titFS": 28},
+            color_idx: ["#f2405b", "#f2405b", "#f2405b", "#858585", "#858585", "#858585", "#858585", "#858585", "#858585"],
+            priority_config:{"titFS": 28},
+            config: {},
+            init: function(config) {
+                this.config = config;
+            },
+            get_var: function(name) {
+                if (this.priority_config[name]) {
+                    return this.priority_config[name];
+                }
+                if (this.config[name]) {
+                    return this.config[name];
+                }
+                if (this.default_config[name]) {
+                    return this.default_config[name];
+                }
+                return 0;
+            },
+            //当推词有大于等于7个单词的，缩小字体大小
+            get_bytes: function(title) {
+                var length =  title.replace(/[^\x00-\xff]/gi, "--").length; 
+                return length;
+            }
+        },
+        paint_ad: function(dom, col, row) {
+            var adn = row * col;
+            var item_style = ThisPage.style_controller.cal_item_style(row, col);
+            var idx_block_style = ThisPage.style_controller.cal_idx_style();
+            var span_style = ThisPage.style_controller.cal_span_style();
+            for (var i=0; i<adn; i++) {
+                var title = window.ads[i].title;
+                var item = document.createElement("a");
+                item.setAttribute("href", window.ads[i].curl);
+                item.setAttribute("class", "item");
+                item.setAttribute("target", "_blank");
+                ThisPage.style_controller.set_style(item, item_style);
+
+                var idx_block = document.createElement("i");
+                if ( window.config["rankstyle"] && 
+                        parseInt(window.config["rankstyle"]) === 1) {
+                    idx_block.setAttribute("class", "idx_block");
+                } else {
+                    idx_block.setAttribute("class", "idx_block_circle");
+                }
+                var index_row = Math.floor(i/col);
+                var index_col = Math.floor(i%col);
+                var number = index_row + 1 + index_col*row;
+                idx_block.innerHTML = number;
+                var color_idx = ThisPage.config_controller.color_idx;
+                var index = number-1 > color_idx.length-1 ? color_idx.length - 1 : number-1;
+                idx_block_style["background-color"] = color_idx[index];
+                item.appendChild(idx_block);
+                this.style_controller.set_style(item, this.style_controller.item_style);
+                this.style_controller.set_style(idx_block,  idx_block_style);
+                var span = document.createElement("span");
+                span.innerHTML = window.ads[i].title;
+                this.style_controller.set_style(span, span_style);
+                item.appendChild(span);
+                dom.appendChild(item);
+            }
+        },
+        //样式控制器
+        style_controller: {
+            item_style: {},
+            container_style: {},
+            idx_block_style: {},
+            span_style: {},
+            zoom: 0,
+            gen_style: function(style) {
+                var result = "";
+                if (style) {
+                    for (var key in style) {
+                        result += key + ":" + style[key] + (this.pxStyle[key] ? "px;" : ";");
+                    }
+                }
+                return result;
+            },
+            pxStyle: { 
+                width: 1,
+                height: 1,
+                "line-height": 1,
+                "padding-left": 1,
+                "padding-right": 1,
+                "padding-top": 1,
+                "padding-bottom": 1,
+                "border-width": 1,
+                "font-size": 1,
+                "margin-left": 1,
+                "margin-right": 1,
+                "margin-top": 1, 
+                "margin-bottom": 1,
+                "border-left-width": 1,
+                "border-right-width": 1,
+                "border-top-width": 1,
+                "border-bottom-width": 1,
+                "top": 1,
+                "left": 1,
+                "bottom": 1,
+                "right": 1
+            },
+            //兼容性处理
+            getElementsByClassName: function(className, root, tagName) {
+                if(root){
+                    root=typeof root=="string" ? document.getElementById(root) : root;   
+                }else{
+                    root=document.body;
+                }
+                tagName=tagName||"*";                                    
+                if (document.getElementsByClassName) {                    
+                    return root.getElementsByClassName(className);
+                }else { 
+                    var tag= root.getElementsByTagName(tagName);
+                    var tagAll = [];            
+                    for (var i = 0; i < tag.length; i++) {  
+                        for(var j=0,n=tag[i].className.split(' ');j<n.length;j++){
+                            if(n[j]==className){
+                                tagAll.push(tag[i]);
+                                break;
+                            }
+                        }
+                    }
+                    return tagAll;
+                }
+
+            },
+            set_class: function(dom, css) {
+                if (!window.attachEvent) {
+                    dom.setAttribute("class", css);
+                } else {
+                    dom.className = css;
+                }
+            },
+            set_style: function(dom, style) {
+                var css = this.gen_style(style);
+                if (!window.attachEvent) {
+                    dom.setAttribute("style", css);
+                } else {
+                    dom.style.cssText=css;
+                }
+            },
+            cal_container_style: function() {
+                this.container_style = this.container_style || {};
+                this.container_style["border-width"] = 
+                    ThisPage.config_controller.get_var("conBW");
+                this.container_style["width"] = 
+                    ThisPage.config_controller.get_var("conW") 
+                    - 2*this.container_style["border-width"];
+                this.container_style["height"] = 
+                    ThisPage.config_controller.get_var("conH")
+                    - 2*this.container_style["border-width"];
+                this.container_style["background-color"] =
+                    ThisPage.config_controller.get_var("rss1");
+                this.container_style["border-style"] = "solid";
+                this.container_style["border-color"] =
+                    ThisPage.config_controller.get_var("rss0");
+                return this.container_style;
+            },
+            cal_item_style: function(row, col) {
+                this.item_style = this.item_style || {};
+                this.item_style["border-width"] =  0;
+                this.item_style["width"] = Math.floor((this.container_style["width"] -
+                        2 * this.item_style["border-width"] * col)/col) - 1;
+                this.item_style["height"] = Math.floor((this.container_style["height"] -
+                        2 * this.item_style["border-width"] * row)/row) -1 ;
+                this.item_style["line-height"] = 
+                        this.item_style["height"];
+                this.item_style["font-size"] = Math.floor(
+                    ThisPage.config_controller.get_var("titFS")*
+                    ThisPage.style_controller.zoom);
+                this.item_style["display"] = "block";
+                this.item_style["font-family"] = 
+                    decodeURIComponent(ThisPage.config_controller.get_var("titFF"));
+                this.item_style["color"] = 
+                    ThisPage.config_controller.get_var("rss2");
+                this.item_style["text-align"] = 
+                    ThisPage.config_controller.get_var("titTA");
+                return this.item_style;
+            },
+            cal_idx_style: function() {
+                this.idx_block_style["position"] = "relative";
+                this.idx_block_style["height"] = this.item_style["font-size"]; 
+                this.idx_block_style["top"] = Math.floor((this.item_style["height"] -
+                            this.idx_block_style["height"])/2);
+                this.idx_block_style["line-height"] = this.idx_block_style["height"];
+                this.idx_block_style["font-size"] = this.item_style["font-size"] - 4;
+                this.idx_block_style["width"] = this.idx_block_style["height"];
+                return this.idx_block_style;
+            },
+            cal_span_style: function() {
+                this.span_style["height"] = this.item_style["height"];
+                this.span_style["width"] = this.item_style["width"] - 
+                    this.idx_block_style["width"] - this.item_style["border-width"];
+                return this.span_style;
+            }
+        },
+        Tool: {
+            bind: function (element, eventType, handler) {
+                    if (window.addEventListener) { 
+                        element.addEventListener(eventType, handler, false);
+                    } else {
+                        element.attachEvent("on" + eventType, handler);
+                    }   
+                },
+        },
+        lunbo_controller: {
+            lunbo_object : null,
+            lunboFactory: function(type) {
+                switch(type) {
+                    case 1:
+                        return this.shrinkObject;
+                    case 2:
+                        return this.turnObject;
+                    default:
+                        return this.shrinkObject;
+                }
+            },
+            lunbo: function(type, col, row) {
+                if (!type ||parseInt(type) == 0){
+                    return;
+                }
+                this.lunbo_object = this.lunboFactory(type);
+                this.lunbo_object.start(col, row);
+            },
+            shrinkObject: {
+                lunbo_speed: 1000,
+                lu_color: "rgb(187, 179, 179)",
+                default_color: "transparent",
+                lu_cur : 0,
+                lu_timer: null,
+                item_array: null,
+                style_controller: null,
+                start: function() {
+                    this.style_controller = ThisPage.style_controller;
+                    var elements = document.getElementById("cpro_container").
+                                getElementsByTagName("a");
+                    
+                    this.item_array = new Array();
+                    for (var index=0; index<elements.length; index ++) {
+                        if (elements[index].className != "bd-logo4") {
+                            this.item_array.push(elements[index]);
+                            ThisPage.Tool.bind(elements[index], "click", 
+                                    this.stop.proxy(this));
+                        }
+                    }
+                    this.lu_timer = setInterval(this.lunbo.proxy(this), this.lunbo_speed);
+                },
+                stop: function(e) {
+                    clearInterval(this.lu_timer);
+                    e = e || window.event; 
+                    e.target = e.target || e.srcElement;
+                    var sourceElement = e.target;
+                    if (sourceElement.tagName.toLowerCase() != "span") {
+                        sourceElement = sourceElement.parentNode;
+                    }
+                    for (var index=0; index<this.item_array.length; index ++) {
+                        var item = this.item_array[index];
+                        this.style_controller.item_style["background-color"] 
+                            = this.default_color;
+                        this.style_controller.set_style(item, this.style_controller.item_style);
+                    }
+                },
+                lunbo: function() {
+                    var item = this.item_array[
+                        this.lu_cur % this.item_array.length];
+                    this.style_controller.item_style["background-color"] 
+                        = this.lu_color;
+                    this.style_controller.set_style(item, this.style_controller.item_style);
+                    //还原上一个背景色
+                    if (this.old_item) {
+                        this.style_controller.item_style["background-color"] 
+                            = this.default_color;
+                        this.style_controller.set_style(this.old_item, this.style_controller.item_style);
+                    }
+                    this.old_item = item;
+                    this.lu_cur = this.lu_cur == 
+                            this.item_array.length - 1 ? 0 : this.lu_cur + 1;
+                }
+            },
+            turnObject: {
+                lunbo_speed: 2000,
+                lu_color: "rgb(187, 179, 179)",
+                default_color: "transparent",
+                lu_cur : 0,
+                rotateY : 360,
+                lu_timer: null,
+                item_array: null,
+                style_controller: null,
+                row: 0,
+                col: 0,
+                start: function(col, row) {
+                    this.row = row;
+                    this.col = col;
+                    this.style_controller = ThisPage.style_controller;
+                    var elements = document.getElementById("cpro_container").
+                            getElementsByTagName("i");
+                    
+                    this.item_array = new Array();
+                    for (var index=0; index<elements.length; index ++) {
+                        this.item_array.push(elements[index]);
+                        this.bind(elements[index].parentNode, "click", 
+                                this.stop.proxy(this));
+                    }
+                    this.lu_timer = setInterval(this.lunbo.proxy(this), this.lunbo_speed);
+                },
+                bind: function (element, eventType, handler) {
+                    if (window.addEventListener) { 
+                        element.addEventListener(eventType, handler, false);
+                    } else {
+                        element.attachEvent("on" + eventType, handler);
+                    }   
+                },
+                stop: function(e) {
+                    clearInterval(this.lu_timer);
+                },
+                lunbo: function() {
+                    var idx = (1+Math.floor(this.lu_cur/this.row)) + 
+                        this.lu_cur%this.row*this.col;
+                    var item = this.item_array[idx-1];
+                    item.style.transform =
+                                "rotateY(" + this.rotateY + "deg)";
+                    item.style.webkitTransform =
+                                "rotateY(" + this.rotateY + "deg)";
+                    item.style.MozTransform =
+                                "rotateY(" + this.rotateY + "deg)";
+                    item.style.msTransform =
+                                "rotateY(" + this.rotateY + "deg)";
+                    this.old_item = item;
+                    if (this.lu_cur == this.item_array.length -1) {
+                        if (this.rotateY == 360) {
+                            this.rotateY = 0;
+                        } else {
+                            this.rotateY = 360;
+                        }
+                        this.lu_cur = 0
+                    } else {
+                        this.lu_cur += 1;
+                    }
+                }
+            }
+        },
+        // logo大小自适应
+        adjust_bd_logo: function() {
+            var zoom = ThisPage.style_controller.zoom;
+            var className = "bd-logo4";
+            var bd_logo = null ;
+            bd_logo = document.getElementsByClassName(className)[0];
+            if (bd_logo) {
+                bd_logo.style.height = Math.floor(zoom * 20) + "px";
+                bd_logo.style.width = Math.floor(zoom * 20) + "px"
+            }
+        }
+    }
+run(ThisPage.init.proxy(ThisPage));
+{{>TemplateEngine_winnotice_mob}}
+</script>
+</body></html>

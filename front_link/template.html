@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>
+<!-- {{bdCadsNoadreason}}|{{bdAllRetAdType}} -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>百度网盟推广</title>
+</html>
+<body>
+<script type="text/javascript">
+      var Base={config:{},cache:{},getKeysByType:function(b){b=(b||"class").toLowerCase();var a=b+"LoadFinished",c=b+"LoadFnArray",d=b+"LoadMap";this[a]="boolean"===typeof this[a]?this[a]:!0;this[c]=this[c]||[];this[d]=this[d]||{};return{status:a,array:c,map:d,type:b}},updateLoadStatus:function(b,a,c){c=this.getKeysByType(c);if(b&&(this[c.map][b]=a,"loaded"!==a))return this[c.status]=!1;b=!0;for(var d in this[c.map])if(d&&this[c.map].hasOwnProperty(d)&&"loaded"!==this[c.map][d]){b=!1;break}return this[c.status]=
+        b},loadImage:function(b){var a=new Image;a.onload=a.onerror=a.onabort=function(){a.onload=a.onerror=a.onabort=null;this.updateLoadStatus(b,"loaded","image");if(this.imageLoadFinished)for(var c,d=0,h=this.imageLoadFnArray.length;d<h;d++)c=this.imageLoadFnArray.shift(),c()}.proxy(this);a.src=b},fastClone:function(b){var a=function(){};a.prototype=b;return new a},declare:function(b){b=b();var a=b.name;if(!a)throw"can't find the obj name";for(var c=b.namespace+"."+a,d=c.split("."),h=d.length,f=window,
+        j="",e=0;e<h-1;e++){var g=d[e];f==window?(f[g]=window[g]=window[g]||{},j+=g):(f[g]=f[g]||{},j+="."+g);f=f[g];this.cache[j]=f}f[a]=f[a]||b;this.cache=this.cache||{};this.cache[c]=f[a];return!0},using:function(b,a,c){if(this.cache&&this.cache[b])return this.cache[b];a=a||"class";c=c||this.config.version[a]||"1.0.0";var d;switch(a){case "image":0>b.indexOf("http")&&(b=this.config.baseUrl+"img/"+(c&&"0"!==c?c.toString():"")+"/"+b);this.updateLoadStatus(b,"loading","image");this.loadImage(b);d=b;break;
+        case "class":var h=this.getKeysByType(a);a=b.split(".");d=window[a[0]];for(var f=1,j=a.length;f<j;f++)d=d&&d[a[f]]?d[a[f]]:null;if(!d&&!this[h.map][b]){this.updateLoadStatus(b,"loading","class");var e=document.createElement("script");e.type="text/javascript";e.async=!0;a=this.config.baseUrl+"js/";c&&"0"!==c&&(a+=c.toString()+"/");a+=b.replace(/\./gi,"/")+".js";e.src=a.toLowerCase();e.onload=e.onerror=e.onreadystatechange=function(){if(/loaded|complete|undefined/.test(e.readyState)){e.onload=e.onerror=
+        e.onreadystatechange=null;if(this.updateLoadStatus(b,"loaded","class"))for(var a,c=0,d=this[h.array].length;c<d;c++)a=this[h.array].shift(),a();e=void 0}}.proxy(this);c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(e,c)}this.cache=this.cache||{};this.cache[b]=d}return d},config:function(b){b&&(this.config=b)},run:function(b){if(b){var a=this.getKeysByType();this[a.status]?b():this[a.array].push(b)}}};
+        Function.prototype.proxy=function(b){var a=this,c=Array.prototype.slice.apply(arguments).shift();return function(b){return a.apply(c,arguments)}};window.declare=Base.declare.proxy(Base);window.using=Base.using.proxy(Base);window.run=Base.run.proxy(Base);window.config=Base.config.proxy(Base);document.execCommand("BackgroundImageCache",!1,!0);
+
+var ThisPage = {
+    image_url: "./image/travel.png",
+    word: "出行",
+    click_url: "http://www.baidu.com",
+    init: function() {
+        this.paint_ad();
+    },
+    //默认配置管理
+    config_controller: {
+        default_config: {"titFF":"%E5%AE%8B%E4%BD%93", "titTA":"left", "conBW:":0,
+        "rss0": "#86AC5F", "rss1": "Transparent", "rss2": "#374565", "titFS": 28},
+        color_idx: ["#f2405b", "#f2405b", "#f2405b", "#858585", "#858585", "#858585", "#858585", "#858585", "#858585"],
+        priority_config:{"titFS": 28},
+        config: {},
+        init: function(config) {
+            this.config = config;
+        },
+        get_var: function(name) {
+            if (this.priority_config[name]) {
+                return this.priority_config[name];
+            }
+            if (this.config[name]) {
+                return this.config[name];
+            }
+            if (this.default_config[name]) {
+                return this.default_config[name];
+            }
+            return 0;
+        },
+        //当推词有大于等于7个单词的，缩小字体大小
+        get_bytes: function(title) {
+            var length =  title.replace(/[^\x00-\xff]/gi, "--").length; 
+            return length;
+        }
+    },
+    paint_ad: function() {
+        var ad_container = document.createElement("div");
+        ad_container.style.position = "fixed";
+        ad_container.style.top = "100px";
+        ad_container.style.right = "50px";
+        var icon = document.createElement("img");
+        icon.src =  window.ThisPage.image_url;
+        var title = document.createElement("span");
+        title.innerHTML = window.ThisPage.word;
+        title.style.fontSize = "50px";
+        title.style.position = "absolute";
+        title.style.left = "50px";
+        title.style.bottom = "25px";
+        ad_container.appendChild(icon);
+        ad_container.appendChild(title);
+        document.body.appendChild(ad_container);
+    },
+    style_controller: {
+        item_style: {},
+        container_style: {},
+        idx_block_style: {},
+        span_style: {},
+        zoom: 0,
+        gen_style: function(style) {
+            var result = "";
+            if (style) {
+                for (var key in style) {
+                    result += key + ":" + style[key] + (this.pxStyle[key] ? "px;" : ";");
+                }
+            }
+            return result;
+        },
+        pxStyle: { 
+            width: 1,
+            height: 1,
+            "line-height": 1,
+            "padding-left": 1,
+            "padding-right": 1,
+            "padding-top": 1,
+            "padding-bottom": 1,
+            "border-width": 1,
+            "font-size": 1,
+            "margin-left": 1,
+            "margin-right": 1,
+            "margin-top": 1, 
+            "margin-bottom": 1,
+            "border-left-width": 1,
+            "border-right-width": 1,
+            "border-top-width": 1,
+            "border-bottom-width": 1,
+            "top": 1,
+            "left": 1,
+            "bottom": 1,
+            "right": 1
+        },
+        //兼容性处理
+        getElementsByClassName: function(className, root, tagName) {
+            if(root){
+                root=typeof root=="string" ? document.getElementById(root) : root;   
+            }else{
+                root=document.body;
+            }
+            tagName=tagName||"*";                                    
+            if (document.getElementsByClassName) {                    
+                return root.getElementsByClassName(className);
+            }else { 
+                var tag= root.getElementsByTagName(tagName);
+                var tagAll = [];            
+                for (var i = 0; i < tag.length; i++) {  
+                    for(var j=0,n=tag[i].className.split(' ');j<n.length;j++){
+                        if(n[j]==className){
+                            tagAll.push(tag[i]);
+                            break;
+                        }
+                    }
+                }
+                return tagAll;
+            }
+
+        },
+        set_class: function(dom, css) {
+            if (!window.attachEvent) {
+                dom.setAttribute("class", css);
+            } else {
+                dom.className = css;
+            }
+        },
+        set_style: function(dom, style) {
+            var css = this.gen_style(style);
+            if (!window.attachEvent) {
+                dom.setAttribute("style", css);
+            } else {
+                dom.style.cssText=css;
+            }
+        }
+    },
+    Tool: {
+        bind: function (element, eventType, handler) {
+                if (window.addEventListener) { 
+                    element.addEventListener(eventType, handler, false);
+                } else {
+                    element.attachEvent("on" + eventType, handler);
+                }   
+            },
+    },
+}
+run(ThisPage.init.proxy(ThisPage));
+</script>
+</body></html>
