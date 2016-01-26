@@ -18,29 +18,31 @@ config.conH = config.conH || config.rsi1;
 
 var natural_width = 0;		
 var natural_height = 0;
-var test_url = ["http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_redpacket.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_resume.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_friend.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_car.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_fitment.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_food.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_transportation.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_health.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_pet.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_nanny.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_movie.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_marry.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_read.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_journey.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_shopping.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_ticket.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_housingsales.png", 
-"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_education.png", 
-];
+/*
+var test_url = ["http://t10.baidu.com/it/u=3155639037,1168494189&fm=76", 
+"http://t11.baidu.com/it/u=1393103740,2485594801&fm=76", 
+"http://t12.baidu.com/it/u=1200777389,2642167412&fm=76", 
+"http://t12.baidu.com/it/u=3531762158,830413417&fm=76", 
+"http://t12.baidu.com/it/u=1342360085,3267803533&fm=76", 
+"http://t10.baidu.com/it/u=3376025712,1719213291&fm=76", 
+"http://t10.baidu.com/it/u=2093437416,907148845&fm=76", 
+"http://t10.baidu.com/it/u=1201380993,2394758279&fm=76", 
+"http://t10.baidu.com/it/u=3462979038,1141443292&fm=76", 
+"http://t11.baidu.com/it/u=361821001,2551580995&fm=76", 
+"http://t11.baidu.com/it/u=936862015,2874375447&fm=76", 
+"http://t10.baidu.com/it/u=282067632,2688500782&fm=76", 
+"http://t10.baidu.com/it/u=3256178148,1526342361&fm=76", 
+"http://t11.baidu.com/it/u=2393786371,182558359&fm=76", 
+"http://t12.baidu.com/it/u=2006130101,4174206510&fm=76", 
+"http://t11.baidu.com/it/u=1068577660,2706798653&fm=76", 
+"http://t10.baidu.com/it/u=640055430,2930643358&fm=76", 
+"http://t10.baidu.com/it/u=2948163420,444657651&fm=76",
+];*/
 //render class
-
+	var item_offset_X = 0;
     var item_offset_Y = 0;
     var start_top = 0; 
+	var start_left = 0;
     
     var touchend = function(event) {
         var evnt = window.event || event;
@@ -49,9 +51,9 @@ var test_url = ["http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON
         if(event.targetTouches.length > 1 || event.scale && event.scale !== 1) return;
         var touch = event.changedTouches[0]; //touches鏁扮粍瀵硅薄鑾峰緱灞骞曚笂鎵€鏈夌殑touch锛屽栫涓€涓猼ouch
         current.style.top = (touch.clientY - item_offset_Y)+"px";
-        if ((touch.clientY -item_offset_Y - start_top) < 10 && (touch.clientY - item_offset_Y - start_top) >-10){
-			event.preventDefault()
-			alert("click");
+        if ((touch.clientY -item_offset_Y - start_top) < 5 && (touch.clientY - item_offset_Y - start_top) >-5 &&
+			(touch.clientX -item_offset_X - start_left) < 5 && (touch.clientX - item_offset_X - start_left) >-5){
+			current.click();
         }
         //var txt_item = document.getElementById("txt_pos_end");
     }
@@ -61,11 +63,12 @@ var test_url = ["http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON
         var current = evnt.target || evnt.srcElement;
 		current = current.parentNode;
         start_top = current.offsetTop;
-        var cur_left = current.offsetLeft;
+        start_left = current.offsetLeft;
         event.preventDefault(); 
         if(event.targetTouches.length > 1 || event.scale && event.scale !== 1) return;
         var touch = event.targetTouches[0]; //touches鏁扮粍瀵硅薄鑾峰緱灞骞曚笂鎵€鏈夌殑touch锛屽栫涓€涓猼ouch
         item_offset_Y = touch.clientY - start_top; 
+		item_offset_X = touch.clientX - start_left;
     }
 
     var touchmove = function(event){
@@ -77,12 +80,16 @@ var test_url = ["http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON
      
         var touch = event.targetTouches[0];
         current.style.top = (touch.clientY - item_offset_Y) +"px";
+		current.style.left = (touch.clientX - item_offset_X) + "px";
     }  
+	
 var DubaoRender = {
     render: function() {
         //preapre
-        this.image_url = "http://t10.baidu.com/it/u=2909006259,535599738&fm=76";    //window.ads[0].image_url;
-        this.word =  "春游出行开心"; //window.ads[0].title;
+        this.image_url = "http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_health.png";   
+		//this.image_url = window.ads[0].image_url;
+        //this.word = window.ads[0].title;
+		this.word = "6.6元吃大餐国"; //window.ads[0].title;
         this.click_url = "http://www.baidu.com" //window.ads[0].curl;
         //paint
         this.paint_ad();
@@ -107,25 +114,90 @@ var DubaoRender = {
         get_bytes: function(title) {
             var length =  title.replace(/[^\x00-\xff]/gi, "--").length; 
             return length;
-        }
+        },
+		ChsSubString :function(str, len, hasDot)  
+		{  
+			var newLength = 0;  
+			var newStr = "";  
+			var chineseRegex = /[^\x00-\xff]/g;  
+			var singleChar = "";  
+			var strLength = str.replace(chineseRegex,"**").length;  
+			for(var i = 0;i < strLength;i++)  
+			{  
+				singleChar = str.charAt(i).toString();  
+				if(singleChar.match(chineseRegex) != null)  
+				{  
+					newLength += 2;  
+				}      
+				else  
+				{  
+					newLength++;  
+				}  
+				if(newLength > len)  
+				{  
+					break;  
+				}else{
+					newStr += singleChar; 
+				}
+ 
+			}  
+
+			if(hasDot && strLength > len)  
+			{  
+				newStr += "...";  
+			}  
+			return newStr;  
+		}
     },
+	
 	paint_ad:function()
 	{		
 		var screen_width = window.screen.width;
 		var bd = document.body;
-		//this.render_icon(bd,100,screen_width - 100,100,100,this.click_url,this.image_url,this.word);
-		for(var i = 0 ;i <test_url.length ;i++){
-			this.render_icon(bd,120*parseInt(i/3),110*(i%3),70,70,this.click_url,test_url[i],this.word,"icon_"+i);
-		}
+		//this.render_icon(bd,100,screen_width - 70,70,70/1.1,this.click_url,this.image_url,this.word,"icon_0");
+		//for(var i = 0; i < this.word.length; i++)
+			var new_word;
+			if(this.config_controller.get_bytes(this.word) > 12){
+				new_word = this.config_controller.ChsSubString(this.word,12,false);
+			}
+			else{
+				new_word = this.word;
+			}
+			this.render_icon(bd,80,240,70,70/1.1,this.click_url,test_url[0],new_word,"icon_"+0);
+		//for(var i = 0 ;i <test_url.length ;i++){
+		//	this.render_icon(bd,120*parseInt(i/3),110*(i%3),70,70/1.1,this.click_url,test_url[i],this.word[1],"icon_"+i);
+		//}
 		var icon_0 = document.getElementById("icon_0");
 		this.Tool.bind(icon_0,"touchstart",touchstart);
         this.Tool.bind(icon_0,"touchend",touchend);
         this.Tool.bind(icon_0,"touchmove",touchmove);
 	},
+	
     render_icon: function(parent,top,left,width,height,target_url,img_url,title,id) {
-
         var ad_container = document.createElement("a");
 		ad_container.id = id;
+		var word_len = title.length;
+		var font_size = 12;
+		var font_left = 0;
+		var font_top = 0;
+		var font_width = 0;
+		if(word_len <=4){
+
+			width = 70;
+			left = 320-width;
+			height = width/1.1;
+			font_top = 44;
+			font_left = 5
+			font_width = width - 2*font_left;
+		}
+		if(word_len >4){
+			width = 110;
+			left = 320-width;
+			height = width/1.1;
+			font_top = 73;
+			font_left = 5
+			font_width = width - 2*font_left;
+		}
         this.style_controller.set_base_style(ad_container,top,left,width,height,"block","fixed");
         ad_container.setAttribute("href", target_url);
         ad_container.setAttribute("target", "_blank");
@@ -152,8 +224,8 @@ var DubaoRender = {
 
         ad_container.appendChild(icon);
         var title_item = document.createElement("span");
-        this.style_controller.set_base_style(title_item,50,5,60,16,"block","absolute");
-		this.style_controller.append_single_font_style(title_item,14,"#fff","Microsoft YaHei","center","#",16);
+        this.style_controller.set_base_style(title_item,font_top,font_left,font_width,16,"block","absolute");
+		this.style_controller.append_single_font_style(title_item,12,"#fff","Microsoft YaHei","center","#",16);
 		
         title_item.innerHTML = title;
         ad_container.appendChild(title_item);
