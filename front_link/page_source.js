@@ -15,11 +15,73 @@ config.mob_lu_skin = 9;
 config.conW = config.conW || config.rsi0;
 config.conH = config.conH || config.rsi1; 
 
+
+var natural_width = 0;		
+var natural_height = 0;
+var test_url = ["http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_redpacket.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_resume.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_friend.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_car.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_fitment.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_food.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_transportation.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_health.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_pet.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_nanny.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_movie.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_marry.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_read.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_journey.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_shopping.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_ticket.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_housingsales.png", 
+"http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_education.png", 
+];
 //render class
+
+    var item_offset_Y = 0;
+    var start_top = 0; 
+    
+    var touchend = function(event) {
+        var evnt = window.event || event;
+        var current = evnt.target || evnt.srcElement;
+		current = current.parentNode;
+        if(event.targetTouches.length > 1 || event.scale && event.scale !== 1) return;
+        var touch = event.changedTouches[0]; //touches鏁扮粍瀵硅薄鑾峰緱灞骞曚笂鎵€鏈夌殑touch锛屽栫涓€涓猼ouch
+        current.style.top = (touch.clientY - item_offset_Y)+"px";
+        if ((touch.clientY -item_offset_Y - start_top) < 10 && (touch.clientY - item_offset_Y - start_top) >-10){
+			event.preventDefault()
+			alert("click");
+        }
+        //var txt_item = document.getElementById("txt_pos_end");
+    }
+    
+    var touchstart = function(event) {
+        var evnt = window.event || event;
+        var current = evnt.target || evnt.srcElement;
+		current = current.parentNode;
+        start_top = current.offsetTop;
+        var cur_left = current.offsetLeft;
+        event.preventDefault(); 
+        if(event.targetTouches.length > 1 || event.scale && event.scale !== 1) return;
+        var touch = event.targetTouches[0]; //touches鏁扮粍瀵硅薄鑾峰緱灞骞曚笂鎵€鏈夌殑touch锛屽栫涓€涓猼ouch
+        item_offset_Y = touch.clientY - start_top; 
+    }
+
+    var touchmove = function(event){
+        var evnt = window.event || event;
+        var current = evnt.target || evnt.srcElement;
+		current = current.parentNode;
+        if(event.targetTouches.length > 1 || event.scale && event.scale !== 1) 
+            return;
+     
+        var touch = event.targetTouches[0];
+        current.style.top = (touch.clientY - item_offset_Y) +"px";
+    }  
 var DubaoRender = {
     render: function() {
         //preapre
-        this.image_url = "file:///J:/template/image2/ICON_%20car.png";    //window.ads[0].image_url;
+        this.image_url = "http://t10.baidu.com/it/u=2909006259,535599738&fm=76";    //window.ads[0].image_url;
         this.word =  "春游出行开心"; //window.ads[0].title;
         this.click_url = "http://www.baidu.com" //window.ads[0].curl;
         //paint
@@ -47,126 +109,185 @@ var DubaoRender = {
             return length;
         }
     },
-    paint_ad: function() {
+	paint_ad:function()
+	{		
+		var screen_width = window.screen.width;
+		var bd = document.body;
+		//this.render_icon(bd,100,screen_width - 100,100,100,this.click_url,this.image_url,this.word);
+		for(var i = 0 ;i <test_url.length ;i++){
+			this.render_icon(bd,120*parseInt(i/3),110*(i%3),70,70,this.click_url,test_url[i],this.word,"icon_"+i);
+		}
+		var icon_0 = document.getElementById("icon_0");
+		this.Tool.bind(icon_0,"touchstart",touchstart);
+        this.Tool.bind(icon_0,"touchend",touchend);
+        this.Tool.bind(icon_0,"touchmove",touchmove);
+	},
+    render_icon: function(parent,top,left,width,height,target_url,img_url,title,id) {
+
         var ad_container = document.createElement("a");
-        var container_style = this.style_controller.get_container_style();
-        this.style_controller.set_style(ad_container, container_style);
-        ad_container.setAttribute("href", this.click_url);
+		ad_container.id = id;
+        this.style_controller.set_base_style(ad_container,top,left,width,height,"block","fixed");
+        ad_container.setAttribute("href", target_url);
         ad_container.setAttribute("target", "_blank");
         ad_container.setAttribute("class", "test");
 
         var icon = document.createElement("img");
-        var icon_style = this.style_controller.get_icon_style();
-        this.style_controller.set_style(icon, icon_style);
-        icon.src =  this.image_url;
-
+		icon.src =  img_url;
+		var img_tmp = new Image();
+		img_tmp.src = img_url;
+		
+		if(img_tmp.complete){
+			natural_width = img_tmp.width;		
+			natural_height = img_tmp.height;
+			img_tmp = null;
+		}else{
+			img_tmp.onload = function(){
+				natural_width = img_tmp.width;		
+				natural_height = img_tmp.height;
+				img_tmp = null;
+			};
+		}
+        this.style_controller.set_base_style(icon,0,0,width,height,"block","absolute");
+        icon.src =  img_url;
 
         ad_container.appendChild(icon);
-        document.body.appendChild(ad_container);
-        var title = document.createElement("span");
-        var span_style = this.style_controller.get_span_style();
-        this.style_controller.set_style(title, span_style);
-        title.innerHTML = this.word;
-        ad_container.appendChild(title);
+        var title_item = document.createElement("span");
+        this.style_controller.set_base_style(title_item,50,5,60,16,"block","absolute");
+		this.style_controller.append_single_font_style(title_item,14,"#fff","Microsoft YaHei","center","#",16);
+		
+        title_item.innerHTML = title;
+        ad_container.appendChild(title_item);
+		
+		parent.appendChild(ad_container);
     },
-    style_controller: {
-        container_style: {},
-        icon_style: {},
-        span_style: {},
-        zoom: 1,
-        gen_style: function(style) {
-            var result = "";
-            if (style) {
-                for (var key in style) {
-                    result += key + ":" + style[key] + (this.pxStyle[key] ? "px;" : ";");
-                }
-            }
-            return result;
-        },
-        pxStyle: { 
-            width: 1,
-            height: 1,
-            "line-height": 1,
-            "padding-left": 1,
-            "padding-right": 1,
-            "padding-top": 1,
-            "padding-bottom": 1,
-            "border-width": 1,
-            "font-size": 1,
-            "margin-left": 1,
-            "margin-right": 1,
-            "margin-top": 1, 
-            "margin-bottom": 1,
-            "border-left-width": 1,
-            "border-right-width": 1,
-            "border-top-width": 1,
-            "border-bottom-width": 1,
-            "top": 1,
-            "left": 1,
-            "bottom": 1,
-            "right": 1
-        },
-        //兼容性处理
-        getElementsByClassName: function(className, root, tagName) {
-            if(root){
-                root=typeof root=="string" ? document.getElementById(root) : root;   
-            }else{
-                root=document.body;
-            }
-            tagName=tagName||"*";                                    
-            if (document.getElementsByClassName) {                    
-                return root.getElementsByClassName(className);
-            }else { 
-                var tag= root.getElementsByTagName(tagName);
-                var tagAll = [];            
-                for (var i = 0; i < tag.length; i++) {  
-                    for(var j=0,n=tag[i].className.split(' ');j<n.length;j++){
-                        if(n[j]==className){
-                            tagAll.push(tag[i]);
-                            break;
+              //样式控制器
+            style_controller:{
+                style_buf:{},
+                render_B9_img_ads:{},
+                zoom: 0,
+                _gen_style: function(style) {
+                    var result = "";
+                    if (style) {
+                        for (var key in style) {
+                            result += key + ":" + style[key] + (this.pxStyle[key] ? "px;" : ";");
                         }
+                        return result;
                     }
-                }
-                return tagAll;
-            }
+                },
 
-        },
-        set_class: function(dom, css) {
-            if (!window.attachEvent) {
-                dom.setAttribute("class", css);
-            } else {
-                dom.className = css;
-            }
-        },
-        set_style: function(dom, style) {
-            var css = this.gen_style(style);
-            if (!window.attachEvent) {
-                dom.setAttribute("style", css);
-            } else {
-                dom.style.cssText=css;
-            }
-        },
-        get_container_style: function() {
-            this.container_style["position"] = "fixed";
-            this.container_style["top"] = 100;
-            this.container_style["right"] = 50;
-            return this.container_style;
-        },
-        get_icon_style: function() {
-            return this.icon_style;
-        },
-        get_span_style: function() {
-            this.span_style["font-size"] = 40 * this.zoom * 4 / window.DubaoRender.word.length;
-            this.span_style["position"] = "absolute";
-            this.span_style["left"] = 20 * this.zoom;
-            this.span_style["bottom"] = 25 * this.zoom;
-            //get font style by word length
-            //get font css by icon_url
-            return this.span_style;
-        },
-        get_font_size_by_length: function() {
-        },
-    },
+                pxStyle: { 
+                    "width": 1,
+                    "height": 1,
+                    "line-height": 1,
+                    "padding-left": 1,
+                    "padding-right": 1,
+                    "padding-top": 1,
+                    "padding-bottom": 1,
+                    "border-width": 1,
+                    "font-size": 1,
+                    "margin-left": 1,
+                    "margin-right": 1,
+                    "margin-top": 1, 
+                    "margin-bottom": 1,
+                    "border-left-width": 1,
+                    "border-right-width": 1,
+                    "border-top-width": 1,
+                    "border-bottom-width": 1,
+                    "top": 1,
+                    "left": 1,
+                    "bottom": 1,
+                    "right": 1
+                },
+          
+                _set_class: function(dom, css) {
+                    if (!window.attachEvent) {
+                        dom.setAttribute("class", css);
+                    } else {
+                        dom.className = css;
+                    }
+                },
+
+                _set_style: function(dom,style) {
+                    if(typeof style == 'undefined'){
+                        var css = this._gen_style(this.style_buf);                        
+                    }else{
+                        var css = this._gen_style(style);
+                    }
+                    if (!window.attachEvent) {
+                        dom.setAttribute("style", css);
+                    } else {
+                        dom.style.cssText=css;
+                    }
+                },
+
+                _append_style: function(dom) {
+                    var css = this._gen_style(this.style_buf);
+                    if (!window.attachEvent) {
+                        var old_css = dom.getAttribute("style");
+                        dom.setAttribute("style", old_css + css);
+                    } else {
+                        var old_css = dom.style.cssText;
+                        dom.style.cssText= old_css + css;
+                    }
+                },
+
+                //设置基本布局配置
+                set_base_style: function(dom,top,left,width,height,display,position){
+                    this.style_buf = [];
+                    this.style_buf["display"] = display;
+                    this.style_buf["position"] = position;
+                    this.style_buf["top"] = top;
+                    this.style_buf["left"] = left;
+                    this.style_buf["width"] = width;
+                    this.style_buf["height"] = height;
+                    this.style_buf["overflow"] = "hidden";
+                    this._set_style(dom);
+                },
+
+                //增加修饰单行类型字体、大小、前后背景颜色设置
+                append_single_font_style: function(dom,font_size,font_color,font_family,pos,back_color,line_height){
+                    this.style_buf = [];
+                    this.style_buf["font"] = font_size + "px " + "\"" + font_family+ "\"";
+                    this.style_buf["color"] = font_color;
+                    this.style_buf["text-align"] = pos;
+                    this.style_buf["background-color"] = back_color;
+                    this.style_buf["line-height"] = line_height;
+                    this.style_buf["overflow"] = "hidden";
+                    this.style_buf["white-space"] = "nowrap";
+                    this.style_buf["text-overflow"] = "ellipsis";
+                    this.style_buf["o-text-overflow"] = "ellipsis";
+                    this.style_buf["text-decoration"] = "none";
+                    this._append_style(dom);
+                },
+
+                //增加圆角或阴影效果及设置透明度
+                //redius 参数为圆角
+                //shadows_arg 参数 (水平位移) (垂值位移) (模糊半径) (颜色)
+                //示例 "0px 0px 7px #efefef" 
+                //opacity 为0-1.0 一个数字，用于配置透明度 默认为1             
+                append_effects_style: function(dom,radius_arg,shadow_arg,opacity){
+                    this.style_buf = [];
+                    this.style_buf["-moz-border-radius"] = radius_arg + "px";
+                    this.style_buf["-webkit-border-radius"] = radius_arg + "px";
+                    this.style_buf["border-radius"] = radius_arg + "px";
+                    this.style_buf["-moz-box-shadow"] = shadow_arg;
+                    this.style_buf["-webkit-box-shadow"] = shadow_arg;
+                    this.style_buf["box-shadow"] = shadow_arg;
+                    this.style_buf["opacity"] = opacity;
+                    this._append_style(dom);
+                },
+
+                //增加两种填充值及边框属性(盒子模型)
+                //pad_arg&margin_arg 参数中会有四个值，其对应的位置 上右下左
+                //border_arg 参数: 边框像素 边框类型 边框颜色 eg:"1px solid #bbb"
+                append_boxmod_style: function(dom,pad_arg,margin_arg,border_arg){
+                    this.style_buf = [];
+                    this.style_buf["padding"] = pad_arg;
+                    this.style_buf["margin"] = margin_arg;
+                    this.style_buf["border"] = border_arg;
+                    this._append_style(dom);
+                },
+            },
     Tool: {
         bind: function (element, eventType, handler) {
                 if (window.addEventListener) { 

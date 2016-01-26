@@ -449,13 +449,14 @@ window.mid_page_param={query:"游戏",jk:"e832d4bb5cb4fbef",cf:"1",tu:"u1345536",t
                 var main_item = document.createElement("div");
                 main_item.id = id;
 
-                ThisPage.style_controller.set_base_style(main_item,0,0,width-20,100,"block","relative");
+                ThisPage.style_controller.set_base_style(main_item,0,0,width-20,128,"block","relative");
+				this.render_block_title_cell(main_item,"优质旅游线");
                 ThisPage.style_controller.append_boxmod_style(main_item,"","0px 0px 0px 10px","");
                 for (var i = 0 ; i < 3; i++){
-                    ThisPage.render_B1_icon_cell(main_item,0,100*i,100,100,data,i,"render_B1_icon_cell_" + i);
+                    ThisPage.render_B1_icon_cell(main_item,28,100*i,100,100,data,i,"render_B1_icon_cell_" + i);
                 }
                 for (var i = 1 ;i <= 2 ; i++){
-                    ThisPage.render_vt_line(main_item,10,i*(width-20)/3,80);
+                    ThisPage.render_vt_line(main_item,38,i*(width-20)/3,80);
                 }
                 //ThisPage.render_hr_line(main_item,99,-10,320);
                 parent.appendChild(main_item);
