@@ -909,11 +909,12 @@ oojs.define({
         // 展现类型由painter自己确定?
 
         // 数据处理中心,封装所有数据，后续所有数据从templateData获取
-        var templateData = this.processSlotData(slotInfo);
+        //var templateData = this.processSlotData(slotInfo);
         var wrapperId = slotInfo.containerId;
-        templateData['wapperId'] = wrapperId || '';
+        //templateData['wapperId'] = wrapperId || '';
 
-        var scriptUrl =  templateData['serviceUrl'] + templateData['paramString'];
+        //var scriptUrl =  templateData['serviceUrl'] + templateData['paramString'];
+		var scriptUrl =  this.param.getPmpRequestUrl(slotInfo);
         scriptUrl = scriptUrl.replace('stid=5&', 'stid=0&');
 
         if (slotInfo.isAsync) {
