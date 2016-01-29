@@ -18,7 +18,6 @@ config.conH = config.conH || config.rsi1;
 
 var natural_width = 0;		
 var natural_height = 0;
-/*
 var test_url = ["http://t10.baidu.com/it/u=3155639037,1168494189&fm=76", 
 "http://t11.baidu.com/it/u=1393103740,2485594801&fm=76", 
 "http://t12.baidu.com/it/u=1200777389,2642167412&fm=76", 
@@ -37,9 +36,10 @@ var test_url = ["http://t10.baidu.com/it/u=3155639037,1168494189&fm=76",
 "http://t11.baidu.com/it/u=1068577660,2706798653&fm=76", 
 "http://t10.baidu.com/it/u=640055430,2930643358&fm=76", 
 "http://t10.baidu.com/it/u=2948163420,444657651&fm=76",
-];*/
+];
 //render class
-	var item_offset_X = 0;
+
+   	var item_offset_X = 0;
     var item_offset_Y = 0;
     var start_top = 0; 
 	var start_left = 0;
@@ -50,11 +50,17 @@ var test_url = ["http://t10.baidu.com/it/u=3155639037,1168494189&fm=76",
 		current = current.parentNode;
         if(event.targetTouches.length > 1 || event.scale && event.scale !== 1) return;
         var touch = event.changedTouches[0]; //touches鏁扮粍瀵硅薄鑾峰緱灞骞曚笂鎵€鏈夌殑touch锛屽栫涓€涓猼ouch
-        current.style.top = (touch.clientY - item_offset_Y)+"px";
+        //current.style.top = (touch.clientY - item_offset_Y)+"px";
         if ((touch.clientY -item_offset_Y - start_top) < 5 && (touch.clientY - item_offset_Y - start_top) >-5 &&
 			(touch.clientX -item_offset_X - start_left) < 5 && (touch.clientX - item_offset_X - start_left) >-5){
 			current.click();
         }
+		if(touch.clientX >window.screen.width/2){
+			move_item(current,"right",(window.screen.width-(touch.clientX - item_offset_X) - current.style.width.replace("px","")),5);
+		}else{
+			move_item(current,"left",(touch.clientX -item_offset_X),5);
+		}
+
         //var txt_item = document.getElementById("txt_pos_end");
     }
     
@@ -79,18 +85,51 @@ var test_url = ["http://t10.baidu.com/it/u=3155639037,1168494189&fm=76",
             return;
      
         var touch = event.targetTouches[0];
+		
+		if(touch.clientY - item_offset_Y <0 || 
+		touch.clientY - item_offset_Y + parseInt(current.style.height.replace("px","")) >window.screen.height||
+		touch.clientX - item_offset_X <0 ||
+		touch.clientX - item_offset_X + parseInt(current.style.width.replace("px","")) >window.screen.width)
+			return
+		
         current.style.top = (touch.clientY - item_offset_Y) +"px";
 		current.style.left = (touch.clientX - item_offset_X) + "px";
+		
     }  
 	
+	 function move_item(item,direct,move_long,speed){
+        var move_inter = setInterval(function(){                                                                            
+            if(direct == "left"){
+                if(move_long >0){
+                    var currentLfet = item.style.left.replace("px","");
+                    item.style.left = Number(currentLfet) - speed + "px";
+                    move_long -= speed;
+                }else{
+                    clearInterval(move_inter);
+                    //icon_click_lock = 0;
+                }
+            }
+
+            if(direct == "right"){
+                if(move_long >0){
+                    var currentLeft = item.style.left.replace("px","");
+                    item.style.left = Number(currentLeft) + speed + "px";
+                    move_long -= speed;
+                }else{
+                    clearInterval(move_inter);
+                    //icon_click_lock = 0;
+                }
+            }
+        },3);
+    }
 var DubaoRender = {
     render: function() {
         //preapre
-        this.image_url = "http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_health.png";   
-		//this.image_url = window.ads[0].image_url;
-        //this.word = window.ads[0].title;
-		this.word = "6.6元吃大餐国"; //window.ads[0].title;
-        this.click_url = "http://www.baidu.com" //window.ads[0].curl;
+        this.image_url = "http://cq01-rdqa-dev078.cq01.baidu.com:8019/lu_images/nova/ICON_health.png";    //window.ads[0].image_url;
+        //this.word =  "春游出行开心"; //window.ads[0].title;
+        this.word =  "测试前链今天f";//,"测试段段今天"]; //window.ads[0].title;
+        this.click_url =
+        "http://10.128.136.21:8091/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1&ch=0&di=1&fv=0&is_app=0&jk=e8680d84255a3547&k=%E8%AE%AD%E7%8A%AC%E8%AE%A1%E5%88%92&k0=%E8%AE%AD%E7%8A%AC%E8%AE%A1%E5%88%92&kdi0=1&lsdp_cf=0&lsdp_ideaid=41525&lsdp_info=%e4%b8%8a%e6%b5%b7%e4%bb%81%e6%b5%8e%e8%8d%af%e6%88%bf%3a16966%09%e4%bd%b3%e6%b4%81%e7%89%99%e5%88%b7%3a6&luki=1&mcpm=1&n=10&p=baidu&q=120ask_cpr&rb=0&rs=1&seller_id=1&sid=47355a25840d68e8&ssp2=2&stid=4063&t=tpclicked3_mob_asp_3&td=1928671&tu=u1928671&u=http%3A%2F%2Fm%2E120ask%2Ecom%2Fjibing%2F&urlid=0" //window.ads[0].curl;
         //paint
         this.paint_ad();
     },
@@ -165,7 +204,7 @@ var DubaoRender = {
 			}
 			this.render_icon(bd,80,240,70,70/1.1,this.click_url,test_url[0],new_word,"icon_"+0);
 		//for(var i = 0 ;i <test_url.length ;i++){
-		//	this.render_icon(bd,120*parseInt(i/3),110*(i%3),70,70/1.1,this.click_url,test_url[i],this.word[1],"icon_"+i);
+		//	this.render_icon(bd,80*parseInt(i/3),120*(i%3),70,70/1.1,this.click_url,test_url[i],this.word,"icon_"+i);
 		//}
 		var icon_0 = document.getElementById("icon_0");
 		this.Tool.bind(icon_0,"touchstart",touchstart);
@@ -174,6 +213,7 @@ var DubaoRender = {
 	},
 	
     render_icon: function(parent,top,left,width,height,target_url,img_url,title,id) {
+
         var ad_container = document.createElement("a");
 		ad_container.id = id;
 		var word_len = title.length;
@@ -184,17 +224,17 @@ var DubaoRender = {
 		if(word_len <=4){
 
 			width = 70;
-			left = 320-width;
+			left = window.screen.width-width;
 			height = width/1.1;
-			font_top = 44;
+			font_top = 45;
 			font_left = 5
 			font_width = width - 2*font_left;
 		}
 		if(word_len >4){
 			width = 110;
-			left = 320-width;
+			left = window.screen.width-width;
 			height = width/1.1;
-			font_top = 73;
+			font_top = 72;
 			font_left = 5
 			font_width = width - 2*font_left;
 		}

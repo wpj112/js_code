@@ -137,6 +137,184 @@
         })();
         adaptUILayout.adapt(320); //  ≈‰µ±«∞“≥√Ê
     </script>
+	      <script type="text/javascript">
+            //öß‚F–±Ω“†Z®€ úÁÌŒ´îÕD÷C®€·FŸãñÉè˙Ω“†Z
+            var AntiCheat = (function () {
+                return {
+                    name: 'AntiCheat',
+                    namespace: 'Cpro.Template',
+                    antiCheatArray: [],
+                    mouseInClientX: -1,
+                    mouseInClientY: -1,
+                    mouseInTime: -1,
+                    mouseInTimeSpan: -1,
+                    mousePressTime: -1,
+                    mouseClickClientX: -1,
+                    mouseClickClientY: -1,
+                    mouseClickCheckNum: -1,
+                    mouseOverTimes: -1,
+					getCheckCode: function (href,imTimeSign,pressTime,touchX) {
+						var urlSearch,
+							urlReg = /\?url\=([^\.]+)\./,
+							urlMix = /link\?url\=([^\&]+)/,
+						checkCode = 0;
+						urlSearch = urlMix.exec(href) || urlReg.exec(href);
+						if (urlSearch) {
+							var num = (((pressTime * imTimeSign) % 99) + 9); 
+							var iDomainLen = urlSearch[1].length;
+							if (urlMix.exec(href)) {
+								iDomainLen = urlSearch[1].length < 20 ? iDomain.length : 20;   
+							}   
+							for (var x = 0; x < num; ++x) {
+								checkCode += urlSearch[1].charCodeAt((touchX * x) % iDomainLen);
+							}   
+							return checkCode;
+						}   
+						return false;
+					},
+                    bind: function (element, eventType, handler) {
+                        if (window.addEventListener) {
+                            element.addEventListener(eventType, handler, false)
+                        }
+                        else {
+                            element.attachEvent("on" + eventType, handler)
+                        }
+                    },
+                    formatEventObj: function (e) {
+                        e = e || window.event;
+                        e.target = e.target || e.srcElement;
+                        return e;
+                    },
+                    mouseInHandler: function (e) {
+                        if (this.mouseInClientX === -1) {
+                            this.mouseInClientX = e.clientX;
+                        }
+                        if (this.mouseInClientY === -1) {
+                            this.mouseInClientY = e.clientY;
+                        }
+                    },
+                    mouseInTimeHandler: function (e) {
+                        if (this.mouseInTime === -1) {
+                            this.mouseInTime = (new Date()).getTime();
+                        }
+                        this.mouseInTimeSpan = (new Date()).getTime() - this.mouseInTime;
+                    },
+
+                    mousePressTimeHandler: function (e) {
+                        if (e.type === "mousedown") {
+                            this.mousePressTime = (new Date()).getTime();
+                        }
+                        else {
+                            this.mousePressTime = (new Date()).getTime() - this.mousePressTime;
+                        }
+                    },
+                    mouseClickHandler: function (e) {
+                        e = this.formatEventObj(e);
+                        var sourceElement = e.target;
+                        var max_try = 10;
+                        var try_count = 0;
+                        //Ò˚úG:Ω“†Za«ª∏¨ñf∞j∂á÷C
+                        while(sourceElement.tagName.toLowerCase() !== "a"
+                            && try_count < max_try) {
+                            sourceElement = sourceElement.parentNode;
+                            try_count += 1;
+                        }
+                        this.mouseClickClientX = e.clientX;
+                        this.mouseClickClientY = e.clientY;
+
+                        this.mouseInTimeHandler();
+
+                        //make the mouseClickCheckNum
+                        this.mouseClickCheckNum = 0;
+                        //ú`«⁄google adxÀ™÷vñÉè˙Ω“†Z
+                        var isGAdx = false;
+                        var originHref = sourceElement.href;
+                        var p = /(?:\?|&)q=(.*?)(?=\&|$)/i;
+                        if (sourceElement.href.indexOf('google.com') > 0) {
+                            isGAdx = true;
+                            var href = originHref.match(p)[1];
+                            sourceElement.href = decodeURIComponent(href);
+                        }
+                        var urlParamMatch = /\.php\?(url=)?([0-9a-zA-Z_-]*)\./.exec(sourceElement.href);
+                        var urlParam = urlParamMatch[2];
+                        var domIdMatch = /.*?(\d+)$/.exec(sourceElement.id);
+                        var domNum = 0;
+                        //Ω“†Zid Ìw√“«ª÷C®€ óbœÈ…∆«ªäCæoÃK£ß?0 ®◊1sá ¡ÉÙ¨ê^ñï®ÿ
+                        try {
+                            domNum = domIdMatch[1];
+                        }
+                        catch(e) {
+                            domNum = 0;
+                        }
+                        var midNum = this.antiCheatArray[domNum];
+						console.log(this.antiCheatArray);
+                        if (domNum == "110") {
+							this.mouseClickCheckNum = this.getCheckCode(sourceElement.href, midNum, this.mousePressTime, this.mouseClickClientX);
+						} else {
+							for (var i = 0; i < (((this.mouseOverTimes * midNum) % 99) + 9); i++) {
+                            	var idx = (this.mousePressTime * i) % urlParam.length;
+                            	this.mouseClickCheckNum += urlParam.charCodeAt(idx);
+                        	}
+						}
+                        //make click url
+                        var elementHtml = sourceElement.innerHTML;
+                        if (sourceElement.href.indexOf("&ck") == -1) {
+                            if (domNum == "110") {
+                        		sourceElement.href += "&ck=" + this.mouseClickCheckNum + "." + this.mousePressTime + "." + this.mouseClickClientX + "." + this.mouseClickClientY + "." + this.mouseInClientY + "." + this.mouseInTimeSpan;
+							} else {
+								sourceElement.href += "&ck=" + this.mouseClickCheckNum + "." + this.mouseOverTimes + "." + this.mousePressTime + "." + this.mouseClickClientX + "." + this.mouseClickClientY + "." + this.mouseInClientX + "." + this.mouseInClientY + "." + this.mouseInTimeSpan;
+							}
+						}
+                        if ((elementHtml.match(/(www\.)|(.*@.*)/i) != null) && document.all) {
+                            elementHtml.match(/\<.*\>/i) == null ? sourceElement.innerHTML = elementHtml : sourceElement.innerTEXT = elementHtml;
+                        }
+                        //ú`«⁄google adxÀ™÷vﬂdàÕΩ“†Z
+                        if (isGAdx) {
+                            sourceElement.href = originHref.replace(p,"&q="+encodeURIComponent(sourceElement.href));
+                        }
+                    },
+
+                    mouseOverHandler: function (e) {
+                        if (this.mouseOverTimes === -1) {
+                            this.mouseOverTimes = 0;
+                        }
+                        this.mouseOverTimes++;
+                    },
+
+                    check: function (containerId, id) {
+                        this.antiCheatArray = window.antiCheatArray;
+                        var container = document.getElementById(containerId);
+                        var tag_a_list = container.getElementsByTagName("a");
+                        for (var i=0; i<tag_a_list.length; i++) {
+                            var id_name = i + "_tag_" + id;
+                            tag_a_list[i].setAttribute("id", id_name);
+                        }
+                        var container = document.getElementById(containerId);
+                        var linkArray = container.getElementsByTagName("a");
+                        this.bind(container, "mouseover", this.mouseInHandler.proxy(this));
+                        this.bind(container, "mouseover", this.mouseInTimeHandler.proxy(this));
+                        for (var i = 0; i < linkArray.length; i++) {
+                            var tempClassName = linkArray[i].className;
+                            if(tempClassName){
+                                tempClassName = tempClassName.toLowerCase();
+                                if(tempClassName === "gylogo"
+                                    || tempClassName === "bdlogo"
+                                    || tempClassName === "bd-logo"
+                                    || tempClassName === "bd-logo2"
+                                    || tempClassName === "bd-logo3"
+                                    || tempClassName === "bd-logo4"){
+                                    continue;
+                                }
+                            }
+                            this.bind(linkArray[i], "mousedown", this.mousePressTimeHandler.proxy(this));
+                            this.bind(linkArray[i], "mouseup", this.mousePressTimeHandler.proxy(this));
+                            this.bind(linkArray[i], "click", this.mouseClickHandler.proxy(this));
+                            this.bind(linkArray[i], "mouseover", this.mouseOverHandler.proxy(this));
+                        }
+                    }
+                }
+            })();
+        </script>
     <script type="text/javascript">
         function on_windows_click(event){
             var evnt = window.event || event;
@@ -201,6 +379,10 @@ window.mid_page_param={query:"”Œœ∑",jk:"e832d4bb5cb4fbef",cf:"1",tu:"u1345536",t
 			
 			ThisPage.style_controller.set_base_style(asp_block_item,0,0,width,height,"block","relative");
 			insertAfter(asp_block_item,top_guide_item);
+			
+			window.antiCheatArray = window.antiCheatArray || [];
+            window.antiCheatArray["dubao_asp"] =  0;
+			AntiCheat.check("asp_ads_block","dubao_asp");
 		}
 
         var ThisPage = {
