@@ -1,0 +1,3025 @@
+<!-- htmlcs-disable --> 
+<!DOCTYPE html>
+<html>
+<head>
+    <!–[if IE]>
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=320px, user-scalable=yes" />
+    <![endif]–>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>小吃</title>
+    <script type="text/javascript">
+        var StartTime = (new Date()).getTime();
+    </script>
+        <style type="text/css">
+           html{color:#000;background-color:transparent;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}body{margin:0;padding:0;}          
+.bd-logo,.bd-logo2,.bd-logo3,.bd-logo4{text-decoration:none;cursor:pointer;display:block;overflow:hidden;position:absolute;bottom:0;right:0;z-index:2147483647}.bd-logo{height:18px;width:18px;background:url(http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/bg.png) no-repeat left top;background-position:0 0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/logo-border-light.png",sizingMethod="crop");_background:0}.bd-logo:hover{background-position:-70px 0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/logo-border-dark.png",sizingMethod="crop")}.bd-logo2{margin:0 2px 2px 0;height:14px;width:13px;background:url(http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/bg.png) no-repeat left top;background-position:0 -20px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/logo-noborder-light.png",sizingMethod="crop");_background:0}.bd-logo2:hover{background-position:0 -35px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/logo-noborder-dark.png",sizingMethod="crop")}.bd-logo3{height:18px;width:18px;background:url(http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/bg.png) no-repeat left top;background-position:-70px 0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/logo-border-dark.png",sizingMethod="crop");_background:0}.bd-logo3:hover{width:68px}.bd-logo4{height:18px;width:18px;bottom:0;left:0;background:url(http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/bd-logo4.png) no-repeat left top;background-position:center;background-size:100%,100%;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,src="http://cpro2.baidustatic.com/cpro/ui/noexpire/img/2.0.1/bd-logo4.png",sizingMethod="crop");_background:0}
+.loader{ text-align:center; width:90%; font-size:12px; padding:8px; border:solid 1px #aaaaaa; margin-top:30px; display:none; }.cf:before,.cf:after{content:"\20";display:table;}.cf:after{clear:both;}.cf{*zoom:1;}
+.textOverflow{white-space:nowrap;overflow:hidden;display:inline-block;width:100%;}.textOverflowEllipsis{-o-text-overflow:ellipsis;text-overflow:ellipsis;}.textOverflowClip{-o-text-overflow:clip;text-overflow:clip;}
+
+        </style>
+        <style type="text/css">
+            html {
+                background-color:#FFF;
+                color: #FFFFFF;
+            }
+            .toptip_container {
+                display:line-block;
+                width: 320px;
+                height: 160px;
+                border:0;
+                top:5px;
+                left:0px;
+                text-align: center;
+            }
+            .toptip_img{
+                position:absolute;
+                left:0px;
+                top: 0px;
+                height: 160px;
+                max-width: 320px;
+                z-index: 0;
+                opacity: .3;       
+            }
+
+            .toptip_img img{
+                position:absolute;
+                left:0px;
+                top: -34px;
+                width : 320px;
+                clip : rect(34px 320px 194px 0px);
+            }
+
+            .toptip_tag {
+                left:130px;
+                top:5px;
+                font:15px/2.1 "Microsoft YaHei",SimHei,Georgia;
+                color:#649CE6 ;
+                height:30px;
+                z-index: 1;
+            }
+            .toptip_title{
+                position:absolute;
+                top:95px;
+                font: 15px "Microsoft YaHei";
+                color:#000;
+                width:310px;
+                height: 30px;
+                text-align: left;
+                padding-left: 10px;
+                z-index: 1;
+
+            }
+            .toptip_content{
+                position:absolute;
+                top:120px;
+                width:300px;
+                height: 36px;
+                font:12px/1.5 "Microsoft YaHei",SimHei,Georgia;
+                color:gray;
+                padding-left: 10px;
+                padding-right: 10px;
+                z-index: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;-webkit-line-clamp: 2;
+                text-align: left;
+            }
+            .toptip_jump{
+                font:12px/1.2 "Microsoft YaHei",SimHei,Georgia;
+                text-decoration: none;
+                color:gray;
+            }
+            .menu_container {
+                width:310px;
+                height:30px;
+                display:block;
+                margin-left: 10px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            .menu_item {
+                float:left;
+                width: 93px;
+                height:24px;
+                color: #4B90E2;
+                font: 13px/1.6 "Microsoft YaHei";
+                border:1px solid #4A91E3;
+                background-color:#ECF3FD;
+                text-decoration:none;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+                text-align:center;
+                margin-right: 2px;
+                padding-top: 2px;
+                overflow:hidden;
+                padding-top: 2px;
+            }
+
+            .interest_container {
+                position: relative;
+                width:300px;
+                height:100px;
+                display:block;
+                margin-left:10px;
+            }
+            .interest_title{
+                margin-left:10px;
+                margin-top:10px;
+                height: 30px;
+                color: #505050;
+                font: 16px/1.6 "Microsoft YaHei";
+            }
+            .interest_item {
+                float:left;
+                height:30px;
+                width:auto;
+                color: #4990E2;
+                font: 16px/1.6 "Microsoft YaHei";
+                border:1px solid #4990E2;
+                background-color:#ECF3FD;
+                text-decoration:none;
+                text-align:center;
+                overflow:hidden;
+                margin-top: 2px;
+                margin-left: 4px;
+                margin-right: 4px;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+            }
+
+            .interest_item_hover {
+                float:left;
+                height:30px;
+                width:auto;
+                color: #ECF3FD;
+                font: 16px/1.6 "Microsoft YaHei";
+                border:1px solid #4990E2;
+                background-color:#4990E2;
+                text-decoration:none;
+                text-align:center;
+                overflow:hidden;
+                margin-top: 2px;
+                margin-left: 4px;
+                margin-right: 4px;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+            }
+            .news_container {
+                display:block;
+                width:320px;
+            }
+            .news_zone {
+                display:block;
+                overflow:hidden;
+                width:310px;
+            }
+            #news_zone_asp_pic {
+                margin-top: 0px;
+                margin: 9px 11px 10px;
+                overflow:hidden;
+                width:300px;
+                height:230px;
+            }
+            #news_zone_asp {
+                margin-top: 0px;
+            }
+            .asp_pic_item {
+                position:relative;
+                width:300px;
+                height:230px;
+                background-color:white;
+                overflow:hidden;
+                text-decoration: none;
+                float:left;
+                color:#353535;
+            }
+            .pic_block {
+                float:left;
+                width:152px;
+                height:152px;
+            }
+            .pic_block img {
+                width:100%;
+                height:100%;
+            }
+            .asp_pic_a {
+                display: black;
+                margin-left: 8px;
+                width:120px;
+                height:75px;
+            }
+            .asp_pic_a img{
+                width:120px;
+                height:75px;
+            }
+            .jingpin_pic_tit_a {
+                display: block;
+                overflow:hidden;
+                white-space:nowrap;
+                width:141px;
+                height:25px;
+                font: 15px/1.7 "Microsoft YaHei";
+                color:#272727;
+                text-align:center;
+                text-decoration: none;
+                background-color: #FFFFFF;
+            }
+            .pic_desc {
+                float: left;
+                letter-spacing: 1px;
+                width: 298px;
+                height: 30px;
+                font-size: 17px;
+                line-height: 30px;
+                font-weight: bold;
+                text-align: center;
+                color: #FFFFFF;
+                margin-top: -30px;
+                background-color: #000000;
+                font-family: Microsoft YaHei;
+                opacity: 0.75;
+                position:relative;
+                z-index:1;
+            }
+            .pic_desc_a {
+                width: 149px;
+                height: 30px;
+                margin-top: -29px;
+                float: left;
+                display: block;
+                position:relative;
+                z-index: 2;
+            }
+            .text-item {
+                position:relative;
+                overflow:hidden;
+                width: 296px;
+                height: 110px;
+                padding:0px 0px 2px 6px;
+                margin: 0px 8px;
+                -moz-box-shadow: 0px 1px 2px 1px #e5e5e5;
+                background-color: #FFFFFF;
+            }
+
+            .text-title-a {
+                display: line-block;
+                overflow:hidden;
+                text-overflow: ellipsis;
+                -webkit-box-orient: vertical;
+                height: 25px;
+                width: 240px;
+                margin-left: 7px;
+                font: 14px "Microsoft YaHei";
+                text-decoration: none;
+                color:#2064BE;
+                white-space:normal;
+                white-space:nowrap;
+                margin-bottom: 10px;
+            } 
+            .text-desc-a {
+                display: inline-block;
+                text-overflow: -o-ellipsis-lastline;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;-webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                height: 32px;
+                width: 280px;
+                padding:2px 8px;
+                font: 12px/1.5 "Microsoft YaHei";
+                color:gray;
+                text-decoration:none;
+                margin-top: 8px;
+            }
+
+            .text_item_pic {
+                position:relative;
+                overflow:hidden;
+                width: 296px;
+                height: 150px;
+                padding:8px 0px 8px 6px;
+                margin: 5px 8px;
+                -moz-box-shadow: 0px 1px 2px 1px #e5e5e5;
+                background-color: #FFFFFF;
+            }
+            .text_title_pic_a {
+                display: block;
+                overflow:hidden;
+                text-overflow: ellipsis;
+                -webkit-box-orient: vertical;
+                height: 25px;
+                width: 240px;
+                margin-left: 7px;
+                font: 14px "Microsoft YaHei";
+                text-decoration: none;
+                color:#000;
+                white-space:normal;
+                white-space:nowrap;
+                margin-bottom: 10px;
+            } 
+            .text_items_img{
+                float:left;
+                width: 120px;
+                height: 90px;
+
+            }
+            .text-desc-pic-a {
+                float:right;
+                text-overflow: -o-ellipsis-lastline;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;-webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                height: 52px;
+                width: 170px;
+                font: 12px/1.5 "Microsoft YaHei";
+                color:gray;
+                text-decoration:none;
+                margin-top: 1px;
+            }
+            .attach_icon_asp_pic {
+                float:right;
+                text-decoration: none;
+                margin-bottom: 15px;
+                margin-top: 15px;
+                margin-right: 10px;
+                width: 50px;
+                font: 12px "Microsoft YaHei";
+                color: #FFF;
+                background-color : #7ED320;
+                padding: 3px 10px 5px 10px;
+                border: 1px;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;                
+            }
+
+            .arr_a {
+                position: absolute;
+                left: 270px;
+            }
+            .tuwen-item {
+                position:relative;
+                overflow:hidden;
+                width: 300px;
+                height: 75px;
+                padding:2px 0px 2px 1px;
+                margin: 0px 3px 3px 11px;
+                background-color: #FFFFFF;
+            }
+
+            .tuwen-item-a{
+                float: right;
+                width: 300px;
+                height: 75px;
+                text-decoration:none;
+            }
+            .item_top {
+                margin: 0px 11px 8px 11px;
+            }
+            .hot {
+                position: absolute;
+                top:13px;
+                left:213px;
+                width:10px;
+                height:10px;
+                background-color: red;
+                border-radius:5px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                z-index:1000;
+            }
+            .tuwen-logo {
+                display:block;
+                float:left;
+                margin-top: 3px;
+                margin-right: 5px;
+                margin-bottom: 10px;
+                margin-left: 8px;
+                width: 60px;
+                height: 60px;
+            }
+            .tuwen-logo a {
+                display:block;
+
+            }
+            .tuwen-logo img {
+                width:100%;
+                height:100%;
+            }
+            .text-items-a{
+                display: block;
+                width: 296px;
+                height: 110px;
+                text-decoration: none; 
+            }
+
+            .title-a {
+                float:left;
+                overflow:hidden;
+                height: 20px;
+                width: 200px;
+                margin-left: 5px;
+                margin-bottom: 10px;
+                font: 14px "Microsoft YaHei";
+                text-decoration: none;
+                color:#000;
+                white-space:normal;
+                word-break: break-all;
+                word-wrap: break-word;
+
+            }
+            .kword-a {
+                overflow:hidden;
+                float:left;
+                height:14px;
+                width: 120px;
+                margin-left:5px;
+                text-decoration:none;
+            }
+            .kword-p {
+                height:14px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                font: 12px/1.2 "Microsoft YaHei";
+                color:gray;
+                white-space:normal;
+                word-break: break-all;
+                word-wrap: break-word;
+            }
+
+            .attach-icon {
+                left: 210px;
+                top: 45px;
+                position:absolute;
+                float: right;
+                width: 80px;
+                height: 23px;
+                margin-right: 10px;
+                margin-bottom: 5px;
+                border-radius: 3px;
+                border: solid 1px #4FE3C1;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                background-color: #4FE3C1;
+                text-decoration: none;
+            }
+
+            .attach-icon img {
+                width: 12px;
+                height: 12px;
+                position: relative;
+                top: 2px;
+                left: 8px;
+                margin-right: 10px;
+            }
+            .attach-icon-text {
+                width: 60px;
+                position: inline-block;
+                font: 10px "SimHei";
+                color:#FFF;
+                white-space:normal;
+                word-break: break-all;
+                word-wrap: break-word;
+                margin-bottom: 2px;
+                left: 8px;
+            }
+
+            .tuijian_tag {
+                float:left;
+                width:40px;
+                height:20px;
+                background-color:#00a2ed;
+                border-radius:3px;
+                -webkit-border-radius:3px;
+                -moz-border-radius:3px;
+                margin-top:3px;
+                margin-left:5px;
+                text-align:center;
+                font: 14px/1.3 "Microsoft YaHei";
+                color:#ffffff;
+                white-space:normal;
+                word-break: break-all;
+                word-wrap: break-word;              
+            } 
+
+			.attach-icon_asp {
+                display: line-block;
+                position: relative;
+                float: left;
+                width: 296px;
+                height: 30px;
+                text-decoration: none;
+                margin-bottom: 10px;
+                margin-top: 5px;
+            }
+
+            .attach-asp-icon-text {
+                width: 50px;
+                position: relative;
+                font: 12px "Microsoft YaHei";
+                color: #FFF;
+                float:right;
+                background-color : #2064BE;
+                padding: 5px 10px 5px 10px;
+                border: 1px;
+                -moz-border-radius: 2px;;
+                -webkit-border-radius: 2px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+
+            .baozhang_container {
+                margin:10px 11px 9px 10px;
+                width:300px;
+            }
+            
+            .baozhang_top {
+                width:300px;
+                height:30px;
+                overflow:hidden;
+                color: black;
+            }
+            .baozhang_top_img {
+                float:left;
+                height:19px;
+                width:18px;
+                margin:3px 0px 3px 14px;
+            }
+            .baozhang_top_text {
+                text-align: left;
+                color:black;
+                font: 16px/1.7 SimHei;
+                background-color: #FFFFFF;
+                margin-left: 0px;
+            }
+            .baozhang_info {
+                background-color:#FFFFFF;
+                color: #898989;
+                font: 7px SimHei;
+                width: 280;
+            }
+            .baozhang_span {
+                text-align:center;
+                width: 280px;
+            }
+            .continue {
+                position: line-block;
+                width: 160px;
+                margin-left:80px;
+                padding:3px 3px 3px 3px;
+            }
+            .continue_load {
+                color: #A6AAAD;
+                font: 15px/1.7 "Microsoft YaHei";
+                text-decoration: none;
+                background-color: #EBEBEB;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .load_img {
+                padding-left: 30px;
+                width: 40px;
+                height: 40px;
+            }
+            .zone_tag {
+                color: #4A90E3;
+                font: 16px/1.7 "Microsoft YaHei";
+                padding:0px 0px 8px 0px;
+                text-align: left;
+                margin-left: 15px;
+                margin-top: 30px;
+            }
+            .padding {
+                margin: 32px 0px 0px 0px;
+            }
+
+            .search_container {
+                position: relative;
+                width:320px;
+            }
+            .search_input{
+                float:left;
+                height: 28px;
+                margin-left: 10px;
+                width: 230px;
+                font: 14px/1.5 "Microsoft YaHei";
+                background-color: transparent;
+                border:solid 1px #EBEBEB;
+                color:#ABABAB;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+            }
+            .search_bt{
+                float:right;
+                font: 14px/1.5 "Microsoft YaHei";
+                background-color: #1867C3;
+                color: #fff;
+                width: 60px;
+                height: 30px;
+                margin-left: 9px;
+                margin-right: 3px;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                border:none;
+                -webkit-appearance: none; 
+            }
+            .text-jingpin{
+                position:relative;
+                overflow:hidden;
+                background-color: #FFFFFF;
+                height: 110px;
+            }
+            .text-jingpin-a{
+                display: block;
+                text-decoration:none;
+                height: 110px;
+            }
+            .title-jingpin{
+                display: line-block;
+                overflow:hidden;
+                text-overflow: ellipsis;
+                -webkit-box-orient: vertical;
+                height: 25px;
+                width: 240px;
+                margin-left: 7px;
+                font: 14px "Microsoft YaHei";
+                text-decoration: none;
+                color:#2064be;
+                white-space:normal;
+                white-space:nowrap;
+                margin-left: 20px;
+
+            }
+            .padding_blank{
+                float:left;
+                width: 150px;
+                height: 30px;
+            }
+            .jingpin-desc{
+                float:left;
+                text-overflow: -o-ellipsis-lastline;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;-webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                height: 38px;
+                width: 210px;
+                font: 12px/1.5 "Microsoft YaHei";
+                color:gray;
+                text-decoration:none;
+                margin-top: 8px;
+                margin-left: 10px;
+            }
+
+            .image-jingpin{
+                float:left;
+                margin-left:20px;
+                margin-top: 8px;
+                margin-bottom: 15px;
+            }
+            .attach-icon-jingpin{
+                left: 230px;
+                top: 70px;
+                position:absolute;
+                float: right;
+                text-decoration: none;
+            }
+
+        </style>
+        <script>
+            function del_html_items(){
+
+                var items=document.getElementById("main_container");
+                items_len = items.children.length;
+                for (var i=0; i < items_len; i++){
+                    items.removeChild(items.children[0]);
+                }
+                clone_new_container();
+            } 
+            
+            function rerequest_ads(query){
+                window["mid_page_param"].query = query;
+                for (var i=0; i<6; i++){
+                    window["mid_page_param"].keywords[i] = moreKeywordList[i+2];
+                }
+                keywordlist = window["mid_page_param"].keywords;
+                for (var i=0; i<keywordlist.length; i++) {
+                    if (key == keywordlist[i]) {
+                        window["mid_page_param"].query_idx = i;
+                        break;
+                    }
+                }
+                moreKeywordList = [];
+                renderList = [];
+                keywordIndex = -1;
+                currentAd = 10;
+                skipNum = 0;
+                totalKeywordNum = 0;
+                hasJinpinHot = 0;
+                requestADS();
+            }
+
+            function change_menu_keyword(kword, clk_idx){
+                var i = 0;
+                items = document.getElementsByClassName("menu_item");
+                for (i = 0; i < items.length; i++){
+                    if (i+1 == clk_idx){
+                        items[i].setAttribute("style", "background-color:#4B90E2;color:#ECF3FD;");
+                    }else{
+                        items[i].setAttribute("style", "background-color:#ECF3FD;color: #4B90E2;");
+                    }
+                }
+                adjust_keywords();
+                search_item = document.getElementsByClassName("search_input")[0];
+                search_item.value = "  "+ kword;
+
+            }
+            function menu_onclick_01(){
+                del_html_items();
+                var kword = document.getElementById("menu_item_01").innerHTML;
+                change_menu_keyword(kword, 1);
+                rerequest_ads(kword);
+            }
+
+            function menu_onclick_02(){
+                del_html_items();
+                var kword = document.getElementById("menu_item_02").innerHTML;
+                change_menu_keyword(kword, 2);
+                rerequest_ads(kword);
+            }
+
+            function menu_onclick_03(){ 
+                del_html_items();
+                var kword = document.getElementById("menu_item_03").innerHTML; 
+                change_menu_keyword(kword, 3);
+                rerequest_ads(kword);
+            }
+
+            function show_banner(){
+                if (window["mid_page_param"].sub_title=="" || window["mid_page_param"].sub_desc=="" ||
+                    window["mid_page_param"].sub_image=="" || window["mid_page_param"].sub_url==""){
+                     document.getElementsByClassName("toptip_container")[0].setAttribute("style", "display:line-block; height:30px ;background-color:#E0DEDD;");//ECF3FD
+                    document.getElementsByClassName("toptip_title")[0].setAttribute("style", "display:none");
+                    document.getElementsByClassName("toptip_content")[0].setAttribute("style", "display:none");
+                }else{
+                    document.getElementsByClassName("toptip_title")[0].innerHTML = window["mid_page_param"].sub_title;
+                    document.getElementsByClassName("toptip_content")[0].innerHTML = window["mid_page_param"].sub_desc.substring(0,45)+"..."+"<a class=\"toptip_jump\" target=\"_blank\" href=\""+window["mid_page_param"].sub_url +"\" >>></a>";
+                    tmp = document.getElementsByClassName("toptip_img")[0];
+                    tmp.firstElementChild.src = window["mid_page_param"].sub_image;
+                    
+                    document.getElementsByClassName("toptip_img")[0].setAttribute("style", "display:block");
+                    document.getElementsByClassName("toptip_container")[0].setAttribute("style", "display:line-block");
+                }
+                document.getElementsByTagName("title")[0].innerHTML = window["mid_page_param"].sub_title;
+            }
+        </script>
+    <body>
+        <div class="toptip_img" style="display:none"> 
+        <img></img>
+       </div>
+        <div class="toptip_container" id="toptip_container" style="display:none">
+            <div class="toptip_tag">百度推荐</div>
+            <div class="toptip_title"></div>
+            <div class="toptip_content"></div>
+        </div>
+
+        <div class="menu_container" id="menu_container" >
+            <span  class="menu_item" id="menu_item_01" onClick="menu_onclick_01()" >电线厂招工</span>
+            <span  class="menu_item" id="menu_item_02" onClick="menu_onclick_02()" >最大的美容院</span>
+            <span  class="menu_item" id="menu_item_03" onClick="menu_onclick_03()" >私人借款</span>
+        </div>
+        <div class="main_container" id="main_container" >
+        </div>
+
+        <div class="news_container" id="news_container" style="display:none">
+
+            <div class="news_zone" id="news_zone_asp" style="display:none" >
+            </div>
+            <div class="news_zone" id="news_zone_ztc_asp" style="display:none" >
+            </div>
+            <div class="news_zone" id="news_zone_jingpin" style="display:none" >
+            </div>
+
+            <div class="news_zone" id="news_zone_jingpin_hot" style="display:none" >
+            </div>
+            <div class="zone_tag">
+                其它您可能喜欢的内容
+            </div>
+            <div class="news_zone" id="news_zone_hot" style="display:none">
+            </div>
+            <div class="news_zone" id="news_zone_query1" style="display:none">
+            </div>
+            <div class="news_zone" id="news_zone_query2" style="display:none">
+            </div>
+            <div class="news_zone" id="news_zone_query3" style="display:none">
+            </div>
+            <div class="news_zone" id="news_zone_query4" style="display:none">
+            </div>
+            <div class="news_zone" id="news_zone_query5" style="display:none">
+            </div>
+            <div class="news_zone" id="news_zone_query6" style="display:none">
+            </div>
+            <div class="news_zone" id="news_zone_query" style="display:none">
+            </div>
+        </div>
+        <div class="continue" id="load">
+            <a class="continue_load" id="continue_load" href="javascript:loadMore()" style="display:none" >点击查看更多内容</a>
+            <img class="load_img" id="load_img" src="http://img2.bdstatic.com/static/searchresult/img/loading_circle_40b82ef.gif" />
+        </div>
+
+        <div class="interest_container" id="interest_container" style="display:none">
+            <div class="zone_tag">您可能还对以下内容感兴趣</div>
+            <span  class="interest_item_hover" id="interest_01" onClick="interest_onclick_01()"></span>
+            <span  class="interest_item" id="interest_02" onClick="interest_onclick_02()"></span>
+            <span  class="interest_item" id="interest_03" onClick="interest_onclick_03()"></span>
+            <span  class="interest_item" id="interest_04" onClick="interest_onclick_04()"></span>
+        </div>
+        <form class = "search_container" id="bdfm" target="_blank" name="bdfm" method="get" action="http://m.baidu.com/s">
+        <table>
+           <tr>
+            <td><br/><input type="text" id="search1" class="search_input" name="word" value="$keywordcur$" onclick="document.getElementsByClassName('search_input')[0].value=''"></td>
+            <td><br/><input type="submit"  class="search_bt" value="搜索" /></td>
+           </tr>
+        </table>
+        </form>
+        <div class="baozhang_container" id="baozhang_container" >
+            <div class="baozhang_top"  >
+                <div class="baozhang_top_text"  >百度推广 全额保障</div>
+            </div>
+            <hr align="center" height="1px" width="300px" color="#F2F2F2" style="margin-top:3px; margin-bottom:3px;" size="1" >
+            <div class="baozhang_info"  >
+                <span class="baozhang_span">
+                    百度和中消协提示您：如您在登录百度账户状态下，在含信誉标识的搜索结果中因假冒官网、劣质或钓鱼欺诈而蒙受经济损失，依《保障协议》符合保障条件的可向百度申请 <a href="http://baozhang.baidu.com/guarantee/" target="_blank">保障</a>。
+                </span>
+            </div>
+        </div>
+      
+        <div class="text-jingpin" id="text-jingpin" style="display:none">
+            <a class="text-jingpin-a" target="_blank">
+                <span class="title-jingpin"></span>
+                <div class="tuwen-jingpin-logo" >
+                    <span class="image-jingpin">
+                        <img class="tuwen-logo-img">
+                    </span>
+                </div>
+                <span class="jingpin-desc"></span>
+            <hr align="center" height="1px" width="300px" color="#F2F2F2" style="margin-top:10px; margin-bottom:5px;" size="1" >
+            <a class="attach-a attach-icon-jingpin" target="_blank">
+                <span class="attach-asp-icon-text" target="_blank">点击查看</span>
+            </a>
+
+        </div>
+
+       <div class="tuwen-item" id="tuwen_temp" style="display:none">
+        <a class="tuwen-item-a" target="_blank">
+            <div class="tuwen-logo">
+                <span class="image-a" >
+                    <img class="tuwen-logo-img">
+                </span>
+            </div>
+            <span class="title-a" ></span>
+            <span class="kword-a" >
+                <div class="kword-p"> </div>
+            </span>
+        </a>
+        <a class="attach-a attach-icon" target="_blank">
+                <img src="http://cpro.baidustatic.com/cpro/exp/mob_exp/img/midpage/go-icon.png">
+                <span class="attach-icon-text">点击查看</span>
+        </a>
+            <hr align="center" height="1px" width="300px" color="#F2F2F2" style="margin-top:5px; margin-bottom:5px;" size="1" >
+        </div>
+        
+        <div class="text-item" id="text_temp" style="display:none">
+        <a class="text-items-a" target="_blank">
+            <span class="text-title-a"></span> 
+            <span class="text-desc-a"></span>
+            <span class="attach-icon-asp">
+                <span class="attach-asp-icon-text">点击查看</span>
+            </span>
+            <hr align="center" height="1px" width="300px" color="#F2F2F2" style="margin-top:10px; margin-bottom:5px;" size="1" >
+        </a>
+        </div>
+    </body>
+    <script type="text/javascript">
+     var Base = {
+    config: {},
+    cache: {},
+    getKeysByType: function(b) {
+        b = (b || "class").toLowerCase();
+        var a = b + "LoadFinished"
+          , c = b + "LoadFnArray"
+          , d = b + "LoadMap";
+        this[a] = "boolean" === typeof this[a] ? this[a] : !0;
+        this[c] = this[c] || [];
+        this[d] = this[d] || {};
+        return {
+            status: a,
+            array: c,
+            map: d,
+            type: b
+        }
+    },
+    updateLoadStatus: function(b, a, c) {
+        c = this.getKeysByType(c);
+        if (b && (this[c.map][b] = a,
+        "loaded" !== a))
+            return this[c.status] = !1;
+        b = !0;
+        for (var d in this[c.map])
+            if (d && this[c.map].hasOwnProperty(d) && "loaded" !== this[c.map][d]) {
+                b = !1;
+                break
+            }
+        return this[c.status] = 
+        b
+    },
+    loadImage: function(b) {
+        var a = new Image;
+        a.onload = a.onerror = a.onabort = function() {
+            a.onload = a.onerror = a.onabort = null ;
+            this.updateLoadStatus(b, "loaded", "image");
+            if (this.imageLoadFinished)
+                for (var c, d = 0, h = this.imageLoadFnArray.length; d < h; d++)
+                    c = this.imageLoadFnArray.shift(),
+                    c()
+        }
+        .proxy(this);
+        a.src = b
+    },
+    fastClone: function(b) {
+        var a = function() {}
+        ;
+        a.prototype = b;
+        return new a
+    },
+    declare: function(b) {
+        b = b();
+        var a = b.name;
+        if (!a)
+            throw "can't find the obj name";
+        for (var c = b.namespace + "." + a, d = c.split("."), h = d.length, f = window, 
+        j = "", e = 0; e < h - 1; e++) {
+            var g = d[e];
+            f == window ? (f[g] = window[g] = window[g] || {},
+            j += g) : (f[g] = f[g] || {},
+            j += "." + g);
+            f = f[g];
+            this.cache[j] = f
+        }
+        f[a] = f[a] || b;
+        this.cache = this.cache || {};
+        this.cache[c] = f[a];
+        return !0
+    },
+    using: function(b, a, c) {
+        if (this.cache && this.cache[b])
+            return this.cache[b];
+        a = a || "class";
+        c = c || this.config.version[a] || "1.0.0";
+        var d;
+        switch (a) {
+        case "image":
+            0 > b.indexOf("http") && (b = this.config.baseUrl + "img/" + (c && "0" !== c ? c.toString() : "") + "/" + b);
+            this.updateLoadStatus(b, "loading", "image");
+            this.loadImage(b);
+            d = b;
+            break;
+        case "class":
+            var h = this.getKeysByType(a);
+            a = b.split(".");
+            d = window[a[0]];
+            for (var f = 1, j = a.length; f < j; f++)
+                d = d && d[a[f]] ? d[a[f]] : null ;
+            if (!d && !this[h.map][b]) {
+                this.updateLoadStatus(b, "loading", "class");
+                var e = document.createElement("script");
+                e.type = "text/javascript";
+                e.async = !0;
+                a = this.config.baseUrl + "js/";
+                c && "0" !== c && (a += c.toString() + "/");
+                a += b.replace(/\./gi, "/") + ".js";
+                e.src = a.toLowerCase();
+                e.onload = e.onerror = e.onreadystatechange = function() {
+                    if (/loaded|complete|undefined/.test(e.readyState)) {
+                        e.onload = e.onerror = 
+                        e.onreadystatechange = null ;
+                        if (this.updateLoadStatus(b, "loaded", "class"))
+                            for (var a, c = 0, d = this[h.array].length; c < d; c++)
+                                a = this[h.array].shift(),
+                                a();
+                        e = void 0
+                    }
+                }
+                .proxy(this);
+                c = document.getElementsByTagName("script")[0];
+                c.parentNode.insertBefore(e, c)
+            }
+            this.cache = this.cache || {};
+            this.cache[b] = d
+        }
+        return d
+    },
+    config: function(b) {
+        b && (this.config = b)
+    },
+    run: function(b) {
+        if (b) {
+            var a = this.getKeysByType();
+            this[a.status] ? b() : this[a.array].push(b)
+        }
+    }
+};
+Function.prototype.proxy = function(b) {
+    var a = this
+      , c = Array.prototype.slice.apply(arguments).shift();
+    return function(b) {
+        return a.apply(c, arguments)
+    }
+}
+;
+window.declare = Base.declare.proxy(Base);
+window.using = Base.using.proxy(Base);
+window.run = Base.run.proxy(Base);
+window.config = Base.config.proxy(Base);
+document.execCommand("BackgroundImageCache", !1, !0);
+    </script>
+    <script type="text/javascript">
+            window["mid_page_param"] = {
+         query: "小吃",
+    jk: "e832d4bb5cb4fbef",
+    cf: "1",
+    tu: "u1345536",
+    td: "1345536",
+    rs: "1",
+    cpr: "19076084_1_cpr",
+    keywords: ["电线厂招工", "最大的美容院", "私人借款", "组装led灯", "手机维修三星", "沙井小时工"],
+    menu_href_list: ["http://cpro.baidu.com/cpro/ui/uijs.php?rs=2&amp;u=http%3A%2F%2Fwap%2Eganji%2Ecom%2Fsz%2Fzpshichangyingxiao%2F%3Fifid%3Dv2%5Findex%5Fwanted%5Fzpshichangyingxiao&amp;p=baidu&amp;c=news&amp;n=10&amp;t=tpclicked3_mob_asp_3&amp;q=19076084_1_cpr&amp;k=%B5%E7%CF%DF%B3%A7%D5%D0%B9%A4&amp;k0=%B5%E7%CF%DF%B3%A7%D5%D0%B9%A4&amp;kdi0=1&amp;k1=%D7%EE%B4%F3%B5%C4%C3%C0%C8%DD%D4%BA&amp;kdi1=8&amp;k2=%CB%BD%C8%CB%BD%E8%BF%EE&amp;kdi2=1&amp;k3=%D7%E9%D7%B0led%B5%C6&amp;kdi3=1&amp;k4=%CA%D6%BB%FA%CE%AC%D0%DE%C8%FD%D0%C7&amp;kdi4=1&amp;k5=%C9%B3%BE%AE%D0%A1%CA%B1%B9%A4&amp;kdi5=1&amp;sid=b17019b45ce9eb46&amp;ch=0&amp;tu=u1345536&amp;jk=e832d4bb5cb4fbef&amp;cf=1&amp;rb=1&amp;fv=18&amp;stid=4001&amp;urlid=0&amp;luki=4&amp;seller_id=1&amp;di=1".replace(/&amp;/g, "&"), "http://cpro.baidu.com/cpro/ui/uijs.php?rs=2&amp;u=http%3A%2F%2Fwap%2Eganji%2Ecom%2Fsz%2Fzpshichangyingxiao%2F%3Fifid%3Dv2%5Findex%5Fwanted%5Fzpshichangyingxiao&amp;p=baidu&amp;c=news&amp;n=10&amp;t=tpclicked3_mob_asp_3&amp;q=19076084_1_cpr&amp;k=%D7%EE%B4%F3%B5%C4%C3%C0%C8%DD%D4%BA&amp;k0=%B5%E7%CF%DF%B3%A7%D5%D0%B9%A4&amp;kdi0=1&amp;k1=%D7%EE%B4%F3%B5%C4%C3%C0%C8%DD%D4%BA&amp;kdi1=8&amp;k2=%CB%BD%C8%CB%BD%E8%BF%EE&amp;kdi2=1&amp;k3=%D7%E9%D7%B0led%B5%C6&amp;kdi3=1&amp;k4=%CA%D6%BB%FA%CE%AC%D0%DE%C8%FD%D0%C7&amp;kdi4=1&amp;k5=%C9%B3%BE%AE%D0%A1%CA%B1%B9%A4&amp;kdi5=1&amp;sid=b17019b45ce9eb46&amp;ch=0&amp;tu=u1345536&amp;jk=e832d4bb5cb4fbef&amp;cf=1&amp;rb=1&amp;fv=18&amp;stid=4001&amp;urlid=0&amp;luki=4&amp;seller_id=1&amp;di=8".replace(/&amp;/g, "&"), "http://cpro.baidu.com/cpro/ui/uijs.php?rs=2&amp;u=http%3A%2F%2Fwap%2Eganji%2Ecom%2Fsz%2Fzpshichangyingxiao%2F%3Fifid%3Dv2%5Findex%5Fwanted%5Fzpshichangyingxiao&amp;p=baidu&amp;c=news&amp;n=10&amp;t=tpclicked3_mob_asp_3&amp;q=19076084_1_cpr&amp;k=%CB%BD%C8%CB%BD%E8%BF%EE&amp;k0=%B5%E7%CF%DF%B3%A7%D5%D0%B9%A4&amp;kdi0=1&amp;k1=%D7%EE%B4%F3%B5%C4%C3%C0%C8%DD%D4%BA&amp;kdi1=8&amp;k2=%CB%BD%C8%CB%BD%E8%BF%EE&amp;kdi2=1&amp;k3=%D7%E9%D7%B0led%B5%C6&amp;kdi3=1&amp;k4=%CA%D6%BB%FA%CE%AC%D0%DE%C8%FD%D0%C7&amp;kdi4=1&amp;k5=%C9%B3%BE%AE%D0%A1%CA%B1%B9%A4&amp;kdi5=1&amp;sid=b17019b45ce9eb46&amp;ch=0&amp;tu=u1345536&amp;jk=e832d4bb5cb4fbef&amp;cf=1&amp;rb=1&amp;fv=18&amp;stid=4001&amp;urlid=0&amp;luki=4&amp;seller_id=1&amp;di=1".replace(/&amp;/g, "&"), "http://cpro.baidu.com/cpro/ui/uijs.php?rs=2&amp;u=http%3A%2F%2Fwap%2Eganji%2Ecom%2Fsz%2Fzpshichangyingxiao%2F%3Fifid%3Dv2%5Findex%5Fwanted%5Fzpshichangyingxiao&amp;p=baidu&amp;c=news&amp;n=10&amp;t=tpclicked3_mob_asp_3&amp;q=19076084_1_cpr&amp;k=%D7%E9%D7%B0led%B5%C6&amp;k0=%B5%E7%CF%DF%B3%A7%D5%D0%B9%A4&amp;kdi0=1&amp;k1=%D7%EE%B4%F3%B5%C4%C3%C0%C8%DD%D4%BA&amp;kdi1=8&amp;k2=%CB%BD%C8%CB%BD%E8%BF%EE&amp;kdi2=1&amp;k3=%D7%E9%D7%B0led%B5%C6&amp;kdi3=1&amp;k4=%CA%D6%BB%FA%CE%AC%D0%DE%C8%FD%D0%C7&amp;kdi4=1&amp;k5=%C9%B3%BE%AE%D0%A1%CA%B1%B9%A4&amp;kdi5=1&amp;sid=b17019b45ce9eb46&amp;ch=0&amp;tu=u1345536&amp;jk=e832d4bb5cb4fbef&amp;cf=1&amp;rb=1&amp;fv=18&amp;stid=4001&amp;urlid=0&amp;luki=4&amp;seller_id=1&amp;di=1".replace(/&amp;/g, "&"), "http://cpro.baidu.com/cpro/ui/uijs.php?rs=2&amp;u=http%3A%2F%2Fwap%2Eganji%2Ecom%2Fsz%2Fzpshichangyingxiao%2F%3Fifid%3Dv2%5Findex%5Fwanted%5Fzpshichangyingxiao&amp;p=baidu&amp;c=news&amp;n=10&amp;t=tpclicked3_mob_asp_3&amp;q=19076084_1_cpr&amp;k=%CA%D6%BB%FA%CE%AC%D0%DE%C8%FD%D0%C7&amp;k0=%B5%E7%CF%DF%B3%A7%D5%D0%B9%A4&amp;kdi0=1&amp;k1=%D7%EE%B4%F3%B5%C4%C3%C0%C8%DD%D4%BA&amp;kdi1=8&amp;k2=%CB%BD%C8%CB%BD%E8%BF%EE&amp;kdi2=1&amp;k3=%D7%E9%D7%B0led%B5%C6&amp;kdi3=1&amp;k4=%CA%D6%BB%FA%CE%AC%D0%DE%C8%FD%D0%C7&amp;kdi4=1&amp;k5=%C9%B3%BE%AE%D0%A1%CA%B1%B9%A4&amp;kdi5=1&amp;sid=b17019b45ce9eb46&amp;ch=0&amp;tu=u1345536&amp;jk=e832d4bb5cb4fbef&amp;cf=1&amp;rb=1&amp;fv=18&amp;stid=4001&amp;urlid=0&amp;luki=4&amp;seller_id=1&amp;di=1".replace(/&amp;/g, "&"), "http://cpro.baidu.com/cpro/ui/uijs.php?rs=2&amp;u=http%3A%2F%2Fwap%2Eganji%2Ecom%2Fsz%2Fzpshichangyingxiao%2F%3Fifid%3Dv2%5Findex%5Fwanted%5Fzpshichangyingxiao&amp;p=baidu&amp;c=news&amp;n=10&amp;t=tpclicked3_mob_asp_3&amp;q=19076084_1_cpr&amp;k=%C9%B3%BE%AE%D0%A1%CA%B1%B9%A4&amp;k0=%B5%E7%CF%DF%B3%A7%D5%D0%B9%A4&amp;kdi0=1&amp;k1=%D7%EE%B4%F3%B5%C4%C3%C0%C8%DD%D4%BA&amp;kdi1=8&amp;k2=%CB%BD%C8%CB%BD%E8%BF%EE&amp;kdi2=1&amp;k3=%D7%E9%D7%B0led%B5%C6&amp;kdi3=1&amp;k4=%CA%D6%BB%FA%CE%AC%D0%DE%C8%FD%D0%C7&amp;kdi4=1&amp;k5=%C9%B3%BE%AE%D0%A1%CA%B1%B9%A4&amp;kdi5=1&amp;sid=b17019b45ce9eb46&amp;ch=0&amp;tu=u1345536&amp;jk=e832d4bb5cb4fbef&amp;cf=1&amp;rb=1&amp;fv=18&amp;stid=4001&amp;urlid=0&amp;luki=4&amp;seller_id=1&amp;di=1".replace(/&amp;/g, "&")],
+    bdTpclickedMobJphn: "5",
+    bdTpclickedMobGxhn: "3",
+    bdTpclickedMobPshn: "3",
+    template: "baiduTpclickedDEFINE_mob_1",
+    seller_id: "1",
+    query_idx: 0,
+    sub_title: "",
+    sub_desc: "",
+    sub_image: "",
+    sub_url: "",
+    is_app: "0",
+    app_id: "0"
+            };
+
+            var keywordlist = window["mid_page_param"].keywords;
+            var key = window["mid_page_param"].query;
+            for (var i=0; i<keywordlist.length; i++) {
+                if (key == keywordlist[i]) {
+                    window["mid_page_param"].query_idx = i;
+                    break;
+                } 
+            }
+            var keywordIndex = -1;
+            var currentAd = 10;
+            var moreKeywordList = new Array();
+            var renderList = new Array();
+            var skipNum = 0;
+            var totalKeywordNum = 0;
+            var hasJinpinHot = 0;
+    </script>
+        <script type="text/javascript">
+            //反作弊处理， 防止一些坑，做了特殊处理
+            var AntiCheat = (function () {
+                return {
+                    name: 'AntiCheat',
+                    namespace: 'Cpro.Template',
+                    antiCheatArray: [],
+                    mouseInClientX: -1,
+                    mouseInClientY: -1,
+                    mouseInTime: -1,
+                    mouseInTimeSpan: -1,
+                    mousePressTime: -1,
+                    mouseClickClientX: -1,
+                    mouseClickClientY: -1,
+                    mouseClickCheckNum: -1,
+                    mouseOverTimes: -1,
+					getCheckCode: function (href,imTimeSign,pressTime,touchX) {
+						var urlSearch,
+							urlReg = /\?url\=([^\.]+)\./,
+							urlMix = /link\?url\=([^\&]+)/,
+						checkCode = 0;
+						urlSearch = urlMix.exec(href) || urlReg.exec(href);
+						if (urlSearch) {
+							var num = (((pressTime * imTimeSign) % 99) + 9); 
+							var iDomainLen = urlSearch[1].length;
+							if (urlMix.exec(href)) {
+								iDomainLen = urlSearch[1].length < 20 ? iDomain.length : 20;   
+							}   
+							for (var x = 0; x < num; ++x) {
+								checkCode += urlSearch[1].charCodeAt((touchX * x) % iDomainLen);
+							}   
+							return checkCode;
+						}   
+						return false;
+					},
+                    bind: function (element, eventType, handler) {
+                        if (window.addEventListener) {
+                            element.addEventListener(eventType, handler, false)
+                        }
+                        else {
+                            element.attachEvent("on" + eventType, handler)
+                        }
+                    },
+                    formatEventObj: function (e) {
+                        e = e || window.event;
+                        e.target = e.target || e.srcElement;
+                        return e;
+                    },
+                    mouseInHandler: function (e) {
+                        if (this.mouseInClientX === -1) {
+                            this.mouseInClientX = e.clientX;
+                        }
+                        if (this.mouseInClientY === -1) {
+                            this.mouseInClientY = e.clientY;
+                        }
+                    },
+                    mouseInTimeHandler: function (e) {
+                        if (this.mouseInTime === -1) {
+                            this.mouseInTime = (new Date()).getTime();
+                        }
+                        this.mouseInTimeSpan = (new Date()).getTime() - this.mouseInTime;
+                    },
+
+                    mousePressTimeHandler: function (e) {
+                        if (e.type === "mousedown") {
+                            this.mousePressTime = (new Date()).getTime();
+                        }
+                        else {
+                            this.mousePressTime = (new Date()).getTime() - this.mousePressTime;
+                        }
+                    },
+                    mouseClickHandler: function (e) {
+                        e = this.formatEventObj(e);
+                        var sourceElement = e.target;
+                        var max_try = 10;
+                        var try_count = 0;
+                        //调整:处理a的层数限制坑
+                        while(sourceElement.tagName.toLowerCase() !== "a"
+                            && try_count < max_try) {
+                            sourceElement = sourceElement.parentNode;
+                            try_count += 1;
+                        }
+                        this.mouseClickClientX = e.clientX;
+                        this.mouseClickClientY = e.clientY;
+
+                        this.mouseInTimeHandler();
+
+                        //make the mouseClickCheckNum
+                        this.mouseClickCheckNum = 0;
+                        //针对google adx流量特殊处理
+                        var isGAdx = false;
+                        var originHref = sourceElement.href;
+                        var p = /(?:\?|&)q=(.*?)(?=\&|$)/i;
+                        if (sourceElement.href.indexOf('google.com') > 0) {
+                            isGAdx = true;
+                            var href = originHref.match(p)[1];
+                            sourceElement.href = decodeURIComponent(href);
+                        }
+                        var urlParamMatch = /\.php\?(url=)?([0-9a-zA-Z_-]*)\./.exec(sourceElement.href);
+                        var urlParam = urlParamMatch[2];
+                        var domIdMatch = /.*?(\d+)$/.exec(sourceElement.id);
+                        var domNum = 0;
+                        //处理id 命名的坑， 找不到的时候默认取0 （1s内没有问题）
+                        try {
+                            domNum = domIdMatch[1];
+                        }
+                        catch(e) {
+                            domNum = 0;
+                        }
+                        var midNum = this.antiCheatArray[domNum];
+						console.log(this.antiCheatArray);
+                        if (domNum == "110") {
+							this.mouseClickCheckNum = this.getCheckCode(sourceElement.href, midNum, this.mousePressTime, this.mouseClickClientX);
+						} else {
+							for (var i = 0; i < (((this.mouseOverTimes * midNum) % 99) + 9); i++) {
+                            	var idx = (this.mousePressTime * i) % urlParam.length;
+                            	this.mouseClickCheckNum += urlParam.charCodeAt(idx);
+                        	}
+						}
+                        //make click url
+                        var elementHtml = sourceElement.innerHTML;
+                        if (sourceElement.href.indexOf("&ck") == -1) {
+                            if (domNum == "110") {
+                        		sourceElement.href += "&ck=" + this.mouseClickCheckNum + "." + this.mousePressTime + "." + this.mouseClickClientX + "." + this.mouseClickClientY + "." + this.mouseInClientY + "." + this.mouseInTimeSpan;
+							} else {
+								sourceElement.href += "&ck=" + this.mouseClickCheckNum + "." + this.mouseOverTimes + "." + this.mousePressTime + "." + this.mouseClickClientX + "." + this.mouseClickClientY + "." + this.mouseInClientX + "." + this.mouseInClientY + "." + this.mouseInTimeSpan;
+							}
+						}
+                        if ((elementHtml.match(/(www\.)|(.*@.*)/i) != null) && document.all) {
+                            elementHtml.match(/\<.*\>/i) == null ? sourceElement.innerHTML = elementHtml : sourceElement.innerTEXT = elementHtml;
+                        }
+                        //针对google adx流量还原处理
+                        if (isGAdx) {
+                            sourceElement.href = originHref.replace(p,"&q="+encodeURIComponent(sourceElement.href));
+                        }
+                    },
+
+                    mouseOverHandler: function (e) {
+                        if (this.mouseOverTimes === -1) {
+                            this.mouseOverTimes = 0;
+                        }
+                        this.mouseOverTimes++;
+                    },
+
+                    check: function (containerId, id) {
+                        this.antiCheatArray = window.antiCheatArray;
+                        var container = document.getElementById(containerId);
+                        var tag_a_list = container.getElementsByTagName("a");
+                        for (var i=0; i<tag_a_list.length; i++) {
+                            var id_name = i + "_tag_" + id;
+                            tag_a_list[i].setAttribute("id", id_name);
+                        }
+                        var container = document.getElementById(containerId);
+                        var linkArray = container.getElementsByTagName("a");
+                        this.bind(container, "mouseover", this.mouseInHandler.proxy(this));
+                        this.bind(container, "mouseover", this.mouseInTimeHandler.proxy(this));
+                        for (var i = 0; i < linkArray.length; i++) {
+                            var tempClassName = linkArray[i].className;
+                            if(tempClassName){
+                                tempClassName = tempClassName.toLowerCase();
+                                if(tempClassName === "gylogo"
+                                    || tempClassName === "bdlogo"
+                                    || tempClassName === "bd-logo"
+                                    || tempClassName === "bd-logo2"
+                                    || tempClassName === "bd-logo3"
+                                    || tempClassName === "bd-logo4"){
+                                    continue;
+                                }
+                            }
+                            this.bind(linkArray[i], "mousedown", this.mousePressTimeHandler.proxy(this));
+                            this.bind(linkArray[i], "mouseup", this.mousePressTimeHandler.proxy(this));
+                            this.bind(linkArray[i], "click", this.mouseClickHandler.proxy(this));
+                            this.bind(linkArray[i], "mouseover", this.mouseOverHandler.proxy(this));
+                        }
+                    }
+                }
+            })();
+        </script>
+        <script type="text/javascript">
+            //viewport 兼容处理
+            var adaptUILayout = (function(){
+                //根据校正appVersion或userAgent校正屏幕分辨率宽度值
+                var regulateScreen = (function(){
+                    var cache = {};
+                    //默认尺寸
+                    var defSize = {
+                        width  : window.screen.width,
+                        height : window.screen.height
+                    };
+                    var ver = window.navigator.appVersion;
+                    var _ = null;
+                    var check = function(key){
+                        return key.constructor == String ? ver.indexOf(key) > -1 : ver.test(key);
+                    };
+                    var add = function(name, key, size){
+                        if(name && key)
+                            cache[name] = {
+                                key : key,
+                                size : size
+                            };
+                    };
+                    var del = function(name){
+                        if(cache[name])
+                            delete cache[name];
+                    };
+                    var cal = function(){
+                        if(_ != null)
+                            return _;
+                        for(var name in cache){
+                            if(check(cache[name].key)){
+                                _ = cache[name].size;
+                                break;
+                            }
+                        }
+                        if(_ == null)
+                            _ = defSize;
+                        return _;
+                    };
+                    return {
+                        add : add,
+                        del : del,
+                        cal : cal
+                    };
+                })();
+                //实现缩放
+                var adapt = function(uiWidth){
+                    var
+                    deviceWidth,
+                    devicePixelRatio,
+                    targetDensitydpi,
+                    //meta,
+                    initialContent,
+                    head,
+                    viewport,
+                    ua;
+                    ua = navigator.userAgent.toLowerCase();
+                    //whether it is the iPhone or iPad
+                    isiOS = ua.indexOf('ipad') > -1 || ua.indexOf('iphone') > -1;
+                    isIE = ua.indexOf('msie') > -1;
+                    //获取设备信息,并矫正参数值
+                    window.devicePixelRatio = window.devicePixelRatio ||
+                        Math.round(window.screen.availWidth / document.documentElement.clientWidth)
+                    devicePixelRatio = window.devicePixelRatio;
+                    deviceWidth      = regulateScreen.cal().width;
+                    //获取最终dpi
+                    targetDensitydpi = uiWidth / deviceWidth * devicePixelRatio * 160;
+                    //use viewport width attribute on the iPhone or iPad device
+                    //use viewport target-densitydpi attribute on the Android device
+                    initialContent   = isiOS
+                        ? 'target-densitydpi=device-dpi, width=' + uiWidth + 'px, user-scalable=yes'
+                        : isIE? 'target-densitydpi=' + targetDensitydpi + ', width=device-width, user-scalable=yes':
+                        'target-densitydpi=' + targetDensitydpi + ', width=' + uiWidth + 'px, user-scalable=yes';
+                    //add a new meta node of viewport in head node
+                    head = document.getElementsByTagName('head');
+                    viewport = document.createElement('meta');
+                    viewport.name = 'viewport';
+                    viewport.content = initialContent;
+                    head.length > 0 && head[head.length - 1].appendChild(viewport);
+                };
+                return {
+                    regulateScreen : regulateScreen,
+                    adapt : adapt
+                };
+            })();
+            adaptUILayout.adapt(320); //适配当前页面
+        </script>
+        <script type="text/javascript">
+            //页面渲染
+            var ThisPage = {
+                init: function(isMonitor) {
+                    var menu_container = document.getElementById("menu_container");
+                    // 设置选中的背景色
+                    menu_container.children[window.mid_page_param["query_idx"]
+                        ].setAttribute("style", "background-color:#4B90E2;color:#ECF3FD");
+                    adjust_keywords();
+
+                    if (isMonitor) {
+                        //打开监控, 向服务器发送请求
+                        this.MonitorObject.init();
+                    }
+                },
+                //监控类
+                    MonitorObject: {
+                        monitor_host:"http://eclick.baidu.com/m.js?",
+                        enable_monitor: true,
+                        max_life_time: 600*1000, //10分钟
+                        //公共id
+                        idInfo: {
+                            jk: null,
+                            temp: "tpclicked3_mob_10",
+                            toString: function() {
+                                var str = "jk=" + this.jk + "&"
+                                    + "temp=" + this.temp;
+                                return str;
+                            }
+                        },
+                        //需要监控的设备信息
+                        deviceInfo: {
+                            screen_width: 0,
+                            screen_height: 0,
+                            devicePixelRatio:0,
+                            toString: function() {
+                                var str = "screenWidth=" + this.screen_width + "&"
+                                    + "screenHeight=" + this.screen_height + "&"
+                                    + "devicePixelRatio=" + this.devicePixelRatio;
+                                return str;
+                            }
+                        },
+                        //用户行为监控
+                        userInfo: {
+                            load: {
+                                start_time:0,
+                                end_time: 0
+                            },
+                            arrive: {
+                                start_time:0,
+                                end_time: 0
+                            },
+                            dwell: {
+                                start_time:0,
+                                end_time: 0
+                            },
+                            move: {
+                                cnt: 0,
+                                time: 0,
+                                pos: []
+                            },
+                            click: {
+                                cnt: 0,
+                                time: 0,
+                                pos: []
+                            },
+                            bottom: {
+                                cnt: 0,
+                                time: 0
+                            },
+                            ltime: function() {
+                                var str = "ltime=" + (this.load.end_time - this.load.start_time);
+                                return str;
+                            },
+                            atime: function() {
+                                var str = "atime=" + (this.arrive.end_time - this.arrive.start_time);
+                                return str;
+                            },
+                            dtime: function() {
+                                var str = "dtime=" + (this.dwell.end_time - this.dwell.start_time);
+                                return str;
+                            },
+                            cpos: function() {
+                                var str = "cpos=" + this.click.pos.toString();
+                                return str;
+                            },
+                            toString: function() {
+                                var str = "clks=" + this.click.cnt + "&"
+                                    + "ctime=" + this.click.time + "&"
+                                    + "moves=" + this.move.cnt + "&"
+                                    + "mtime=" + this.move.time + "&"
+                                    + "bottom=" + this.bottom.cnt + "&"
+                                    + "btime=" + this.bottom.time;
+                                return str;
+                            }
+                        },
+                        //广告监控信息
+                        adInfo: {
+                            query: "",
+                            toString: function() {
+                                var str = "query=" + this.query;
+                                return str;
+                            }
+                        },
+                        init: function() {
+                            var paramUrlArray = window.location.search.split("&");
+                            for (var i = 0; i<paramUrlArray.length; i++) {
+                                var temp = paramUrlArray[i].split('=');
+                                if (temp[0] == "jk") {
+                                    this.idInfo.jk = temp[1];
+                                } else if (temp[0] == "t") {
+                                    this.idInfo.temp = temp[1];
+                                }
+                            }
+                            this.deviceInfo.screen_width = window.screen.width;
+                            this.deviceInfo.screen_height = window.screen.height;
+                            this.deviceInfo.devicePixelRatio = window.devicePixelRatio;
+                            this.adInfo.query = window.mid_page_param["query"];
+                            this.userInfo.load.start_time = StartTime;
+                            this.userInfo.arrive.start_time = StartTime;
+                            this.userInfo.dwell.start_time = StartTime;
+                            this.userInfo.load.end_time = new Date().getTime();
+                            ThisPage.Utility.bind(window, "load", this.sendOnload.proxy(this));
+                            ThisPage.Utility.bind(window, "click", this.onClick.proxy(this));
+                            ThisPage.Utility.bind(window, "touchend", this.onMove.proxy(this));
+                            ThisPage.Utility.bind(window, "touchcancel", this.onMove.proxy(this));
+                            ThisPage.Utility.bind(window, "scroll", this.onScroll.proxy(this));
+                            ThisPage.Utility.bind(window, "unload", this.sendUnload.proxy(this));
+                            this.timer = setTimeout(this.sendUnload.proxy(this), this.max_life_time); //超过一定时间自动发送信息
+                        },
+                        onClick: function(event) {
+                            this.userInfo.click.cnt += 1;
+                            this.userInfo.click.pos.push(event.pageX+":"+event.pageY);
+                            if (this.userInfo.click.time == 0) {
+                                var first_time = new Date().getTime();
+                                this.userInfo.click.time = first_time - this.userInfo.arrive.start_time;
+                            }
+                        },
+                        onMove: function() {
+                            this.userInfo.move.cnt += 1;
+                            if (this.userInfo.move.time == 0) {
+                                var first_time = new Date().getTime();
+                                this.userInfo.move.time = first_time - this.userInfo.arrive.start_time;
+                            }
+                        },
+                        onScroll: function() {
+                            //取窗口滚动条高度
+                            var getScrollTop = function() {
+                                var scrollTop=0;
+                                if(document.documentElement && document.documentElement.scrollTop) {
+                                    scrollTop = document.documentElement.scrollTop;
+                                }
+                                else if(document.body) {
+                                    scrollTop = document.body.scrollTop;
+                                }
+                                return scrollTop;
+                            };
+                            //取窗口可视范围的高度
+                            var getClientHeight = function() {
+                                var clientHeight=0;
+                                if(document.body.clientHeight && document.documentElement.clientHeight) {
+                                    clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+                                } else {
+                                    clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+                                }
+                                return clientHeight;
+                            };
+                            //取文档内容实际高度
+                            var getScrollHeight = function() {
+                                return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+                            };
+
+                            if((getScrollTop()+getClientHeight()+1)>=getScrollHeight()) {
+                                    if (!this.userInfo.bottom.cnt) {
+                                        this.userInfo.bottom.cnt = 1;
+                                        var first_time = new Date().getTime();
+                                        this.userInfo.bottom.time = first_time - this.userInfo.arrive.start_time;
+                                    var request = this.monitor_host + "et=2" + "&"
+                                        + this.idInfo.toString() + "&"
+                                        + this.userInfo.toString() + "&"
+                                        + this.adInfo.toString();
+                                    this.sendRequest(request);
+                                    }
+                            }
+                        },
+                        sendOnload: function() {
+                            this.userInfo.arrive.end_time = new Date().getTime();
+                            var request = this.monitor_host + "et=1" + "&"
+                                + this.idInfo.toString() + "&"
+                                + this.deviceInfo.toString() + "&"
+                                + this.userInfo.ltime() + "&"
+                                + this.userInfo.atime() + "&"
+                                + this.adInfo.toString();
+                            this.sendRequest(request);
+                        },
+                        sendUnload: function() {
+                            clearTimeout(this.timer);
+                            this.userInfo.dwell.end_time = new Date().getTime();
+                            var request = this.monitor_host + "et=9" + "&"
+                                + this.idInfo.toString() + "&"
+                                + this.userInfo.dtime() + "&"
+                                + this.userInfo.cpos() + "&"
+                                + this.userInfo.toString();
+                            this.sendRequest(request);
+                            this.enable_monitor = false;
+                        },
+                        sendRequest: function(request) {
+                            if (!this.enable_monitor) {
+                                return 0;
+                            }
+                            var image = document.createElement("img");
+                            image.src = request;
+                        }
+                    },
+                //工具类
+                Utility: {
+                    clone: function(target) {
+                        var buf;
+                        if (target instanceof Array) {
+                            buf = [];  //创建一个空的数组
+                            var i = target.length;
+                            while (i--) {
+                                buf[i] = ThisPage.Utility.clone(target[i]);
+                            }
+                            return buf;
+                        }else if (target instanceof Object){
+                            buf = {};  //创建一个空对象
+                            for (var k in target) {  //为这个对象添加新的属性
+                                buf[k] = ThisPage.Utility.clone(target[k]);
+                            }
+                            return buf;
+                        }else{
+                            return target;
+                        }
+                    },
+                    bind : function(element, type, listener) {
+                        type = type.replace(/^on/i, '').toLowerCase();
+                        // 事件监听器挂载
+                        if (element.addEventListener) {
+                            element.addEventListener(type, listener, false);
+                        } else if (element.attachEvent) {
+                            element.attachEvent('on' + type, listener);
+                        }
+                        return element;
+                    },
+                    getElementsByClassNameExt: function(root, className, tagName) {
+                        if(root){
+                            root=typeof root=="string" ? document.getElementById(root) : root;
+                        }else{
+                            root=document.body;
+                        }
+                        tagName=tagName||"*";
+                        if (document.getElementsByClassName) {
+                            return root.getElementsByClassName(className);
+                        }else {
+                            var tag= root.getElementsByTagName(tagName);
+                            var tagAll = [];
+                            for (var i = 0; i < tag.length; i++) {
+                                for(var j=0,n=tag[i].className.split(' ');j<n.length;j++){
+                                    if(n[j]==className){
+                                        tagAll.push(tag[i]);
+                                        break;
+                                    }
+                                }
+                            }
+                            return tagAll;
+                        }
+                    },
+                    getPara : function(src) {
+                        var obj = {};
+                        if (src && typeof src == 'string' && src.indexOf("?") > -1) {
+                            var paras = src.split("?")[1].split("&");
+                            for (var i = 0, len = paras.length; i < len; i++) {
+                                var tempPara = paras[i].split("=");
+                                var name = tempPara[0];
+                                var value = tempPara[1];
+                                obj[name] = value;
+                            }
+                        }
+                        return obj;
+                    },
+                    // url中的使用escape编码(%u[\d|\w]{4})格式的参数转换为encodeURIComponent格式
+                    // eg: "a=%u4E2D%u56FD"转换后为:"a=%E4%B8%AD%E5%9B%BD"
+                    escapeToEncode: function(url) {
+                        var result = url || "";
+                        if (result) {
+                            result = result.replace(/%u[\d|\w]{4}/g, function(word) {
+                                        return encodeURIComponent(unescape(word))
+                                    });
+                        }
+                        return result
+                    },
+                    setDivKeyword: function(divname, keyword) {
+                        var k = keyword || "猜你喜欢";
+                        var ele = document.getElementById(divname);
+                        ele.setAttribute("title", keyword);
+                    },
+                    flush_red: function(text, flush_word){
+                        var text_flushed = ""
+                        words=flush_word.split(' ')
+                        var word_begin = text.indexOf(words[0]);
+                        if (word_begin >= 0){
+                            word_end = word_begin + flush_word.length;
+                            text_flushed =  text.substring(0, word_begin) + "<font color=\"red\">" + words[0] +"</font>" + text.substring(word_end);
+                        } else{
+                            text_flushed = text;
+                        }
+                        return text_flushed;
+
+                    },
+                    newHighLight: function (str, flushWords, color){
+                        if (!flushWords || flushWords==""){return str;}
+                        if(!arguments[2])color = "red";
+                        var wordArr=new Array();
+                        wordArr=flushWords.split(" ");
+                        if(wordArr.length==0){return str;}
+                        for(i=wordArr.length-1;i>=0;i--){
+                            var patt = new RegExp(wordArr[i],"ig");
+                            str = str.replace(patt,"<font color="+color+">"+wordArr[i]+"</font>");
+                        }    
+                        return str; 
+                    } ,
+                          //样式控制器
+            style_controller:{
+                style_buf:{},
+                render_B9_img_ads:{},
+                zoom: 0,
+                _gen_style: function(style) {
+                    var result = "";
+                    if (style) {
+                        for (var key in style) {
+                            result += key + ":" + style[key] + (this.pxStyle[key] ? "px;" : ";");
+                        }
+                        return result;
+                    }
+                },
+
+                pxStyle: { 
+                    "width": 1,
+                    "height": 1,
+                    "line-height": 1,
+                    "padding-left": 1,
+                    "padding-right": 1,
+                    "padding-top": 1,
+                    "padding-bottom": 1,
+                    "border-width": 1,
+                    "font-size": 1,
+                    "margin-left": 1,
+                    "margin-right": 1,
+                    "margin-top": 1, 
+                    "margin-bottom": 1,
+                    "border-left-width": 1,
+                    "border-right-width": 1,
+                    "border-top-width": 1,
+                    "border-bottom-width": 1,
+                    "top": 1,
+                    "left": 1,
+                    "bottom": 1,
+                    "right": 1
+                },
+          
+                _set_class: function(dom, css) {
+                    if (!window.attachEvent) {
+                        dom.setAttribute("class", css);
+                    } else {
+                        dom.className = css;
+                    }
+                },
+
+                _set_style: function(dom,style) {
+                    if(typeof style == 'undefined'){
+                        var css = this._gen_style(this.style_buf);                        
+                    }else{
+                        var css = this._gen_style(style);
+                    }
+                    if (!window.attachEvent) {
+                        dom.setAttribute("style", css);
+                    } else {
+                        dom.style.cssText=css;
+                    }
+                },
+
+                _append_style: function(dom) {
+                    var css = this._gen_style(this.style_buf);
+                    if (!window.attachEvent) {
+                        var old_css = dom.getAttribute("style");
+                        dom.setAttribute("style", old_css + css);
+                    } else {
+                        var old_css = dom.style.cssText;
+                        dom.style.cssText= old_css + css;
+                    }
+                },
+
+                //设置基本布局配置
+                set_base_style: function(dom,top,left,width,height,display,position){
+                    this.style_buf = [];
+                    this.style_buf["display"] = display;
+                    this.style_buf["position"] = position;
+                    this.style_buf["top"] = top;
+                    this.style_buf["left"] = left;
+                    this.style_buf["width"] = width;
+                    this.style_buf["height"] = height;
+                    this.style_buf["overflow"] = "hidden";
+                    this.style_buf["text-decoration"] = "none";
+                    this._set_style(dom);
+                },
+
+                //增加修饰单行类型字体、大小、前后背景颜色设置
+                append_single_font_style: function(dom,font_size,font_color,font_family,pos,back_color,line_height){
+                    this.style_buf = [];
+                    this.style_buf["font"] = font_size + "px " + "\"" + font_family+ "\"";
+                    this.style_buf["color"] = font_color;
+                    this.style_buf["text-align"] = pos;
+                    this.style_buf["background-color"] = back_color;
+                    this.style_buf["line-height"] = line_height;
+                    this.style_buf["overflow"] = "hidden";
+                    this.style_buf["white-space"] = "nowrap";
+                    this.style_buf["text-overflow"] = "ellipsis";
+                    this.style_buf["o-text-overflow"] = "ellipsis";
+                    this.style_buf["text-decoration"] = "none";
+                    this._append_style(dom);
+                },
+
+                //增加圆角或阴影效果及设置透明度
+                //redius 参数为圆角
+                //shadows_arg 参数 (水平位移) (垂值位移) (模糊半径) (颜色)
+                //示例 "0px 0px 7px #efefef" 
+                //opacity 为0-1.0 一个数字，用于配置透明度 默认为1             
+                append_effects_style: function(dom,radius_arg,shadow_arg,opacity){
+                    this.style_buf = [];
+                    this.style_buf["-moz-border-radius"] = radius_arg + "px";
+                    this.style_buf["-webkit-border-radius"] = radius_arg + "px";
+                    this.style_buf["border-radius"] = radius_arg + "px";
+                    this.style_buf["-moz-box-shadow"] = shadow_arg;
+                    this.style_buf["-webkit-box-shadow"] = shadow_arg;
+                    this.style_buf["box-shadow"] = shadow_arg;
+                    this.style_buf["opacity"] = opacity;
+                    this._append_style(dom);
+                },
+
+                //增加两种填充值及边框属性(盒子模型)
+                //pad_arg&margin_arg 参数中会有四个值，其对应的位置 上右下左
+                //border_arg 参数: 边框像素 边框类型 边框颜色 eg:"1px solid #bbb"
+                append_boxmod_style: function(dom,pad_arg,margin_arg,border_arg){
+                    this.style_buf = [];
+                    this.style_buf["padding"] = pad_arg;
+                    this.style_buf["margin"] = margin_arg;
+                    this.style_buf["border"] = border_arg;
+                    this._append_style(dom);
+                },
+            },
+
+                            md5: function(a) {
+            function h(a, b) {
+                var c, d, g, e, f;
+                g = a & 2147483648;
+                e = b & 2147483648;
+                c = a & 1073741824;
+                d = b & 1073741824;
+                f = (a & 1073741823) + (b & 1073741823);
+                return c & d ? f ^ 2147483648 ^ g ^ e : c | d ? f & 1073741824 ? f ^ 3221225472 ^ g ^ e : f ^ 1073741824 ^ g ^ e : f ^ g ^ e
+            }
+            function f(a, b, c, d, g, e, f) {
+                a = h(a, h(h(b & c | ~b & d, g), f));
+                return h(a << e | a >>> 32 - e, b)
+            }
+            function k(a, b, c, d, g, e, f) {
+                a = h(a, h(h(b & d | c & ~d, g), f));
+                return h(a << e | a >>> 32 - e, b)
+            }
+            function l(a, b, d, c, e, g, f) {
+                a = h(a, h(h(b ^ d ^ c, e), f));
+                return h(a << g | a >>> 32 - g, b)
+            }
+            function m(a, b, d, c, g, e, f) {
+                a = h(a, h(h(d ^ (b | ~c), g), f));
+                return h(a << e | a >>> 32 - e, b)
+            }
+            function n(a) {
+                var b = "", d = "", c;
+                for (c = 0; 3 >= c; c++)
+                    d = a >>> 8 * c & 255,
+                    d = "0" + d.toString(16),
+                    b += d.substr(d.length - 2, 2);
+                return b
+            }
+            var g = [], e, p, q, r, s, b, c, d;
+            a = function(a) {
+                a = a.replace(/\r\n/g, "\n");
+                for (var b = "", d = 0; d < a.length; d++) {
+                    var c = a.charCodeAt(d);
+                    128 > c ? b += String.fromCharCode(c) : (127 < c && 2048 > c ? b += String.fromCharCode(c >> 6 | 192) : (b += String.fromCharCode(c >> 12 | 224),
+                    b += String.fromCharCode(c >> 6 & 63 | 128)),
+                    b += String.fromCharCode(c & 63 | 128))
+                }
+                return b
+            }(a);
+            g = function(a) {
+                var b, c = a.length;
+                b = c + 8;
+                for (var d = 16 * ((b - b % 64) / 64 + 1), e = Array(d - 1), g = 0, f = 0; f < c; )
+                    b = (f - f % 4) / 4,
+                    g = f % 4 * 8,
+                    e[b] |= a.charCodeAt(f) << g,
+                    f++;
+                b = (f - f % 4) / 4;
+                e[b] |= 128 << f % 4 * 8;
+                e[d - 2] = c << 3;
+                e[d - 1] = c >>> 29;
+                return e
+            }(a);
+            b = 1732584193;
+            c = 4023233417;
+            a = 2562383102;
+            d = 271733878;
+            for (e = 0; e < g.length; e += 16)
+                p = b,
+                q = c,
+                r = a,
+                s = d,
+                b = f(b, c, a, d, g[e + 0], 7, 3614090360),
+                d = f(d, b, c, a, g[e + 1], 12, 3905402710),
+                a = f(a, d, b, c, g[e + 2], 17, 606105819),
+                c = f(c, a, d, b, g[e + 3], 22, 3250441966),
+                b = f(b, c, a, d, g[e + 4], 7, 4118548399),
+                d = f(d, b, c, a, g[e + 5], 12, 1200080426),
+                a = f(a, d, b, c, g[e + 6], 17, 2821735955),
+                c = f(c, a, d, b, g[e + 7], 22, 4249261313),
+                b = f(b, c, a, d, g[e + 8], 7, 1770035416),
+                d = f(d, b, c, a, g[e + 9], 12, 2336552879),
+                a = f(a, d, b, c, g[e + 10], 17, 4294925233),
+                c = f(c, a, d, b, g[e + 11], 22, 2304563134),
+                b = f(b, c, a, d, g[e + 12], 7, 1804603682),
+                d = f(d, b, c, a, g[e + 13], 12, 4254626195),
+                a = f(a, d, b, c, g[e + 14], 17, 2792965006),
+                c = f(c, a, d, b, g[e + 15], 22, 1236535329),
+                b = k(b, c, a, d, g[e + 1], 5, 4129170786),
+                d = k(d, b, c, a, g[e + 6], 9, 3225465664),
+                a = k(a, d, b, c, g[e + 11], 14, 643717713),
+                c = k(c, a, d, b, g[e + 0], 20, 3921069994),
+                b = k(b, c, a, d, g[e + 5], 5, 3593408605),
+                d = k(d, b, c, a, g[e + 10], 9, 38016083),
+                a = k(a, d, b, c, g[e + 15], 14, 3634488961),
+                c = k(c, a, d, b, g[e + 4], 20, 3889429448),
+                b = k(b, c, a, d, g[e + 9], 5, 568446438),
+                d = k(d, b, c, a, g[e + 14], 9, 3275163606),
+                a = k(a, d, b, c, g[e + 3], 14, 4107603335),
+                c = k(c, a, d, b, g[e + 8], 20, 1163531501),
+                b = k(b, c, a, d, g[e + 13], 5, 2850285829),
+                d = k(d, b, c, a, g[e + 2], 9, 4243563512),
+                a = k(a, d, b, c, g[e + 7], 14, 1735328473),
+                c = k(c, a, d, b, g[e + 12], 20, 2368359562),
+                b = l(b, c, a, d, g[e + 5], 4, 4294588738),
+                d = l(d, b, c, a, g[e + 8], 11, 2272392833),
+                a = l(a, d, b, c, g[e + 11], 16, 1839030562),
+                c = l(c, a, d, b, g[e + 14], 23, 4259657740),
+                b = l(b, c, a, d, g[e + 1], 4, 2763975236),
+                d = l(d, b, c, a, g[e + 4], 11, 1272893353),
+                a = l(a, d, b, c, g[e + 7], 16, 4139469664),
+                c = l(c, a, d, b, g[e + 10], 23, 3200236656),
+                b = l(b, c, a, d, g[e + 13], 4, 681279174),
+                d = l(d, b, c, a, g[e + 0], 11, 3936430074),
+                a = l(a, d, b, c, g[e + 3], 16, 3572445317),
+                c = l(c, a, d, b, g[e + 6], 23, 76029189),
+                b = l(b, c, a, d, g[e + 9], 4, 3654602809),
+                d = l(d, b, c, a, g[e + 12], 11, 3873151461),
+                a = l(a, d, b, c, g[e + 15], 16, 530742520),
+                c = l(c, a, d, b, g[e + 2], 23, 3299628645),
+                b = m(b, c, a, d, g[e + 0], 6, 4096336452),
+                d = m(d, b, c, a, g[e + 7], 10, 1126891415),
+                a = m(a, d, b, c, g[e + 14], 15, 2878612391),
+                c = m(c, a, d, b, g[e + 5], 21, 4237533241),
+                b = m(b, c, a, d, g[e + 12], 6, 1700485571),
+                d = m(d, b, c, a, g[e + 3], 10, 2399980690),
+                a = m(a, d, b, c, g[e + 10], 15, 4293915773),
+                c = m(c, a, d, b, g[e + 1], 21, 2240044497),
+                b = m(b, c, a, d, g[e + 8], 6, 1873313359),
+                d = m(d, b, c, a, g[e + 15], 10, 4264355552),
+                a = m(a, d, b, c, g[e + 6], 15, 2734768916),
+                c = m(c, a, d, b, g[e + 13], 21, 1309151649),
+                b = m(b, c, a, d, g[e + 4], 6, 4149444226),
+                d = m(d, b, c, a, g[e + 11], 10, 3174756917),
+                a = m(a, d, b, c, g[e + 2], 15, 718787259),
+                c = m(c, a, d, b, g[e + 9], 21, 3951481745),
+                b = h(b, p),
+                c = h(c, q),
+                a = h(a, r),
+                d = h(d, s);
+            g = function(a) {
+                var b = a
+                  , c = 0;
+                for (a = 8 - a.length; c < a; c++)
+                    b = "0" + b;
+                return b
+            }
+            ;
+            b = ((parseInt("0x" + n(b), 16) + parseInt("0x" + n(c), 16)) % 4294967296).toString(16);
+            a = ((parseInt("0x" + n(a), 16) + parseInt("0x" + n(d), 16)) % 4294967296).toString(16);
+            8 > b.length && (b = g(b));
+            8 > a.length && (a = g(a));
+            return b + a
+    },
+					},
+                //菜单栏
+                //广告渲染， 填充数据
+                AdRender: {
+                    descConfig: {
+                        image_config: {
+                            root: "",
+                            data: null,
+                            items : [
+                             {
+                                class: "jingpin_pic_img",
+                                tag: "img",
+                                arr_desc: {
+                                    "src": "w_picurl",
+                                }
+                            },
+                            {
+                                class: "jingpin_pic_a",
+                                    tag: "a",
+                                    arr_desc: {
+                                        "href": "curl",
+                                    }
+                            },
+                            {
+                                class: "jingpin_pic_tit_a",
+                                tag: "a",
+                                arr_desc: {
+                                    "href": "curl",
+                                    "innerHTML": "tit",
+                                }
+                            },
+                            {
+                                class: "pic_desc_a",
+                                tag: "a",
+                                arr_desc: {
+                                    "href": "curl",
+                                }
+                            },
+                        ]
+
+                    },
+                    text_config: {
+                        root: "",
+                        data: null,
+                        items : [
+                        {
+                            class: "tuijian_a",
+                            tag: "a",
+                            arr_desc: {
+                                "href": "curl",
+                            }
+                        },
+                        {
+                            class: "text-title-a",
+                            tag: "a",
+                            arr_desc: {
+                                "innerHTML": "tit",
+                                "height": "height"
+                            }
+                        },
+                        {
+                            class: "text-items-a",
+                            tag: "a",
+                            arr_desc: {
+                                "href": "curl"
+                            }
+                        },   
+                        {
+                            class: "arr_a",
+                            tag: "a",
+                            arr_desc: {
+                                "innerHTML": "arrow_img_tag"
+                            }
+                        },
+                        {
+                            class: "text-desc-a",
+                            tag:"a",
+                            arr_desc: {
+                                "innerHTML": "desc",
+                                "height": "height",
+                            }
+                        },                                                                                
+                        ]    
+                    },
+                    tuwen_config: {
+                        root: "",
+                        data: null,
+                        items : [
+                        {
+                            class: "tuwen-logo-img",
+                            tag: "img",
+                            arr_desc: {
+                                "src": "w_picurl",
+                            }
+                        },
+                        {
+                            class:"padding_blank",
+                            tag:"a",
+                            arr_desc:{
+                                "href":"curl",
+                            }
+                        },
+                        {
+                            class: "tuwen-item-a",
+                            tag: "a",
+                            arr_desc: {
+                                "href": "curl",
+                            }
+                        },
+                        {
+                            class: "title-a",
+                            tag: "span",
+                            arr_desc: {
+                                "innerHTML": "tit",
+                                "height": "height"
+                            }
+                        },
+                        {
+                            class: "title-jingpin",
+                            tag: "span",
+                            arr_desc: {
+                                "innerHTML": "tit",
+                                "height": "height"
+                            }
+                        },
+                        {
+                            class: "text-jingpin-a",
+                            tag: "a",
+                            arr_desc:{
+                                "href": "curl",
+                            }
+                        },
+                        {
+                            class:"kword-a",
+                            tag:"div",
+                            arr_desc: {
+                                "display": "is_display",
+                            }
+                        },
+                        {
+                            class:"kword-p",
+                            tag:"a",
+                            arr_desc: {
+                                "innerHTML": "bword",
+                            }
+                        },
+                        {
+                            class: "attach-a",
+                            tag: "a",
+                            arr_desc: {
+                                "href": "curl",
+                            }
+                        },
+                        {
+                            class:"jingpin-desc",
+                            tag:"span",
+                            arr_desc: {
+                                "innerHTML": "desc"
+                            }
+                        }
+                    ]
+                        }
+                    },
+                    render: function(desc, root, data) {
+                        root && (desc.root = root);
+                        data && (desc.data = data);
+                        this.fillData(desc);
+                    },
+                    fillData: function(desc_config) {
+                        var root = document.getElementById(desc_config.root);
+                        for (var i in desc_config.items) {
+                            var item = desc_config.items[i];
+                            var target_item_list = ThisPage.Utility.getElementsByClassNameExt(root,
+                                item["class"], item["tag"]);
+                            for (var idx=0; idx<target_item_list.length; idx++) {
+                                var data = desc_config.data instanceof Array ?
+                                        desc_config.data[idx] : desc_config.data;
+                                for(arr in item.arr_desc) {
+                                    var value = typeof data === "object" ?
+                                    data[item.arr_desc[arr]] : data;
+                                    this.setItemValue(target_item_list[idx], arr, value, idx);
+                                }
+                            }
+                        }
+                    },
+                    setItemValue: function(item, arr, value, idx) {
+                        switch(arr) {
+                            case "href":
+                                if (value instanceof Array) {
+                                    item.setAttribute("href", value[idx]);
+                                } else {
+                                    item.setAttribute("href", value);
+                                }
+                                break;
+                            case "src":
+                                if (value instanceof Array) {
+                                    item.setAttribute("src", value[idx]);
+                                } else {
+                                    item.setAttribute("src", value);
+                                }
+                                break;
+                            case "innerHTML":
+                                if (value instanceof Array) {
+                                    item.innerHTML = value[idx];
+                                } else {
+                                    item.innerHTML = value;
+                                }
+                            break;
+                            case "display":
+                                if (value instanceof Array) {
+                                    item.style.display = value[idx];
+                                } else {
+                                    item.style.display = value;
+                                }
+                            break;
+                            case "height":
+                                if (value instanceof Array) {
+                                    item.style.height = value[idx];
+                                    item.style["lineHeight"] = value[idx];
+                                } else {
+                                    item.style.height = value;
+                                    item.style["lineHeight"] = value;
+                                }
+                            break;
+                        }
+                    },
+                    renderAttach: function (desc) {
+                        var i = 0;
+                        var attach_list = ThisPage.Utility.getElementsByClassNameExt(desc.root,
+                                "attach-a", "a");
+                        var show_attach_info= function (idx, src,text) {
+                                src = src || "http://cpro.baidustatic.com/cpro/exp/mob_exp/img/phone_blue.png" ;
+                                attach_list[idx].setAttribute("href", desc.data[i].attach_info[0].attach_curl);
+                                var attach_info = ThisPage.Utility.getElementsByClassNameExt(attach_list[idx],
+                                "attach-icon-text", "span");
+                                if (attach_info.length>=1){
+                                    attach_list[idx].children[0].setAttribute("src", src);
+                                    attach_info[0].innerHTML = text;
+                                }
+
+                                var attach_info = ThisPage.Utility.getElementsByClassNameExt(attach_list[idx],
+                                "attach-asp-icon-text", "span");
+                                if (attach_info.length>=1){
+                                    attach_info[0].innerHTML = text;
+                                }
+                                
+
+                        }
+                        for(i = 0; i < desc.data.length; i++) {
+                            // TODO: hardcode to be removed
+                            //desc.data[i].attach_info = [{
+                            //    type: i+1,
+                            //    content: "12345678",
+                            //    attach_curl: desc.data[i].curl
+                            //}];
+                            if (desc.data[i].attach_info &&
+                                desc.data[i].attach_info instanceof Array &&
+                                desc.data[i].attach_info.length == 1) {
+                                var action_type =  desc.data[i].attach_info[0].type || 0;
+                                switch (action_type) {
+                                    case "1":
+                                        //show_attach_info(i,null,"拨打电话");
+                                        show_attach_info(i,"http://cpro.baidustatic.com/cpro/exp/mob_exp/img/midpage/Phone-icon.png","拨打电话");
+                                        attach_list[i].setAttribute("title", desc.data[i].attach_info[0].content);
+                                        ThisPage.Utility.bind(attach_list[i], "click", function(){
+                                            var sendByIframe = function(a) {
+                                                var b=document.createElement("iframe");
+                                                b.id="ifr"+parseInt(Math.random()*100000);
+                                                b.style.display="none";
+                                                b.setAttribute("src",a);
+                                                document.body.insertBefore(b,document.body.firstChild)
+                                            };
+                                            return function (e) {
+                                                e.preventDefault();
+                                                window.open("tel:" + this.title, "_self");
+                                                sendByIframe(this.href);
+                                            };
+                                        }());
+                                        break;
+                                    case "4":
+                                        show_attach_info(i, "http://cpro.baidustatic.com/cpro/exp/mob_exp/img/midpage/connect-icon.png","在线咨询");
+                                        break;
+                                    case "8":
+                                        //show_attach_info(i, "http://cpro.baidustatic.com/cpro/exp/mob_exp/img/qiao_blue.png","在线咨询");
+                                        show_attach_info(i, "http://cpro.baidustatic.com/cpro/exp/mob_exp/img/midpage/connect-icon.png","在线咨询");
+                                        attach_list[i].setAttribute("title", desc.data[i].attach_info[0].content.replace("sms://",""));
+                                        ThisPage.Utility.bind(attach_list[i], "click", function(){
+                                            var sendByIframe = function(a) {
+                                                var b=document.createElement("iframe");
+                                                b.id="ifr"+parseInt(Math.random()*100000);
+                                                b.style.display="none";
+                                                b.setAttribute("src",a);
+                                                document.body.insertBefore(b,document.body.firstChild)
+                                            };
+                                            return function (e) {
+                                                e.preventDefault();
+                                                var isIphone = navigator.userAgent.toLowerCase().match(/iphone/i) == "iphone";
+                                                var msg = this.title;
+                                                if (isIphone) {
+                                                    msg=msg.replace(/\?body/,";body");
+                                                }
+                                                var index = msg.indexOf("=");
+                                                var msglink = msg.substring(0,index)+"="+encodeURIComponent(msg.substring(index+1));
+                                                window.open("sms:" + msglink, "_self");
+                                                sendByIframe(this.href);
+                                                };
+                                                }());
+                                        break;
+                                    case "0":
+                                    default:
+                                }
+                            }
+                        }
+                    }
+                },
+                //管理广告区域
+                zoneManager: {
+                    zone_list: {},
+                    register: function(option) {
+                        this.zone_list[option.id] = option;
+                    },
+                    show: function(id) {
+                        var zone = document.getElementById(
+                            this.zone_list[id].name);
+                        zone.style.display = "block";
+                    },
+                    handleAd: function(ads, zone_id) {
+                        old_items = document.getElementById(this.zone_list[zone_id].name);
+                        items_len = old_items.children.length; 
+                        if (items_len > 0){
+                           for (var i=0; i < items_len; i++){
+                                old_items.removeChild(old_items.children[0]);
+                            }
+                        }
+                        if (zone_id == 0) {
+                            var expect_length = this.zone_list[zone_id].expect_length;
+                            while(ads.length < expect_length) {
+                                var idx = Math.floor(Math.random()*ads.length)
+                                var new_ads = ThisPage.Utility.clone(ads[idx]);
+                                ads.push(new_ads);
+                            }
+                        } else if (zone_id == 110) {
+                            var i, tuwenItem, hot;
+                            for (i = 0; i < ads.length; i++) {
+                                if (typeof ads[i] === 'undefined'){
+                                    break;
+                                }
+                                textItem = document.getElementById("text_temp").cloneNode(true);
+                                textItem.id = "";
+                                document.getElementById(this.zone_list[zone_id].name).appendChild(textItem);
+                                textItem.style.display = "block";
+                            }  
+                        }else if(zone_id == 111 ||zone_id == 112){
+                            var i, tuwenItem, hot;
+                            for (i = 0; i < ads.length; i++) {
+                                if (typeof ads[i] === 'undefined'){
+                                    break;
+                                }
+                                textItem = document.getElementById("text-jingpin").cloneNode(true);
+                                textItem.id = "";
+                                document.getElementById(this.zone_list[zone_id].name).appendChild(textItem);
+                                textItem.style.display = "block";
+                            }  
+                        } else {
+                            var i, tuwenItem, hot;
+                            for (i = 0; i < ads.length; i++) {
+                                if (typeof ads[i] === 'undefined'){
+                                    break;
+                                }
+                                tuwenItem = document.getElementById("tuwen_temp").cloneNode(true);
+                                tuwenItem.id = "";
+                                document.getElementById(this.zone_list[zone_id].name).appendChild(tuwenItem);
+                                tuwenItem.style.display = "block";
+                            }
+                        }
+                    },
+                    beforeZoneRender: function(zone_id, ads) {
+                        zone_name = this.zone_list[zone_id].name;
+                        //广告不足，重复展现
+                        this.handleAd(ads, zone_id);
+                        //反作弊
+                        window.antiCheatArray = window.antiCheatArray || [];
+                        window.antiCheatArray[zone_id] = ads[0].mid || 0;
+
+                        AntiCheat.check(zone_name, zone_id);
+                        return this.zone_list[zone_id];
+                    }
+                }
+            };
+        </script>
+        <script type="text/javascript">
+            /*
+            *   通过构造描述文件来进行自动填充
+            *   基本的广告数据，建议使用默认的desc_config
+            *   对于复杂的或新增的，可以构造desc_config然后自行填充，或是直接查找节点赋值
+            */
+            function text_render(ads, id) {
+                var zone_id = id;
+                if (ads.length === 0) {
+                    return 0;
+                }
+				if (ads.length > 10) {ads.splice(10,ads.length-10);}
+                var zone_info = ThisPage.zoneManager.beforeZoneRender(zone_id, ads);
+                //渲染
+                var desc_config = window.ThisPage.AdRender.descConfig.text_config;
+                desc_config.root = zone_info.name;
+                for(var i in ads) {
+                    len = ads[i].desc.length;
+                    if(len >80) {
+                      //  ads[i].desc=ads[i].desc.substring(0,80)+"..."; 
+                    }
+                    //ads[i].tit = ThisPage.Utility.flush_red(ads[i].tit, window['mid_page_param'].query);
+                    //ads[i].desc = ThisPage.Utility.flush_red(ads[i].desc, window['mid_page_param'].query);
+                    ads[i].arrow_img_tag = "<img src=\"http://cpro.baidustatic.com/cpro/exp/mob_exp/img/arrow_blue.png\"  />";
+                    bid = ads[i].bid;
+                    if (bid.length >0){
+                        ads[i].tit=ThisPage.Utility.newHighLight(ads[i].tit,bid,"#CC0000");
+                        ads[i].desc=ThisPage.Utility.newHighLight(ads[i].desc,bid,"#CC0000");
+                    }
+                }
+                desc_config.data = ads;
+                window.ThisPage.AdRender.render(desc_config);
+                window.ThisPage.Utility.setDivKeyword(zone_info.name, zone_info.ext_query);
+                //加载成功后展现
+                window.ThisPage.zoneManager.show(zone_id);
+            };
+            function jingpin_pic_render(ads) {
+                var zone_id = 0;
+                //返回广告数为0,则不显示该区
+                if (ads.length === 0) {
+                    return 0;
+                }
+                //处理广告不足等特殊情况，以及添加反作弊
+                var zone_info = ThisPage.zoneManager.beforeZoneRender(zone_id, ads);
+                //渲染, 获取全局默认的描述文件，也可以自行构造, 主要是描述className->attribute->value
+                var image_desc_config = window.ThisPage.AdRender.descConfig.image_config;
+                image_desc_config.root = zone_info.name;  //广告区域的根节点
+                image_desc_config.data = ads;   //渲染的数据
+                //执行渲染
+                window.ThisPage.AdRender.render(image_desc_config);
+                window.ThisPage.Utility.setDivKeyword(zone_info.name, zone_info.ext_query);
+                //加载成功后展现
+                window.ThisPage.zoneManager.show(zone_id);
+            };
+            function tuwen_render(ads, id) {
+                var zone_id = id;
+                if (ads.length === 0) {
+                    return 0;
+                }
+                var zone_info = ThisPage.zoneManager.beforeZoneRender(zone_id, ads);
+                //渲染
+                var desc_config = window.ThisPage.AdRender.descConfig.tuwen_config;
+                desc_config.root = zone_info.name;
+                for(var i in ads) {
+                    if(ads[i].bword != "") {
+                         ads[i].height = "20px";
+                         ads[i].is_display = "block";
+                    } else {
+                         ads[i].height = "20px";
+                         ads[i].is_display = "block";
+                    }
+                }
+                desc_config.data = ads;
+                window.ThisPage.AdRender.render(desc_config);
+                window.ThisPage.AdRender.renderAttach(desc_config);
+                window.ThisPage.Utility.setDivKeyword(zone_info.name, zone_info.ext_query);
+                //加载成功后展现
+                window.ThisPage.zoneManager.show(zone_id);
+            }
+           function tuwen_render_relevance(ads, id, rel) {
+                var zone_id = id;
+                var real_ads = [];
+                for(var i in ads) {
+                    if ((rel > 0 && ads[i].relevance > 0) || (rel === ads[i].relevance)) {
+                        real_ads.push(ads[i]);
+                    }
+                }
+                if (real_ads.length === 0) {
+                    return 0;
+                }
+                if (id == 2) {
+                    hasJinpinHot = 1;
+                }
+                var zone_info = ThisPage.zoneManager.beforeZoneRender(zone_id, real_ads);
+                //渲染
+                var desc_config = window.ThisPage.AdRender.descConfig.tuwen_config;
+
+                desc_config.root = zone_info.name;
+                for(var i in ads) {
+                    ads[i].arrow_img_tag = "<img src=\"http://cpro.baidustatic.com/cpro/exp/mob_exp/img/arrow.png\"  />";
+                    //if(ads[i].bword != "") {
+                     //    ads[i].height = "50px";
+                      //   ads[i].is_display = "block";
+                    //} else {
+                    //     ads[i].height = "50px";
+                    //     ads[i].is_display = "none";
+                    //}
+                }
+                desc_config.data = real_ads;
+                window.ThisPage.AdRender.render(desc_config);
+                window.ThisPage.AdRender.renderAttach(desc_config);
+                window.ThisPage.Utility.setDivKeyword(zone_info.name, zone_info.ext_query);
+                //加载成功后展现
+                window.ThisPage.zoneManager.show(zone_id);
+           }
+
+           function ztc_asp_render(ads) {
+                //text_render(ads, 110);
+                
+                //interface
+                var img_url = ads.data.image;
+                var title = ads.data.title;
+                var root_item = document.getElementById("news_zone_ztc_asp");
+                var style_handler = window.ThisPage.Utility.style_controller;
+                
+                var main_item = document.createElement("div");
+                style_handler.set_base_style(main_item,0,0,320,200,"block","relative");
+                
+     
+                var img_item = document.createElement("img");
+                img_item.src = img_url;
+                style_handler.set_base_style(img_item,30,10,120,80,"block","absolute");
+                style_handler.append_boxmod_style(img_item,"","","1px solid #bbb");
+                style_handler.append_effects_style(img_item,"3","","");
+                
+              
+                var title_item = document.createElement("img");
+                title_item.src = img_url;
+                style_handler.set_base_style(title_item,30,10,120,80,"block","absolute");   
+                
+                main_item.appendChild(img_item);
+                root_item.appendChild(main_item);
+                root_item.style.display= "block";
+                
+                
+            };
+            
+
+            function asp_render(ads) {
+                text_render(ads, 110);
+            };
+            function jingpin_tuwen_render(ads) {
+                tuwen_render_relevance(ads, 111, 1);
+                tuwen_render_relevance(ads, 112, 0);
+            };
+            function hot_tuwen_render(ads) {
+                tuwen_render(ads, 3);
+            };
+            function query1_tuwen_render(ads) {
+                tuwen_render(ads, 4);
+            };
+            function query2_tuwen_render(ads) {
+                tuwen_render(ads, 5);
+            };
+            function query3_tuwen_render(ads) {
+                tuwen_render(ads, 6);
+            };
+            function query4_tuwen_render(ads) {
+                tuwen_render(ads, 7);
+            };
+            function query5_tuwen_render(ads) {
+                tuwen_render(ads, 8);
+            };
+            function query6_tuwen_render(ads) {
+                tuwen_render(ads, 9);
+            };
+            function query_tuwen_render(ads) {
+                renderList[currentAd-10] = 1;
+                tuwen_render(ads, currentAd);
+                if (keywordIndex < totalKeywordNum) {
+                    document.getElementById("continue_load").style.display = "block";
+                    document.getElementById("load_img").style.display = "none";
+                } else {
+                    document.getElementById("load").style.display = "none";
+                }
+                currentAd++;
+            };
+
+            function title_len(s) { 
+                var l = 0; 
+                var a = s.split(""); 
+                for (var i=0;i<a.length;i++) { 
+                    if (a[i].charCodeAt(0)<299) { 
+                        l++; 
+                    } else { 
+                        l+=2; 
+                    } 
+                } 
+                return l; 
+            }
+            function adjust_keywords(){
+                var menu_root = document.getElementsByClassName("menu_container")[0];
+                var t_lens = []; 
+                var items =  menu_root.children;              
+                for (var i = 0; i <menu_root.children.length ;i++){
+                    t_lens[i] = title_len(items[i].innerHTML);
+                }
+                var total_len = t_lens[0]+ t_lens[1]+ t_lens[2];
+                items[0].style.width = ((290 * t_lens[0])/total_len).toString()+"px";
+                items[1].style.width = ((290 * t_lens[1])/total_len).toString()+"px";
+                items[2].style.width = ((290 * t_lens[2])/total_len).toString()+"px";
+            }
+            function save_keywords(ads) {
+                for (var i = 0; i < ads.length; i++) {
+                    moreKeywordList[i] = ads[i].title;
+                }
+                totalKeywordNum = (moreKeywordList.length < 23)
+                    ? moreKeywordList.length : 23;
+
+            };
+            function requestNews(para) {
+                var i = 0,
+                    newsrc = "http://cpro.baidu.com/cpro/ui/uijs.php?";
+                para['did'] += 1;
+                para['rt'] = (new Date()).getTime() - StartTime;
+                for (i = 0; i < para.length; i++) {
+                    newsrc += (para[i] + "=" + para[para[i]] + "&");
+                }
+
+                var newScript = document.createElement("script");
+                newScript.type = "text/javascript";
+                newScript.src = newsrc;
+                document.getElementsByTagName("head")[0].appendChild(newScript);
+                return newsrc;
+            };
+        </script>
+<script type="text/javascript">
+    //var arrBaiduCproConfig = new Array("k", "cf", "tp2jk", "rs", "tu", "tn", "n", "rsi1", "rsi0", "rad", "at", "ch", "cad", "cpa", "fv", "cn", "word", "refer", "ready", "jk", "js", "lmt", "csp", "ccd", "cja", "cpl", "cmi", "cce", "csl", "did", "rt", "dt", "prt", "cm", "um", "wn", "tm", "func", "hn", "ie", "i3", "stid", "distp", "luki", "seller_id","is_app", "app_id");
+     var arrBaiduCproConfig = new Array("k", "cf", "tp2jk", "rs", "tu", "td", "tn", "n", "rsi1", "rsi0", "rad", "at", "ch", "cad", "cpa", "fv", "cn", "word", "refer", "ready", "jk", "js", "lmt", "csp", "ccd", "cja", "cpl", "cmi", "cce", "csl", "did", "rt", "dt", "prt", "cm", "um", "wn", "tm", "func", "hn", "ie", "i3", "stid", "distp", "luki", "seller_id","is_app", "app_id","wi","adclass","sdk_version","sdk_v","app_sid","adx");
+	
+    
+    var ztc_ad = {"status":"200", //响应码
+  "data":{
+       "dealid":"12345",  // 团单ID
+       "dealType": "0",  // 团单类型：1: 糯米券；2: 物流单；3: 抽奖单；4: 虚拟商品；6: 预约商品；
+                        // 8: 红包；9: 代金券；1001: 储值卡；1006: 到店付；1008: 排队；101: KTV
+       "status": "0",  // 团单上下线状态：0为上线，1为下线
+       "image": "http://ipcmm.baidu.com/media/v1/0f000Qh9C44d-C6gsNY-bf.jpg",   // 团单首图
+       "title": "这是团单长标题",   // 团单长标题
+       "miniTitle": "这是团单短标题",   // 团单短标题
+       "businessTitle": "这是团单的商家标题",    // 团单的商家标题
+       "marketPrice": "129.00", //市场价/原价  
+       "currentPrice": "120.00", // 现价
+       "bought": "122", // 已售份数
+       "freeAppointment": "0" , // 是否免预约：0 不确定，不知道是否需要预约；1免预约
+       "refundStrategyType": "0" , // 退订类型：1 随时退；2 过期退；4 随便退；3 随时退+过期退；
+                                 // 5 随时退+随便退；6 过期退+随便退；0 以上都不是
+       "hidden": "0", // 团单是否隐藏：0为不隐藏，1为隐藏
+       "businessStatus": "0", // 是否上线单：1 上线单
+       "commentScore": "4.2345",  // 评分
+       "commentNum": "100", //评价人数
+       "startTime": "2016-01-01 12:12",  // 团单开始时间
+       "endTime": "2016-01-02 12:12",  // 团单结束时间
+       "pcUrl": "http://www.baidu.com/abc.jpg",  // 团单的PC URL
+       "wapUrl": "http://www.baidu.com/bcd.jpg",  // 团单的Wap URL
+       "naUrl":"bainuo://wwww.baidu.com",  // 团单的NA schema
+       "redirectUrl": "http://www.baidu.com",  // 虚拟单的URL
+       "category":"全部美食，餐饮", // 团单品类
+       "buyDetails": "ddddd",  // 图文详情：html内容
+       "buyContent": "dsdfsdf",  //套餐内容：html内容
+       "consumerTips": "dasdf", // 消费提示：html内容
+       "commentInfo": "dsdfsd", // 用户评价：html内容
+       "commentMini": "dsdf", // 用户短评
+       "fields":"dddd"  // 物料列名
+  },
+  };
+  
+    ztc_asp_render(ztc_ad);
+	var mkjk = function () {
+        return window.ThisPage.Utility.md5(Math.random()*1000000 + window.document.location.href + window.document.cookie);
+    }
+    //if(window["mid_page_param"].is_app=="1"){
+    //    show_banner();
+    //}
+    search_item = document.getElementsByClassName("search_input")[0];
+    search_item.value = "  "+ search_item.value ;
+    function requestADS(){
+    var l1_para = window.ThisPage.Utility.getPara(document.location.href);
+
+
+    // 原始请求字段
+    // new Array("k", "cf", "tp2jk", "rs", "tu", "tn", "n", "rsi1", "rsi0", "rad", "rsi5", "at", "ch", "cad", "cpa", "fv", "cn", "if", "word", "refer", "ready", "jk", "jn", "js", "lmt", "csp", "ccd", "cja", "cpl", "cmi", "cce", "csl", "did", "rt", "dt", "pn", "prt", "cm", "um", "wn", "tm", "func", "hn", "ie", "i3", "stid", "distp", "wadn", "luki", "badn", "seller_id");
+
+    // 精简后版本
+
+    /* 删除冗余字段, pb设置默认值0
+    *  arrBaiduCproConfig['rsi5'] = 0; // 广告标题和描述是否飘红
+    *  arrBaiduCproConfig['if'] = 0;   // iframe 嵌套标志位, 0000 0000 , 从低位开始
+    *  arrBaiduCproConfig['wadn'] = 0; // 请求问答广告个数, 默认值为0
+    */
+
+    /* 无效字段
+    *  arrBaiduCproConfig['pn'] = "";  // 检索端无用, 前端生成逻辑复杂
+    *  arrBaiduCproConfig['jn'] = 3;   // 检索端无用, 前端设置为常量值3
+    *  arrBaiduCproConfig['badn'] = 0; // 检索端无用, 前端设置为常量值0
+    */
+ arrBaiduCproConfig.wi = "1";
+    arrBaiduCproConfig.adclass = "0";
+    arrBaiduCproConfig.sdk_version = "";
+    arrBaiduCproConfig.sdk_v = "0";
+    arrBaiduCproConfig.app_sid = "";
+    arrBaiduCproConfig.adx = "0";
+    arrBaiduCproConfig.rsi0 = 200;
+    arrBaiduCproConfig.rsi1 = 200;
+    arrBaiduCproConfig.cpa = 0;
+    arrBaiduCproConfig.cn = 2;
+    // word字段表示广告所在页面url.如果存在iframe嵌套,则为第一个宽高大于广告块宽高2倍的页面url
+    arrBaiduCproConfig['word'] ="http%3A%2F%2Fwap%2Eganji%2Ecom%2Fbj%2Fzpjigongyibangongren%2Fbcbz%2F";
+    /*
+    arrBaiduCproConfig['word'] = (function(){
+                        var result = window.location.href;
+                        var qIndex = result.indexOf('?');
+                        var result = result.substring(qIndex+1);
+                        var tArray = result.split('&');
+                        for(var i = 0; i < tArray.length; i++){
+                            if(tArray[i].search(/^u=/i) != -1){
+                                result = tArray[i].replace(/^u=/i,'');
+                                break;
+                            }
+                        }
+                        return result;
+                    })();
+  */
+    arrBaiduCproConfig['refer'] = (function(){
+                        var result = "http://pos.baidu.com/acom?k=" + key;
+                        /*try{
+                            result = window.opener ?  window.opener.document.location.href : window.document.referrer;
+                        }
+                        catch(ex){
+                            result = window.document.referrer;
+                        }*/
+                        return encodeURIComponent(window.ThisPage.Utility.escapeToEncode(result));
+                    })();
+    arrBaiduCproConfig['ready'] = (function(){
+                        //refer : http://www.w3schools.com/jsref/prop_doc_readystate.asp
+                        var statusmap = {
+                            "uninitialized" : 0,
+                            "loading"       : 1,
+                            "loaded"        : 2,
+                            "interactive"   : 3,
+                            "complete"      : 4
+                        };
+                        try{
+                            return statusmap[window.document.readyState];
+                        }
+                        catch(e){
+                            return 5;
+                        }
+                    })();
+    // 前端s值, 用于标识一次检索请求
+    arrBaiduCproConfig['jk'] = mkjk();
+    // 本请求使用的js文件名称
+    arrBaiduCproConfig['js'] = "ui";
+    // document.lastModified 文档最后修改时间. 参见w3c
+    // http://www.w3.org/TR/html5/dom.html#dom-document-lastmodified
+    arrBaiduCproConfig['lmt'] = Date.parse(window.document.lastModified)/1000;
+    // 桌面的分辨率, 包含任务条; 形式为:宽，高。e.g.:1024,768
+    arrBaiduCproConfig['csp'] = window.screen.width + "%2C" + window.screen.height;
+    // 桌面色深. ff的实现与显卡驱动输出有关, 与桌面的显示设置可能不同
+    arrBaiduCproConfig['ccd'] = window.screen.colorDepth;
+    // 否允许java
+    arrBaiduCproConfig['cja'] = window.navigator.javaEnabled().toString();
+    // plugin插件数量
+    arrBaiduCproConfig['cpl'] = window.navigator.plugins.length;
+    // mime对象数量
+    arrBaiduCproConfig['cmi'] = window.navigator.mimeTypes.length;
+    // flash版本
+    arrBaiduCproConfig['fv'] = l1_para["fv"];
+    // show url长度
+    arrBaiduCproConfig['um'] = 0;
+    // 当前编码
+    arrBaiduCproConfig['ie'] = 0;
+    // 否是360浏览器
+    arrBaiduCproConfig['i3'] = "f";
+    arrBaiduCproConfig['distp'] = 1001;
+
+    arrBaiduCproConfig['n'] = window["mid_page_param"].cpr;
+    arrBaiduCproConfig['tn'] = window["mid_page_param"].template;
+    // 横向广告条数
+    arrBaiduCproConfig['wn'] = 2; //横向广告条数
+    // 纵向广告条数
+    arrBaiduCproConfig['hn'] = 1; //纵向广告条数
+    arrBaiduCproConfig['at'] = 2;
+    arrBaiduCproConfig['func'] = 'jingpin_pic_render';
+    // 标题长度
+    arrBaiduCproConfig['tm'] = '255';
+    // 描述文字长度
+    arrBaiduCproConfig['cm'] = '255';
+    arrBaiduCproConfig['rad'] = 0; //是否出不相关广告
+    arrBaiduCproConfig['cad'] = 0; //是否显示公益广告
+    arrBaiduCproConfig['ch'] = "tpclicked3jp0img"; //渠道值
+    arrBaiduCproConfig['k'] = window["mid_page_param"].query; //当前选中关键词
+    // lu中间页策略标识符，因为需要和第一次策略相对应，故需要将第一次策略的cf传递给第二次
+    arrBaiduCproConfig['cf'] = window["mid_page_param"].cf; //lu策略标识符
+    arrBaiduCproConfig['tp2jk'] = window["mid_page_param"].jk; //用于连接lu第一次和第二次
+    arrBaiduCproConfig['tu'] = window["mid_page_param"].tu; //用于分tu进行报表统计，提供网站主分tu的数据
+    arrBaiduCproConfig['td'] = window["mid_page_param"].td; //用于分td进行报表统计，提供网站主分td的数据
+    // lu中间页需要区分是来自第一次标签点击还是来自中间页标签点击
+    arrBaiduCproConfig['rs'] = window["mid_page_param"].rs; //用于区分中间页是来自第一次的主题词还是第二次的主题词
+    arrBaiduCproConfig['seller_id'] = window["mid_page_param"].seller_id; //标识流量来源
+    arrBaiduCproConfig['app_id'] = window["mid_page_param"].app_id; //app_id
+    arrBaiduCproConfig['is_app'] = window["mid_page_param"].is_app; //is app
+    // 广告自增id
+    arrBaiduCproConfig['did'] = 0;
+
+    // 是否支持cookie
+    arrBaiduCproConfig['cce'] = window.navigator.cookieEnabled;
+    // OS使用的默认语言
+    arrBaiduCproConfig['csl'] = encodeURIComponent( window.navigator.language || window.navigator.browserLanguage || window.navigator.systemLanguage ).replace(/[^a-zA-Z0-9\-]/g, '');
+    // 当前客户端时间
+    arrBaiduCproConfig['dt'] = Math.round((new Date).getTime() / 1000);
+    // 页面第一次请求的时间戳
+    arrBaiduCproConfig['prt'] = (new Date()).getTime();
+    // 样式实验号
+    arrBaiduCproConfig['stid'] = l1_para["stid"];
+    arrBaiduCproConfig['luki'] = l1_para["luki"];
+
+        arrBaiduCproConfig['func'] = 'asp_render';
+        arrBaiduCproConfig['wn'] = 1; //横向广告条数
+        arrBaiduCproConfig['hn'] = 10; //纵向广告条数
+        arrBaiduCproConfig['cn'] = 10; // 请求广告个数?
+        arrBaiduCproConfig['at'] = 1; //表明请求的是文本物料
+        arrBaiduCproConfig['ch'] = "lu_asp_mob"; //渠道值
+        arrBaiduCproConfig['jk'] = mkjk();
+        requestNews(arrBaiduCproConfig);
+            window.ThisPage.zoneManager.register({
+            id:110,
+            name: "news_zone_asp",  //广告区的id
+            expect_length: arrBaiduCproConfig["cn"],  //广告个数
+            ext_query: arrBaiduCproConfig['k']  //热门区或广告的扩展词
+        });
+
+    arrBaiduCproConfig['func'] = 'jingpin_tuwen_render';
+    arrBaiduCproConfig['tn'] = "baiduTpclickedDEFINE_mob_direct";
+    arrBaiduCproConfig['wn'] = 1;
+    arrBaiduCproConfig['hn'] = 3; //纵向广告条数
+    arrBaiduCproConfig['cn'] = 3; // 请求广告个数?
+    arrBaiduCproConfig['at'] = 32; //表明请求的是图文物料
+    arrBaiduCproConfig['ch'] = "tpclicked3jp0tw"; //渠道值
+    arrBaiduCproConfig['k'] = window["mid_page_param"].query;
+    arrBaiduCproConfig['jk'] = mkjk();
+    requestNews(arrBaiduCproConfig);
+    window.ThisPage.zoneManager.register({
+        id:111,
+        name: "news_zone_jingpin",
+        expect_length: arrBaiduCproConfig["cn"],
+        ext_query: arrBaiduCproConfig['k']
+    });
+    window.ThisPage.zoneManager.register({
+        id:112,
+        name: "news_zone_jingpin_hot",
+        expect_length: arrBaiduCproConfig["cn"],
+        ext_query: "猜您喜欢"
+    });
+
+    arrBaiduCproConfig['func'] = 'hot_tuwen_render';
+    arrBaiduCproConfig['hn'] = 3; //纵向广告条数
+    arrBaiduCproConfig['cn'] = 3; // 请求广告个数?
+    arrBaiduCproConfig['at'] = 32; //表明请求的是图文物料
+    arrBaiduCproConfig['ch'] = "tpclicked3ps0tw"; //渠道值
+    arrBaiduCproConfig['jk'] = mkjk();
+    requestNews(arrBaiduCproConfig);
+    window.ThisPage.zoneManager.register({
+        id:3,   //广告区号，按请求顺序加1
+        name: "news_zone_hot",  //广告区的id
+        expect_length: arrBaiduCproConfig["cn"],  //广告个数
+        ext_query: "猜你喜欢"  //热门区或广告的扩展词
+    });
+
+    var kwlist_len = window["mid_page_param"].keywords.length;
+    if (kwlist_len > 0 && window["mid_page_param"].query_idx != 0) {
+        arrBaiduCproConfig['func'] = 'query1_tuwen_render';
+        arrBaiduCproConfig['hn'] = 2; //纵向广告条数
+        arrBaiduCproConfig['cn'] = 2; // 请求广告个数?
+        arrBaiduCproConfig['at'] = 32; //表明请求的是图文物料
+        arrBaiduCproConfig['ch'] = "tpclicked3jp0qey1"; //渠道值
+        arrBaiduCproConfig['k'] = window["mid_page_param"].keywords[0];
+        arrBaiduCproConfig['jk'] = mkjk();
+        requestNews(arrBaiduCproConfig);
+        window.ThisPage.zoneManager.register({
+            id:4,
+            name: "news_zone_query1",
+            expect_length: arrBaiduCproConfig["cn"],
+            ext_query: arrBaiduCproConfig['k']
+        });
+    }
+
+    if (kwlist_len > 1 && window["mid_page_param"].query_idx != 1) {
+        arrBaiduCproConfig['func'] = 'query2_tuwen_render';
+        arrBaiduCproConfig['hn'] = 2; //纵向广告条数
+        arrBaiduCproConfig['cn'] = 2; // 请求广告个数?
+        arrBaiduCproConfig['at'] = 32; //表明请求的是图文物料
+        arrBaiduCproConfig['ch'] = "tpclicked3jp0qey2"; //渠道值
+        arrBaiduCproConfig['k'] = window["mid_page_param"].keywords[1];
+        arrBaiduCproConfig['jk'] = mkjk();
+        requestNews(arrBaiduCproConfig);
+        window.ThisPage.zoneManager.register({
+            id:5,
+            name: "news_zone_query2",
+            expect_length: arrBaiduCproConfig["cn"],
+            ext_query: arrBaiduCproConfig['k']
+        });
+    }
+
+    if (kwlist_len > 2 && window["mid_page_param"].query_idx != 2) {
+        arrBaiduCproConfig['func'] = 'query3_tuwen_render';
+        arrBaiduCproConfig['hn'] = 2; //纵向广告条数
+        arrBaiduCproConfig['cn'] = 2; // 请求广告个数?
+        arrBaiduCproConfig['at'] = 32; //表明请求的是图文物料
+        arrBaiduCproConfig['ch'] = "tpclicked3jp0qey3"; //渠道值
+        arrBaiduCproConfig['k'] = window["mid_page_param"].keywords[2];
+        arrBaiduCproConfig['jk'] = mkjk();
+        requestNews(arrBaiduCproConfig);
+        window.ThisPage.zoneManager.register({
+            id:6,
+            name: "news_zone_query3",
+            expect_length: arrBaiduCproConfig["cn"],
+            ext_query: arrBaiduCproConfig['k']
+        });
+    }
+
+    if (kwlist_len > 3 && window["mid_page_param"].query_idx != 3) {
+        arrBaiduCproConfig['func'] = 'query4_tuwen_render';
+        arrBaiduCproConfig['hn'] = 2; //纵向广告条数
+        arrBaiduCproConfig['cn'] = 2; // 请求广告个数?
+        arrBaiduCproConfig['at'] = 32; //表明请求的是图文物料
+        arrBaiduCproConfig['ch'] = "tpclicked3jp0qey4"; //渠道值
+        arrBaiduCproConfig['k'] = window["mid_page_param"].keywords[3];
+        arrBaiduCproConfig['jk'] = mkjk();
+        //requestNews(arrBaiduCproConfig);
+        window.ThisPage.zoneManager.register({
+            id:7,
+            name: "news_zone_query4",
+            expect_length: arrBaiduCproConfig["cn"],
+            ext_query: arrBaiduCproConfig['k']
+        });
+    }
+
+    if (kwlist_len > 4 && window["mid_page_param"].query_idx != 4) {
+        arrBaiduCproConfig['func'] = 'query5_tuwen_render';
+        arrBaiduCproConfig['hn'] = 2; //纵向广告条数
+        arrBaiduCproConfig['cn'] = 2; // 请求广告个数?
+        arrBaiduCproConfig['at'] = 32; //表明请求的是图文物料
+        arrBaiduCproConfig['ch'] = "tpclicked3jp0qey5"; //渠道值
+        arrBaiduCproConfig['k'] = window["mid_page_param"].keywords[4];
+        arrBaiduCproConfig['jk'] = mkjk();
+        //requestNews(arrBaiduCproConfig);
+        window.ThisPage.zoneManager.register({
+            id:8,
+            name: "news_zone_query5",
+            expect_length: arrBaiduCproConfig["cn"],
+            ext_query: arrBaiduCproConfig['k']
+        });
+    }
+
+    if (kwlist_len > 5 && window["mid_page_param"].query_idx != 5) {
+        arrBaiduCproConfig['func'] = 'query6_tuwen_render';
+        arrBaiduCproConfig['hn'] = 2; //纵向广告条数
+        arrBaiduCproConfig['cn'] = 2; // 请求广告个数?
+        arrBaiduCproConfig['at'] = 32; //表明请求的是图文物料
+        arrBaiduCproConfig['ch'] = "tpclicked3jp0qey6"; //渠道值
+        arrBaiduCproConfig['k'] = window["mid_page_param"].keywords[5];
+        arrBaiduCproConfig['jk'] = mkjk();
+        //requestNews(arrBaiduCproConfig);
+        window.ThisPage.zoneManager.register({
+            id:9,
+            name: "news_zone_query6",
+            expect_length: arrBaiduCproConfig["cn"],
+            ext_query: arrBaiduCproConfig['k']
+        });
+    }
+
+ 
+    var wordsrc = "http://cpro.baidu.com/cpro/ui/uijs.php?rs=1&tu=" + window["mid_page_param"].tu +
+        "&td=" + window["mid_page_param"].td + 
+        "&tn=baiduDEFINEJsonLinkunit_mob&n=" + window["mid_page_param"].cpr +
+        "&adn=24&at=1&word=http%3A%2F%2Fcpro.baidu.com&jk=0&prt=0&func=save_keywords";
+    //document.write('<scr' + 'ipt type="text/javascript" src="' + wordsrc + '"></scr' + 'ipt>');
+
+
+    var newScript = document.createElement("script");
+    newScript.type = "text/javascript";
+    newScript.src = wordsrc;
+    document.getElementsByTagName("head")[0].appendChild(newScript);
+    document.getElementById("continue_load").style.display = "block";
+    document.getElementById("load_img").style.display = "none";
+}
+
+function clone_new_container(){
+    var node=document.getElementById("news_container").cloneNode(true);
+    node.setAttribute("style","display:block");
+    document.getElementById("main_container").appendChild(node);
+}
+requestADS();
+clone_new_container();
+</script>
+<script type="text/javascript">
+   
+    function addQueryZone() {
+        keywordIndex++;
+        var queryItem = document.getElementById("news_zone_query").cloneNode(true);
+        queryItem.id = "news_zone_query" + (keywordIndex + 7);
+        document.getElementById("news_container").appendChild(queryItem);
+        arrBaiduCproConfig['func'] = 'query_tuwen_render';
+        arrBaiduCproConfig['hn'] = 2; //纵向广告条数
+        arrBaiduCproConfig['cn'] = 2; // 请求广告个数?
+        arrBaiduCproConfig['at'] = 32; //表明请求的是图文物料
+        arrBaiduCproConfig['ch'] = "tpclicked3jp0qey" + (keywordIndex + 7); //渠道值
+        arrBaiduCproConfig['k'] = moreKeywordList[keywordIndex];
+        arrBaiduCproConfig['jk'] = mkjk();
+        requestNews(arrBaiduCproConfig);
+        window.ThisPage.zoneManager.register({
+            id: 10 + keywordIndex,
+            name: queryItem.id,
+            expect_length: arrBaiduCproConfig["cn"],
+            ext_query: arrBaiduCproConfig['k']
+        });
+        window.setTimeout("skipZone(" + keywordIndex + ")", 10000);
+    }
+
+    function loadMore() {
+        document.getElementById("continue_load").style.display = "none";
+        document.getElementById("load_img").style.display = "block";
+        addQueryZone();
+        addQueryZone();
+        addQueryZone();
+    }
+    function skipZone(idx) {
+        if (renderList[idx] == 1) {
+            skipNum = 0;
+            return 0;
+        }
+        skipNum++;
+        if (skipNum > 3 || keywordIndex > totalKeywordNum) {
+            document.getElementById("load").style.display = "none";
+        }
+    }
+</script>
+<script type="text/javascript">
+    var pre_pos = -1;
+    ThisPage.Utility.bind(window, "scroll",  function () {
+        var right_pos=document.body.scrollTop;
+        var toptip = document.getElementsByClassName("toptip_container")[0];
+
+        //if (pre_pos > 0) {
+        //    if (pre_pos < right_pos){
+        //        toptip.setAttribute("style","display:none");
+        //    }
+        //    else{
+        //        toptip.setAttribute("style","display:block");
+        //    }
+        //    pre_pos = right_pos;
+        //}
+        //else{
+        //    pre_pos = right_pos;
+        //}
+
+    });
+    // 1/5概率开启监控
+    var openMonitor = Math.random() < 0.2;
+    window.ThisPage.init(openMonitor);
+</script>
+</html>
