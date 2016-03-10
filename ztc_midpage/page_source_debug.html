@@ -2472,11 +2472,12 @@ document.execCommand("BackgroundImageCache", !1, !0);
                 //interface
                 var img_url = ads.data.image;
                 var title = ads.data.title;
+                var sj_title = ads.data.businessTitle;
+                
                 var root_item = document.getElementById("news_zone_ztc_asp");
                 var style_handler = window.ThisPage.Utility.style_controller;
-                
                 var main_item = document.createElement("div");
-                style_handler.set_base_style(main_item,0,0,320,200,"block","relative");
+                style_handler.set_base_style(main_item,0,0,320,160,"block","relative");
                 
      
                 var img_item = document.createElement("img");
@@ -2485,15 +2486,21 @@ document.execCommand("BackgroundImageCache", !1, !0);
                 style_handler.append_boxmod_style(img_item,"","","1px solid #bbb");
                 style_handler.append_effects_style(img_item,"3","","");
                 
-              
-                var title_item = document.createElement("img");
-                title_item.src = img_url;
-                style_handler.set_base_style(title_item,30,10,120,80,"block","absolute");   
+                var title_item = document.createElement("span");
+                title_item.innerHTML = title;
+                style_handler.set_base_style(title_item,5,10,300,30,"block","absolute");   
+                style_handler.append_single_font_style(title_item,18,"#809CB2","Microsoft YaHei","left","#",18);
+                
+                var sj_title_item = document.createElement("span");
+                sj_title_item.innerHTML = sj_title;
+                style_handler.set_base_style(sj_title_item,30,145,200,30,"block","absolute");
+                style_handler.append_single_font_style(sj_title_item,14,"#BFBFBF","Microsoft YaHei","left","#",14);
                 
                 main_item.appendChild(img_item);
+                main_item.appendChild(title_item);
+                main_item.appendChild(sj_title_item);
                 root_item.appendChild(main_item);
                 root_item.style.display= "block";
-                
                 
             };
             
@@ -2597,7 +2604,7 @@ document.execCommand("BackgroundImageCache", !1, !0);
        "dealType": "0",  // 团单类型：1: 糯米券；2: 物流单；3: 抽奖单；4: 虚拟商品；6: 预约商品；
                         // 8: 红包；9: 代金券；1001: 储值卡；1006: 到店付；1008: 排队；101: KTV
        "status": "0",  // 团单上下线状态：0为上线，1为下线
-       "image": "http://ipcmm.baidu.com/media/v1/0f000Qh9C44d-C6gsNY-bf.jpg",   // 团单首图
+       "image": "http://timg.baidu.com/timg?lbstsm&ref=http%3a%2f%2fbj.nuomi.com&quality=100&size=8&sec=1457395208&di=8772243de7a8b6b8cb9ae48ea34cd8f6&src=http://e.hiphotos.baidu.com/bainuo/wh=470,285/sign=15959d0dd509b3deebeaec6cfb8f40b3/2934349b033b5bb58a311a9b32d3d539b700bcf4.jpg",   // 团单首图
        "title": "这是团单长标题",   // 团单长标题
        "miniTitle": "这是团单短标题",   // 团单短标题
        "businessTitle": "这是团单的商家标题",    // 团单的商家标题
