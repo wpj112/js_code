@@ -384,12 +384,21 @@ window.mid_page_param={query:"游戏",jk:"e832d4bb5cb4fbef",cf:"1",tu:"u1345536",t
             window.antiCheatArray["dubao_asp"] =  0;
 			AntiCheat.check("asp_ads_block","dubao_asp");
 		}
-
+		function getQueryString(name) { 
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+			var r = window.location.search.substr(1).match(reg); 
+			if (r != null) 
+				return r[2]; 
+			return null; 
+		}
+		
         var ThisPage = {
             screen_width:320,
             init: function(){
                 this.render_top_layer();
                 //this.bind(window, "click", on_windows_click);
+				var all_url = "http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=42&ch=0&di=1&fv=0&is_app=0&jk=85f50dff59b01fe&k=%C0%BC%B2%A9%BB%F9%C4%E1&k0=%C0%BC%B2%A9%BB%F9%C4%E1&kdi0=1&lsdp_cf=0&lsdp_ideaid=60000000&lsdp_info=%B0%B4%C4%A6%D2%CE%&luki=1&mcpm=1&n=10&p=baidu&q=zolcnet_cpr&rb=0&rs=1&seller_id=1&sid=fe019bf5df505f08&ssp2=2&stid=4062&t=tpclicked3_mob_dubao&td=2419525&tu=u2419525&u=http%3A%2F%2Fwap%2Ezol%2Ecom%2Ecn%2F392%2F391741%2Findex%2Ehtml&urlid=0";
+				//alert(decodeURI(getQueryString("lsdp_info"),"GBK"));
             },
 
             bind: function (element, eventType, handler) {
@@ -411,11 +420,11 @@ window.mid_page_param={query:"游戏",jk:"e832d4bb5cb4fbef",cf:"1",tu:"u1345536",t
                     //this.render_hr_line(bd);
                 }
 				
-                this.render_A1_1_img_block(bd,this.screen_width,new_ads[1].ads,0,"render_A1_1_img_block");
+                this.render_A1_1_img_block(bd,this.screen_width,new_ads[1].ads,"render_A1_1_img_block");
 				this.render_pading_cell(bd);
-				this.render_A1_2_img_txt_block(bd,this.screen_width,new_ads[2].ads,0,"render_A1_2_img_txt_block");
+				this.render_A1_2_img_txt_block(bd,this.screen_width,new_ads[2].ads,"render_A1_2_img_txt_block");
 				this.render_pading_cell(bd);
-				this.render_A1_3_img_txt_block(bd,this.screen_width,new_ads[2].ads,0,"render_A1_3_img_txt_block");
+				this.render_A1_3_img_txt_block(bd,this.screen_width,new_ads[2].ads,"render_A1_3_img_txt_block");
 				this.render_pading_cell(bd);
                 this.render_A2_img_txt_block(bd,this.screen_width,new_ads[1].ads,"render_A2_img_txt_block");
 				this.render_pading_cell(bd);
@@ -544,6 +553,7 @@ window.mid_page_param={query:"游戏",jk:"e832d4bb5cb4fbef",cf:"1",tu:"u1345536",t
                     ThisPage.render_A1_img_cell_0(main_item,20 + (width-32)/1.4 + 8,i*((width-56)/4+8),((width-56)/4),((width-56)/4),0,data,i+1,"render_A1_img_cell_0_" + (i+1));
                 }
                 parent.appendChild(main_item);
+				this.bind(main_item, "click", this.on_click_monitor);
 
             },
             render_A1_2_img_txt_block:function(parent,width,data,id){
@@ -1665,7 +1675,6 @@ window.mid_page_param={query:"游戏",jk:"e832d4bb5cb4fbef",cf:"1",tu:"u1345536",t
 				return window.ThisPage.Utility.md5(Math.random()*1000000 + window.document.location.href + window.document.cookie);
 			},
 			requestNews:function(para) {
-
                 var i = 0,
                     newsrc = "http://cpro.baidu.com/cpro/ui/uijs.php?";
                 para['did'] += 1;
@@ -1673,13 +1682,25 @@ window.mid_page_param={query:"游戏",jk:"e832d4bb5cb4fbef",cf:"1",tu:"u1345536",t
                 for (i = 0; i < para.length; i++) {
                     newsrc += (para[i] + "=" + para[para[i]] + "&");
                 }
-
                 var newScript = document.createElement("script");
                 newScript.type = "text/javascript";
                 newScript.src = newsrc;
                 document.getElementsByTagName("head")[0].appendChild(newScript);
                 return newsrc;
             },
+			send_monitor_info: function(request){
+				var host_name="http://202.108.23.15:8030/m.js?tn=new_dubao_monitor";
+				var image = document.createElement("img");
+				var jk = "&jk=" + window["mid_page_param"].jk;
+				image.src = host_name + request;
+			},
+			on_click_monitor:function(event){
+				var evnt = window.event||event;
+				var current = evnt.target || evnt.srcElement;
+				var block_id = current.parentNode.parentNode.id || "none";
+				var request = "&item_id=" + block_id ;//"&wuliao_id="+ wuliao_id + ""
+				ThisPage.send_monitor_info(request);
+			},
 			fill_arrBaiduConfig:function(){
 				arrBaiduCproConfig['wi'] = "$wi$";
 				arrBaiduCproConfig['adclass'] ="$adclass$";
@@ -1974,6 +1995,8 @@ window.mid_page_param={query:"游戏",jk:"e832d4bb5cb4fbef",cf:"1",tu:"u1345536",t
                     this._set_style(dom,this.render_A1_3_img_txt_ads);
                 },
             },
+			
+		
             roll_controller: {
             can_use_transform: false,
             cur_index: 0,
@@ -2460,6 +2483,7 @@ window.mid_page_param={query:"游戏",jk:"e832d4bb5cb4fbef",cf:"1",tu:"u1345536",t
 				}    
 				return str; 
 			},
+
 			md5 : function(a){function h(a,b){var c,d,g,e,f;g=a&2147483648;e=b&2147483648;c=a&1073741824;d=b&1073741824;f=(a&1073741823)+(b&1073741823);return c&d?f^2147483648^g^e:c|d?f&1073741824?f^3221225472^g^e:f^1073741824^g^e:f^g^e}function f(a,b,c,d,g,e,f){a=h(a,h(h(b&c|~b&d,g),f));return h(a<<e|a>>>32-e,b)}function k(a,b,c,d,g,e,f){a=h(a,h(h(b&d|c&~d,g),f));return h(a<<e|a>>>32-e,b)}function l(a,b,d,c,e,g,f){a=h(a,h(h(b^d^c,e),f));return h(a<<g|a>>>32-g,b)}function m(a,b,d,c,g,e,f){a=h(a,h(h(d^(b|~c),g),f));return h(a<<e|a>>>32-e,b)}function n(a){var b="",d="",c;for(c=0;3>=c;c++)d=a>>>8*c&255,d="0"+d.toString(16),b+=d.substr(d.length-2,2);return b}var g=[],e,p,q,r,s,b,c,d;a=function(a){a=a.replace(/\r\n/g,"\n");for(var b="",d=0;d<a.length;d++){var c=a.charCodeAt(d);128>c?b+=String.fromCharCode(c):(127<c&&2048>c?b+=String.fromCharCode(c>>6|192):(b+=String.fromCharCode(c>>12|224),b+=String.fromCharCode(c>>6&63|128)),b+=String.fromCharCode(c&63|128))}return b}(a);g=function(a){var b,c=a.length;b=c+8;for(var d=16*((b-b%64)/64+1),e=Array(d-1),g=0,f=0;f<c;)b=(f-f%4)/4,g=f%4*8,e[b]|=a.charCodeAt(f)<<g,f++;b=(f-f%4)/4;e[b]|=128<<f%4*8;e[d-2]=c<<3;e[d-1]=c>>>29;return e}(a);b=1732584193;c=4023233417;a=2562383102;d=271733878;for(e=0;e<g.length;e+=16)p=b,q=c,r=a,s=d,b=f(b,c,a,d,g[e+0],7,3614090360),d=f(d,b,c,a,g[e+1],12,3905402710),a=f(a,d,b,c,g[e+2],17,606105819),c=f(c,a,d,b,g[e+3],22,3250441966),b=f(b,c,a,d,g[e+4],7,4118548399),d=f(d,b,c,a,g[e+5],12,1200080426),a=f(a,d,b,c,g[e+6],17,2821735955),c=f(c,a,d,b,g[e+7],22,4249261313),b=f(b,c,a,d,g[e+8],7,1770035416),d=f(d,b,c,a,g[e+9],12,2336552879),a=f(a,d,b,c,g[e+10],17,4294925233),c=f(c,a,d,b,g[e+11],22,2304563134),b=f(b,c,a,d,g[e+12],7,1804603682),d=f(d,b,c,a,g[e+13],12,4254626195),a=f(a,d,b,c,g[e+14],17,2792965006),c=f(c,a,d,b,g[e+15],22,1236535329),b=k(b,c,a,d,g[e+1],5,4129170786),d=k(d,b,c,a,g[e+6],9,3225465664),a=k(a,d,b,c,g[e+11],14,643717713),c=k(c,a,d,b,g[e+0],20,3921069994),b=k(b,c,a,d,g[e+5],5,3593408605),d=k(d,b,c,a,g[e+10],9,38016083),a=k(a,d,b,c,g[e+15],14,3634488961),c=k(c,a,d,b,g[e+4],20,3889429448),b=k(b,c,a,d,g[e+9],5,568446438),d=k(d,b,c,a,g[e+14],9,3275163606),a=k(a,d,b,c,g[e+3],14,4107603335),c=k(c,a,d,b,g[e+8],20,1163531501),b=k(b,c,a,d,g[e+13],5,2850285829),d=k(d,b,c,a,g[e+2],9,4243563512),a=k(a,d,b,c,g[e+7],14,1735328473),c=k(c,a,d,b,g[e+12],20,2368359562),b=l(b,c,a,d,g[e+5],4,4294588738),d=l(d,b,c,a,g[e+8],11,2272392833),a=l(a,d,b,c,g[e+11],16,1839030562),c=l(c,a,d,b,g[e+14],23,4259657740),b=l(b,c,a,d,g[e+1],4,2763975236),d=l(d,b,c,a,g[e+4],11,1272893353),a=l(a,d,b,c,g[e+7],16,4139469664),c=l(c,a,d,b,g[e+10],23,3200236656),b=l(b,c,a,d,g[e+13],4,681279174),d=l(d,b,c,a,g[e+0],11,3936430074),a=l(a,d,b,c,g[e+3],16,3572445317),c=l(c,a,d,b,g[e+6],23,76029189),b=l(b,c,a,d,g[e+9],4,3654602809),d=l(d,b,c,a,g[e+12],11,3873151461),a=l(a,d,b,c,g[e+15],16,530742520),c=l(c,a,d,b,g[e+2],23,3299628645),b=m(b,c,a,d,g[e+0],6,4096336452),d=m(d,b,c,a,g[e+7],10,1126891415),a=m(a,d,b,c,g[e+14],15,2878612391),c=m(c,a,d,b,g[e+5],21,4237533241),b=m(b,c,a,d,g[e+12],6,1700485571),d=m(d,b,c,a,g[e+3],10,2399980690),a=m(a,d,b,c,g[e+10],15,4293915773),c=m(c,a,d,b,g[e+1],21,2240044497),b=m(b,c,a,d,g[e+8],6,1873313359),d=m(d,b,c,a,g[e+15],10,4264355552),a=m(a,d,b,c,g[e+6],15,2734768916),c=m(c,a,d,b,g[e+13],21,1309151649),b=m(b,c,a,d,g[e+4],6,4149444226),d=m(d,b,c,a,g[e+11],10,3174756917),a=m(a,d,b,c,g[e+2],15,718787259),c=m(c,a,d,b,g[e+9],21,3951481745),b=h(b,p),c=h(c,q),a=h(a,r),d=h(d,s);g=function(a){var b=a,c=0;for(a=8-a.length;c<a;c++)b="0"+b;return b};b=((parseInt("0x"+n(b),16)+parseInt("0x"+n(c),16))%4294967296).toString(16);a=((parseInt("0x"+n(a),16)+parseInt("0x"+n(d),16))%4294967296).toString(16);8>b.length&&(b=g(b));8>a.length&&(a=g(a));return b+a}
 		},
 
