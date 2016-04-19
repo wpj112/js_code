@@ -86,11 +86,11 @@ oojs.define({
 
         if (userdefine) {
             var userdata = userdefine.split('|');
-            for (var term in userdata) {
+            for (var term=0 ;term<userdata.length;term++) {
                 if (/,/.test(userdata[term])) {
                     //var others = [];
                     var idata = term.split(',');
-                    for (var iterm in idata) {
+                    for (var iterm=0; iterm<idata.length; i++) {
                         if (/=/.test(idata[iterm])) {
                             var key = idata[iterm].split('=')[0];
                             var value = idata[iterm].split('=')[1];

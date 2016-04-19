@@ -14,8 +14,8 @@
             "template": "./entry/painterTemplate.js",
             "sourceFile": ["./test/painter.source.js"],
             "formatFile": ["./test/painter.js"],
-            "compressFile": ["./asset/painter.js"],
-            "gzipFile": ["./asset/painter.js.gz"]
+            "compressFile": ["./asset/duBaoMob.js"],
+            "gzipFile": ["./asset/duBaoMob.js.gz"]
         }
     }
 }

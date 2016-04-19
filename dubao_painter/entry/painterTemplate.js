@@ -1,5 +1,5 @@
 (function(){
-    var oojsGlobal = window._dup_exp_global || window._dup_exp_c_global || window._dup_global || {};
+    var oojsGlobal = window._dup_exp_global || window._dup_exp_c_global || window._dup_global ||window._ssp_global ||{} ;
 
     (function(global) {
 
