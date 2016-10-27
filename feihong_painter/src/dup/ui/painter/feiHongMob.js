@@ -194,15 +194,15 @@ oojs.define({
         var scriptUrl = e.param.getPmpRequestUrl(slotInfo);
         scriptUrl = scriptUrl.replace('stid=5&', 'stid=0&');
 
+        var scriptItem = document.createElement('script');
         if (slotInfo.isAsync) {
-            var scriptItem = document.createElement('script');
+
             scriptItem.src = scriptUrl;
             scriptItem.type = 'text/javascript';
             scriptItem.charset = 'UTF-8';
             var firstScript = document.getElementsByTagName('script')[0];
             firstScript.parentNode.insertBefore(scriptItem, firstScript);
         } else {
-            var scriptItem = document.createElement('script');
             scriptItem.src = scriptUrl;
             scriptItem.charset = 'UTF-8';
             document.body.appendChild(scriptItem);
@@ -279,7 +279,6 @@ oojs.define({
     },
     renderFloatBanner:function (e){
         var slotInfo = e.adSlotInfo;
-        var bannerItem = document.getElementById('fh_banner_item');
         var bannerImg = document.getElementById('Banner_img_item');
         var screenWidth = slotInfo.paramObj.rw;        
         var bannerItem = document.createElement('div');
