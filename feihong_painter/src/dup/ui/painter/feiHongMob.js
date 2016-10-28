@@ -88,6 +88,7 @@ oojs.define({
             var slotInfo = e.adSlotInfo;
             var topItem = document.getElementById('fh_top_item');
             // 文档高度 -(滚到条位置 + 流量器窗口高度) >30
+            var topItem = document.getElementById('fh_top_item');
             var Stop = e.bdom.getScrollTop();
             var Cheight = e.bdom.getClientHeight();
             var Sheight = e.bdom.getScrollHeight();  
