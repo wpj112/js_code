@@ -253,7 +253,6 @@ oojs.define({
         bannerItem.style.width = screenWidth + 'px';
         bannerItem.style.backgroundColor = '#FFF';
         bannerItem.style.margin = '0px 0px 2px 0px';
-        
 
         var imgBanner = document.createElement('img');
         imgBanner.id = 'Banner_img_item';
@@ -330,11 +329,12 @@ oojs.define({
                     new_div.style.backgroundColor = '#fff';
                     n.insertBefore(new_div, targetscript);
 
+                    var clientHeight = e.bdom.getClientHeight();
                     this.bdom.bind(new_div, "scroll", function () {
                         var div_height = new_div.clientHeight;
                         var doc_height = new_div.scrollHeight;
                         var scroll_top = new_div.scrollTop;
-                        if (scroll_top + div_height > (doc_height - e.bdom.getClientHeight())){
+                        if (scroll_top + div_height > (doc_height - clientHeight)){
                             e.sendAdsRequest();
                             if (e.tabIdx % 4 === 0)  e.sendAdsRequest();
                         }
@@ -384,15 +384,12 @@ oojs.define({
         var e = this;
         this.bdom.bind(loadMore, "click", function()
         {
-            new_div.style.height = e.bdom.getClientHeight() + 30 +"px";
+            new_div.style.height = e.bdom.getClientHeight() + "px";
             new_div.style.overflow = 'scroll';
             new_div.style.webkitOverflowScrolling = 'touch';
-            new_div.style.position = 'absolute';
+            new_div.style.position = 'fixed';
             new_div.style.top = '0px';
             new_div.style.zIndex = 2147483647;
-            //document.body.style.height = e.bdom.getClientHeight() + 'px';
-           //document.body.style.height = "100%";
-            //document.documentElement.style.overflow = 'hidden';
             //window.scrollTo(0,new_div.offsetTop);
             window.scrollTo(0,0);
             var backImg = document.getElementById('feihong_imgBack');
