@@ -46,12 +46,30 @@ oojs.define({
         //templateData['wapperId'] = wrapperId || '';
 
         //var scriptUrl =  templateData['serviceUrl'] + templateData['paramString'];
+        var dup_args = slotInfo.response.placement.userdefine;
+        var tn = "";
+        if (typeof(dup_args)!="undefined"){
+            var args = dup_args.split("|");
+            for (var ii =0; ii < args.length; ii++)
+            {
+                tmp = args[ii].split("=")
+                if ( tmp [0] == "tn"){
+                    tn = tmp[1];
+                }
+            }
+        }
+        
+        if (tn !="" && tn!="template_inlay_all_mobile_lu_dubao")
+        {
+            return;
+        }
         var paramData =  slotInfo.paramObj;
             if (slotInfo.isOnceSeach) {
             paramData['ari'] = 2;
             paramData['dc'] = 2;
             paramData['dtm'] = 'HTML_POST';
             }
+            paramData['dc'] = 2;
             slotInfo.paramObj = paramData
 		
         var scriptUrl =  this.param.getPmpRequestUrl(slotInfo);
