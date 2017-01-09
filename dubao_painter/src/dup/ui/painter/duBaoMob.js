@@ -70,11 +70,12 @@ oojs.define({
             paramData['dtm'] = 'HTML_POST';
             }
             paramData['dc'] = 2;
+            paramData["exps"] = "";
             slotInfo.paramObj = paramData
 		
         var scriptUrl =  this.param.getPmpRequestUrl(slotInfo);
         scriptUrl = scriptUrl.replace('stid=5&', 'stid=0&');
-
+/***
         if (slotInfo.isAsync) {
             var scriptItem = document.createElement('script');
             scriptItem.src = scriptUrl;
@@ -89,6 +90,7 @@ oojs.define({
             document.body.appendChild(scriptItem);
             //document.write('<script charset="utf-8" src="' + scriptUrl + '"><\/script>');
         }
+        ***/
     },
 
     /**
